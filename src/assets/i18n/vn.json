@@ -1,0 +1,78 @@
+{
+  "header": {
+    "main": {
+      "name": "KHÁNH ĐIỆP",
+      "type": "Mobile",
+      "checkOrder": "Kiểm tra đơn hàng"
+    },
+    "category": {
+      "title": {
+        "smartPhone": "ĐIỆN THOẠI",
+        "laptop": "LAPTOP",
+        "screen": "MÀN HÌNH",
+        "smartTV": "SMART TV",
+        "tablet": "TABLET",
+        "audio": "ÂM THANH",
+        "smartHome": "SMART HOME",
+        "accessory": "PHỤ KIỆN",
+        "technologyGame": "ĐỒ CHƠI CÔNG NGHỆ",
+        "repair": "SỬA CHỮA",
+        "simCard": "SIM THẺ",
+        "news": "TIN TỨC",
+        "endow": "ƯU ĐÃI"
+      },
+      "subTitle": {
+        "manufacturer": "HÃNG SẢN XUẤT",
+        "price": "MỨC GIÁ",
+        "interested": "QUAN TÂM NHẤT",
+        "watch": "ĐỒNG HỒ",
+        "category": "PHÂN LOẠI SẢN PHẨM",
+        "apple": "Apple",
+        "samsung": "Samsung",
+        "oppo": "OPPO",
+        "vivo": "Vivo",
+        "xiaomi": "Xiaomi",
+        "realme": "Realme",
+        "nokia": "Nokia",
+        "huawei": "Huawei",
+        "garmin": "Garmin",
+        "amazfit": "Amazfit",
+        "masstel": "Masstel",
+        "msi": "MSI",
+        "assus": "Assus",
+        "hp": "HP",
+        "acer": "Acer",
+        "lenovo": "Lenovo",
+        "dell": "Dell",
+        "under1m": "Dưới 1 triệu",
+        "from2to3m": "Từ 2 đến 3 triệu",
+        "from3to6m": "Từ 3 đến 6 triệu",
+        "from6to10m": "Từ 6 đến 10 triệu",
+        "from10to20m": "Từ 10 đến 20 triệu",
+        "above20m": "Trên 20 triệu",
+        "today": "Hôm nay",
+        "thisWeek": "Tuần này",
+        "thisMonth": "Tháng này",
+        "thisYear": "Năm này"
+      }
+    },
+    "flash": {
+      "button": {
+        "smartPhone": "Điện thoại",
+        "screen": "Màn hình",
+        "accessory": "Phụ kiện"
+      }
+    }
+  },
+  "product": {
+    "card": {
+      "decorate": {
+        "installment": "Trả góp 0%",
+        "sale": "Giảm"
+      },
+      "body": {
+        "price": "đ"
+      }
+    }
+  }
+}

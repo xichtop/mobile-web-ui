@@ -1,0 +1,78 @@
+<div class="home">
+  <carousel
+    [images]="images"
+    [dots]="true"
+    [cellsToShow]="1"
+    [autoplay]="true"
+    [height]="400"
+    [autoplayInterval]="1500"
+    [loop]="true"
+  >
+  </carousel>
+  <div class="home-flash">
+    <div class="home-flash-header">
+      <div class="home-flash-header-title">
+        <span>F</span>
+        <i class="fa-solid fa-bolt-lightning"></i>
+        <span>ASH SALE ONLINE</span>
+      </div>
+      <div class="home-flash-header-buttons">
+        <button class="home-flash-header-buttons-item"
+          mat-raised-button color="primary"
+        >
+          {{"header.flash.button.smartPhone" | translate}}
+        </button>
+        <button class="home-flash-header-buttons-item"
+          mat-raised-button color="basic"
+        >
+          {{"header.flash.button.screen" | translate}}
+        </button>
+        <button class="home-flash-header-buttons-item"
+          mat-raised-button color="basic"
+        >
+          {{"header.flash.button.accessory" | translate}}
+        </button>
+      </div>
+      <div class="home-flash-header-timer">
+        <countdown [config]="config" class="home-flash-header-timer-countdown"></countdown>
+      </div>
+    </div>
+    <div>
+    <div class="home-flash-carousel">
+      <carousel
+      [cellsToShow]="5"
+      [dots]="true"
+      [height]="300"
+      [loop]="true"
+      [margin]="20"
+    >
+    <div *ngFor="let product of listProducts" class="carousel-cell">
+      <product-card
+        [product]="product"
+      >
+      </product-card>
+    </div>
+    </carousel>
+    </div>
+    </div>
+  </div>
+  <div class="home-policy row">
+    <div class="home-policy-item col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3" *ngFor="let policy of policies">
+      <policy-card [policy]="policy"></policy-card>
+    </div>
+  </div>
+  <div class="home-banner row">
+    <div class="home-banner-item col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+      <img src="https://cdn.hoanghamobile.com/i/home/Uploads/2022/08/11/chuyen-trang-samssung-11.png" alt="" class="home-banner-item-img">
+    </div>
+    <div class="home-banner-item col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+      <img src="https://cdn.hoanghamobile.com/i/home/Uploads/2022/11/10/sanphamhot-14.jpg" alt="" class="home-banner-item-img">
+    </div>
+    <div class="home-banner-item col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+      <img src="https://cdn.hoanghamobile.com/i/home/Uploads/2022/11/01/sanphamhot-12-lite-1.jpg" alt="" class="home-banner-item-img">
+    </div>
+    <div class="home-banner-item col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+      <img src="https://cdn.hoanghamobile.com/i/home/Uploads/2022/10/04/huawei-d14-banner-nho-01.jpg" alt="" class="home-banner-item-img">
+    </div>
+  </div>
+</div>

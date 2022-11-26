@@ -1,0 +1,134 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixin';
+
+.product-card {
+  position: relative;
+  border-top: solid 1px $color-black;
+  border-bottom: solid 1px $color-black;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    display: block;
+    height: 30%;
+    width: 100%;
+    border-right: solid 1px $color-black;
+    border-left: solid 1px $color-black;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 10%;
+    width: 100%;
+    border-right: solid 1px $color-black;
+    border-left: solid 1px $color-black;
+  }
+
+  &-decoration {
+    @include flex(center, space-between);
+
+    &-installment {
+      display: flex;
+      flex-direction: row;
+      margin-top: -28px;
+
+      span {
+        background-color: $main-color;
+        color: $color-white;
+        padding: 5px 5px;
+        font-size: 12px;
+        align-self: center;
+      }
+
+      &-triangle {
+        z-index: 1000000000;
+        border-color: rgba($color: #000000, $alpha: 0) $main-color red $main-color;
+        border-style: solid;
+        border-width: 15px 0 0 15px;
+        height: 0px;
+        width: 0px;
+        rotate: 90deg;
+
+        &:last-child {
+          rotate: 360deg;
+        }
+      }
+    }
+
+    &-sale {
+
+      &-title {
+        @include flex(center, center);
+        flex-direction: column;
+        background-color: $color-orange;
+        padding: 3px 6px;
+        color: $color-white;
+        font-size: 10px;
+
+        span {
+          line-height: 15px;
+        }
+      }
+
+      &-triangle {
+        display: flex;
+        flex-direction: row;
+
+        &-item {
+          z-index: 1000000000;
+          border-color: rgba($color: #000000, $alpha: 0) $color-orange red $color-orange;
+          border-style: solid;
+          border-width: 20px 0 0 20px;
+          height: 0px;
+          width: 0px;
+          rotate: 90deg;
+
+          &:last-child {
+            border-color: $color-orange red red rgba($color: #000000, $alpha: 0);
+            rotate: 360deg;
+          }
+        }
+      }
+    }
+
+  }
+
+  &-header {
+    &-img {
+      height: 150px !important;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+    }
+
+    &-title {
+      font-size: 14px;
+      color: $main-color;
+      padding-left: 10px;
+      margin-top: 20px;
+    }
+  }
+
+  &-body {
+    &-price {
+      @include flex(center, space-between);
+      padding: 0 10px;
+
+      &-new {
+        font-size: 16px;
+        color: $color-orange;
+      }
+
+      &-old {
+        font-size: 12px;
+        text-decoration: line-through;
+      }
+    }
+  }
+}

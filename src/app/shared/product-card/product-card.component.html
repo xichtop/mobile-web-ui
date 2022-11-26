@@ -1,0 +1,35 @@
+<div class="product-card">
+  <div class="product-card-decoration">
+    <div class="product-card-decoration-installment">
+      <span>{{"product.card.decorate.installment" | translate}}</span>
+      <div>
+        <div class="product-card-decoration-installment-triangle"></div>
+        <div class="product-card-decoration-installment-triangle"></div>
+      </div>
+    </div>
+    <div class="product-card-decoration-sale">
+      <div class="product-card-decoration-sale-title">
+        <span>53%</span>
+        <span>{{"product.card.decorate.sale" | translate}}</span>
+      </div>
+      <div class="product-card-decoration-sale-triangle">
+        <div class="product-card-decoration-sale-triangle-item"></div>
+        <div class="product-card-decoration-sale-triangle-item"></div>
+      </div>
+    </div>
+  </div>
+  <div class="product-card-header">
+    <img class="product-card-header-img" [src]="product.colors[0].urlPicture" />
+    <span class="product-card-header-title">{{product.description}}</span>
+  </div>
+  <div class="product-card-body">
+    <div class="product-card-body-price">
+      <span class="product-card-body-price-new">
+        {{product.colors[0].price | currency:'':'':'1.0-0'}} {{"product.card.body.price" | translate}}
+      </span>
+      <span class="product-card-body-price-old">
+        {{product.colors[0].price | currency:'':'':'1.0-0'}} {{"product.card.body.price" | translate}}
+      </span>
+    </div>
+  </div>
+</div>

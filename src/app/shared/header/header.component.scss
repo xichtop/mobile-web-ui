@@ -1,0 +1,234 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixin';
+.header {
+  background-color: $main-bg;
+  position: fixed;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1000000000000000;
+  // height: $header-height;
+  // transition: height 0.3s ease;
+  // box-shadow: $box-shadow;
+
+  @include tablet {
+    height: $header-tablet-height;
+    box-shadow: $box-shadow;
+  }
+
+  @include mobile {
+    height: $header-mobile-height;
+  }
+
+  &-main {
+    @include flex(center, space-between);
+    flex-direction: row;
+    padding: 10px;
+    width: 100%;
+
+    &-logo {
+      @include flex(center, center);
+
+      &-img {
+        width: 50px;
+        margin-right: 20px;
+        cursor: pointer;
+
+        @include mobile {
+          width: 30px;
+        }
+      }
+
+      &-name {
+        &-main {
+          font-size: 24px;
+          font-weight: 700;
+          color: $main-color;
+
+          @include tablet {
+            font-size: 18px;
+          }
+        }
+
+        &-extra {
+          font-size: 16px;
+          padding-left: 10px;
+          color: $color-black;
+
+          @include tablet {
+            display: none;
+          }
+        }
+
+        @include mobile {
+          display: none;
+        }
+      }
+    }
+
+    &-search {
+
+      @include flex(center, center);
+      border-bottom: solid 1px $color-black;
+      padding-bottom: 5px;
+
+      @include mobile {
+        border: none;
+      }
+
+      &-input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        font-weight: 300;
+
+        @include mobile {
+          font-size: 12px;
+          font-weight: 200;
+        }
+
+      }
+    }
+
+    &-order {
+      @include flex(center, center);
+      padding-left: 30px;
+
+      &-list {
+        @include flex(center, center);
+        cursor: pointer;
+        background-color: $main-color;
+        border-radius: 10px;
+        padding: 5px;
+        color: $color-white;
+
+        @include mobile {
+          display: none;
+        }
+
+        &-icon {
+          font-size: 25px;
+          margin-right: 5px;
+        }
+      }
+
+      &-cart {
+        padding-left: 20px;
+        cursor: pointer;
+
+        &-icon {
+          font-size: 35px;
+          color: $main-color;
+
+          @include mobile {
+            font-size: 20px;
+          }
+        }
+
+        &-span {
+          color: $color-red;
+          font-size: 20px;
+          font-weight: 600;
+          position: absolute;
+          top: 8px;
+
+          @include mobile {
+            font-size: 14px;
+            padding: 4px 4px;
+            border-radius: 10px;
+            right: 4px;
+            top: 0;
+          }
+
+          @include tablet {
+            right: 2px;
+            top: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  &-category {
+    @include flex(center, space-around);
+    flex-direction: row;
+    background-color: $main-color;
+    padding: 5px 10px;
+    border-radius: 10px;
+    position: relative;
+
+    &-item {
+      @include flex(center, center);
+      flex-direction: column;
+      color: $color-white;
+      cursor: pointer;
+      padding-bottom: 10px;
+      margin-bottom: -10px;
+
+      &:after {
+        display: block;
+        content: '';
+        width: 100%;
+        border-bottom: solid 5px yellow;
+        transform: scaleX(0);
+        transition: transform 300ms ease-in-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+      }
+
+      &:hover &-menu {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        width: 100%;
+      }
+
+      &-icon {
+        font-size: 25px;
+        padding: 5px 0 10PX 0;
+
+      }
+
+      &-menu {
+        display: none;
+        background-color: $color-white;
+        box-shadow: $box-shadow;
+        margin-left: 0px;
+        padding: 10px;
+        border-radius: 10px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        visibility: hidden;
+        opacity: 0;
+
+        &-item {
+          &-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: $color-black;
+          }
+
+          &-body {
+            padding-top: 10px;
+
+            &-label {
+              font-size: 13px;
+              font-weight: 300;
+              color: $color-black;
+              padding-top: 5px;
+
+              &:hover {
+                color: $main-color;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

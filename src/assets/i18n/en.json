@@ -1,0 +1,78 @@
+{
+  "header": {
+    "main": {
+      "name": "KHANH DIEP",
+      "type": "Mobile",
+      "checkOrder": "Check Orders"
+    },
+    "category": {
+      "title": {
+        "smartPhone": "SMART PHONE",
+        "laptop": "LAPTOP",
+        "screen": "SCREEN",
+        "smartTV": "SMART TV",
+        "tablet": "TABLET",
+        "audio": "AUDIO",
+        "smartHome": "SMART HOME",
+        "accessory": "ACCESSORY",
+        "technologyGame": "TECHNOLOGY GAME",
+        "repair": "REPAIR",
+        "simCard": "SIM CARD",
+        "news": "NEWS",
+        "endow": "ENDOW"
+      },
+      "subTitle": {
+        "manufacturer": "MANUFACTURER",
+        "price": "PRICE",
+        "interested": "INTERESTED",
+        "watch": "WATCH",
+        "category": "CATEGORY",
+        "apple": "Apple",
+        "samsung": "Samsung",
+        "oppo": "OPPO",
+        "vivo": "Vivo",
+        "xiaomi": "Xiaomi",
+        "realme": "Realme",
+        "nokia": "Nokia",
+        "huawei": "Huawei",
+        "garmin": "Garmin",
+        "amazfit": "Amazfit",
+        "masstel": "Masstel",
+        "msi": "MSI",
+        "assus": "Assus",
+        "hp": "HP",
+        "acer": "Acer",
+        "lenovo": "Lenovo",
+        "dell": "Dell",
+        "under1m": "Under 1 million",
+        "from2to3m": "From 2 to 3 millions",
+        "from3to6m": "From 3 to 6 millions",
+        "from6to10m": "From 6 to 10 millions",
+        "from10to20m": "From 10 to 20 millions",
+        "above20m": "Above 20 millions",
+        "today": "Today",
+        "thisWeek": "This week",
+        "thisMonth": "This month",
+        "thisYear": "This year"
+      }
+    },
+    "flash": {
+      "button": {
+        "smartPhone": "Smart phone",
+        "screen": "Screen",
+        "accessory": "Accessory"
+      }
+    }
+  },
+  "product": {
+    "card": {
+      "decorate": {
+        "installment": "Installment 0%",
+        "sale": "Sale"
+      },
+      "body": {
+        "price": "$"
+      }
+    }
+  }
+}

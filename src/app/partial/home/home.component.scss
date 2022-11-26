@@ -1,0 +1,70 @@
+@import '../../../assets/scss/mixin';
+@import '../../../assets/scss/variables';
+
+.home {
+  padding-top: 150px;
+  z-index: 1;
+
+  &-flash {
+    padding-top: 20px;
+
+    &-header {
+      @include flex(center, space-between);
+
+      &-title {
+        font-size: 36px;
+        font-weight: 500;
+        color: $color-orange;
+      }
+
+      &-buttons {
+        @include flex(center, center);
+
+        &-item {
+          margin-left: 20px;
+        }
+      }
+
+      &-timer {
+        font-size: 30px;
+
+        ::ng-deep &-countdown {
+          span:first-child {
+            @include flex(center, center);
+            flex-direction: row;
+          }
+
+          &-item {
+            @include flex(center, center);
+            padding-left: 10px;
+            padding-right: 15px;
+
+            &:last-child {
+              padding-right: 0;
+            }
+
+            &-label {
+              background-color: $main-color;
+              padding: 10px;
+              border-radius: 5px;
+              color: $color-white;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    &-carousel {
+      padding-top: 20px;
+    }
+  }
+
+  &-policy {
+    padding-top: 20px;
+  }
+
+  &-banner {
+    padding-top: 20px;
+  }
+}

@@ -1,0 +1,62 @@
+<div class="header">
+  <div class="header-main row">
+    <div class="header-main-logo col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+      <img
+        src="../../../assets/images/logo.jpg"
+        alt="logo-khanh-diep-mobile"
+        class="header-main-logo-img"
+      >
+      <div class="header-main-logo-name">
+        <span class="header-main-logo-name-main">{{"header.main.name" | translate}}</span>
+        <span class="header-main-logo-name-extra">{{"header.main.type" | translate}}</span>
+      </div>
+    </div>
+    <div class="header-main-search col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+      <!-- <mat-form-field class="header-main-search-input" appearance="fill">
+        <input type="text" matInput placeholder="Bạn cần tìm gì hôm nay?">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field> -->
+      <input class="header-main-search-input" placeholder="Bạn cần tìm gì hôm nay?" >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div class="header-main-order row col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+      <div class="header-main-order-list col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+        <i class="fa-sharp fa-solid fa-truck-fast header-main-order-list-icon"></i>
+        <span class="header-main-order-list-span">
+          {{"header.main.checkOrder" | translate}}
+        </span>
+      </div>
+      <div class="header-main-order-cart col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+        <i class="fa-sharp fa-solid fa-cart-plus header-main-order-cart-icon"></i>
+        <span class="header-main-order-cart-span">
+          2
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="header-category">
+    <ng-container *ngFor="let headerItem of headerTitleList; let i = index">
+      <div class="header-category-item"
+        id="header-category-item-{{i}}"
+        (mouseenter)="onHoverCategory(i)"
+        (mouseleave)="onLeaveCategory()">
+        <i class="fa-solid header-category-item-icon" [ngClass]="headerItem.icon"></i>
+        <span class="header-category-item-label">{{"header.category.title." + headerItem.title | translate}}</span>
+        <div class="header-category-item-menu row">
+          <ng-container *ngFor="let subTitle of headerItem.subtitle">
+            <div class="header-category-item-menu-item col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+              <span class="header-category-item-menu-item-title">{{"header.category.subTitle." + subTitle.title | translate}}</span>
+              <div class="header-category-item-menu-item-body row">
+                <span
+                  *ngFor="let item of subTitle.item; let i = index"
+                  id="header-category-item-menu-item-body-label-{{i}}"
+                  class="header-category-item-menu-item-body-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
+                >{{"header.category.subTitle." + item | translate}}</span>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
