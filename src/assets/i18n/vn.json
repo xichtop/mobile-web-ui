@@ -1,0 +1,24 @@
+{
+  "header": {
+    "main": {
+      "search": "Bạn đang tìm gì...",
+      "en": "Tiếng Anh",
+      "vn": "Tiếng Việt"
+    },
+    "category": {
+      "phone": "iPhone",
+      "ipad": "iPad",
+      "macbook": "Mac",
+      "watch": "Watch",
+      "sound": "Âm thanh",
+      "accessory": "Phụ kiện",
+      "service": "Dịch vụ",
+      "new": "Tin tức",
+      "second": {
+        "installment": "Trả góp",
+        "reNewed": "Thu cũ đổi mới",
+        "guarantee": "Bảo hành"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "header": {
+    "main": {
+      "search": "What are you looking for...",
+      "en": "English",
+      "vn": "Vietnamese"
+    },
+    "category": {
+      "phone": "iPhone",
+      "ipad": "iPad",
+      "macbook": "Macbook",
+      "watch": "Smart watch",
+      "sound": "Sound",
+      "accessory": "Accessory",
+      "service": "Service",
+      "new": "News",
+      "second": {
+        "installment": "Installment",
+        "reNewed": "Old autumn renewed",
+        "guarantee": "Guarantee"
+      }
+    }
+  }
+}

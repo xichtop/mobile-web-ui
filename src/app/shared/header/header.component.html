@@ -1,0 +1,88 @@
+<div class="header">
+  <div class="header-main">
+    <div class="logo">
+      <img src="../../../assets/images/header/yolo-logo.png" alt="logo-yolo-shop">
+    </div>
+  </div>
+  <div class="category">
+    <span class="category-item">
+      {{'header.category.phone' | translate}}
+    </span>
+    <span class="category-item">
+      {{'header.category.ipad' | translate}}
+    </span>
+    <span class="category-item">
+      {{'header.category.macbook' | translate}}
+    </span>
+    <span class="category-item">
+      {{'header.category.watch' | translate}}
+    </span>
+    <span class="category-item">
+      {{'header.category.sound' | translate}}
+    </span>
+    <span class="category-item">
+      {{'header.category.accessory' | translate}}
+    </span>
+    <span nz-dropdown [nzDropdownMenu]="menu" class="category-item">
+      {{'header.category.service' | translate}} &nbsp;
+      <span nz-icon nzType="down"></span>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item>{{'header.category.second.installment' | translate}}</li>
+          <li nz-menu-item>{{'header.category.second.reNewed' | translate}}</li>
+          <li nz-menu-item>{{'header.category.second.guarantee' | translate}}</li>
+        </ul>
+      </nz-dropdown-menu>
+    </span>
+    <span class="category-item">
+      {{'header.category.new' | translate}}
+    </span>
+  </div>
+  <div class="header-info">
+    <div class="header-search">
+      <span (click)="showModalSearch()" nz-icon nzType="search" nzTheme="outline"></span>
+      <nz-modal
+      [nzStyle]="{ top: '20px' }"
+      [(nzVisible)]="isSearch"
+      [nzWidth]="1200"
+      nzTitle="Bạn muốn tìm gì?"
+      (nzOnCancel)="cancelSearch()"
+    >
+      <ng-container *nzModalContent>
+        <p>some contents...</p>
+        <p>some contents...</p>
+        <p>some contents...</p>
+      </ng-container>
+    </nz-modal>
+    </div>
+    <div class="header-cart">
+      <div>
+        <nz-badge [nzCount]="5" nz-popover nzPopoverTitle="Title" [nzPopoverContent]="contentTemplate"
+          nzPopoverTrigger="hover">
+          <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+        </nz-badge>
+      </div>
+      <ng-template #contentTemplate>
+        <div>
+          <p>Content</p>
+          <p>Content</p>
+        </div>
+      </ng-template>
+    </div>
+    <div class="header-user" nz-popover [nzPopoverContent]="contentTemplate" nzPopoverTrigger="hover">
+      <nz-avatar nzIcon="user"></nz-avatar>
+    </div>
+    <div class="header-language">
+      <img
+        nz-tooltip nzTooltipPlacement="bottom"
+        nzTooltipTitle="{{'header.main.vn' | translate}}"
+        (click)="changeLanguage('vn')"
+        src="../../../assets/images/header/vietnam.webp" alt="vietnam-flag">
+      <img
+        nz-tooltip nzTooltipPlacement="bottom"
+        nzTooltipTitle="{{'header.main.en' | translate}}"
+        (click)="changeLanguage('en')"
+        src="../../../assets/images/header/usa.png" alt="usa-flag">
+    </div>
+  </div>
+</div>

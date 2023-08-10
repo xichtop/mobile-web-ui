@@ -1,0 +1,93 @@
+@import '../../../assets/scss/mixin';
+@import '../../../assets/scss/variable';
+
+.header {
+  @include flex(center, center);
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+
+  .header-main {
+    @include flex(center, flex-start);
+
+    .logo {
+      @include flex(center, center);
+      cursor: pointer;
+  
+      img {
+        height: $logo-height;
+      }
+    }
+  }
+
+  .category {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 100%;
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      color: $color-secondary;
+      font-size: 16px;
+      padding: 0 1.5rem;
+      cursor: pointer;
+      height: 100%;
+
+      &:hover {
+        color: $color-secondary;
+        background-color: rgba($color: $color-secondary, $alpha: 0.2);
+      }
+
+      
+    }
+  }
+
+  .header-info {
+    @include flex(center, space-around);
+
+    .header-search {
+      span {
+        cursor: pointer;
+        color: $color-secondary;
+        font-size: 30px;
+      }
+    }
+
+    .header-cart {
+      padding-left: 1rem;
+
+      nz-badge {
+        cursor: pointer;
+
+        span {
+          color: $color-secondary;
+          font-size: 30px;
+        }
+      }
+    }
+
+    .header-user {
+      padding-left: 2rem;
+      cursor: pointer;
+
+      nz-avatar {
+        background-color: $color-secondary;
+      }
+    }
+
+    .header-language {
+      padding-left: 1rem;
+
+      img {
+        height:2rem;
+        object-fit: contain;
+        cursor: pointer;
+        padding-left: 1rem;
+      }
+    }
+  }
+
+}
