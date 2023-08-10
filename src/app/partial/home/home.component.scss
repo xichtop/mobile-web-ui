@@ -1,0 +1,41 @@
+@import '../../../assets/scss/variable';
+@import '../../../assets/scss/mixin';
+
+.carousel {
+  [nz-carousel-content] {
+    text-align: center;
+    background: $color-primary;
+    height: 7.3rem;
+    line-height: 7.3rem;
+    color: #fff;
+    overflow: hidden;
+
+  }
+
+  ::ng-deep nz-carousel {
+    ul li.slick-active {
+      button {
+        background: $color-primary;
+      }
+    }
+  }
+
+  ::ng-deep nz-carousel {
+    ul li {
+      button {
+        background: $color-primary;
+      }
+    }
+  }
+}
+
+.news {
+  @include flex(center, space-between);
+  max-width: 1200px;
+  margin: 3rem auto;
+  background-color: #fff;
+
+  img {
+    width: 30%;
+  }
+}
