@@ -3,6 +3,10 @@ $color-secondary: #C5DFF8;
 $color-third: #7895CB;
 
 $color-white: #fff;
+$color-red: red;
+
+$border: 1px solid $color-primary;
+$box-shadow: 3px 3px 10px 5px #888888;
 
 [data-theme="dark"] {
   $color-primary: #4A55A2;
@@ -10,6 +14,7 @@ $color-white: #fff;
   $color-third: #7895CB;
   
   $color-white: #fff;
+  $color-red: red;
 }
 
 $mobile-width: 600px;

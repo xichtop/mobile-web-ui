@@ -1,0 +1,62 @@
+@import '../../../../assets/scss/variable';
+@import '../../../../assets/scss/mixin';
+
+.product-item {
+  // border: $border;
+  border-radius: 5px;
+  padding: 2rem 1rem;
+  cursor: pointer;
+  background-color: $color-white;
+  
+  &:hover {
+    box-shadow: $box-shadow;
+
+    img {
+      transform: scale(1) translateY(-5px);
+      transition: ease-in-out 500ms transform;
+    }
+  }
+
+  img {
+    padding: 0 .5rem;
+    transform: scale(0.95) translateY(0);
+  }
+
+  .product-title {
+    padding-top: 1rem;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .product-size {
+    &-item {
+      font-size: 12px;
+      padding: 3px 5px;
+      border-radius: 3px;
+      background-color: $color-primary;
+      color: $color-secondary;
+      margin-right: 1rem;
+    }
+  }
+
+  .product-price {
+    @include flex(center, space-between);
+    padding-top: .5rem;
+
+    &-new {
+      color: $color-red;
+    }
+
+    &-old {
+      text-decoration: line-through;
+    }
+  }
+
+  .product-rate {
+    @include flex(center, space-between);
+    &-count {
+      font-size: 12px;
+    }
+  }
+
+}

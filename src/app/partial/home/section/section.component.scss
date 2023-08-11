@@ -1,0 +1,26 @@
+@import '../../../../assets/scss/variable';
+@import '../../../../assets/scss/mixin';
+
+.section {
+  @include flex(center, center);
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: $color-primary;
+    padding-bottom: 2.5rem;
+  }
+
+  &-img {
+    margin: 4rem 0;
+    border-radius: 5px;
+  }
+
+  &-button {
+    margin-top: 2rem;
+  }
+
+}

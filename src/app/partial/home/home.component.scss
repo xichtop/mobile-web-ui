@@ -1,13 +1,17 @@
 @import '../../../assets/scss/variable';
 @import '../../../assets/scss/mixin';
 
+.home {
+  background-color: #f1f1f1;
+}
+
 .carousel {
-  [nz-carousel-content] {
+  .carousel-content {
     text-align: center;
     background: $color-primary;
     height: 7.3rem;
     line-height: 7.3rem;
-    color: #fff;
+    color: $color-white;
     overflow: hidden;
 
   }
@@ -33,9 +37,20 @@
   @include flex(center, space-between);
   max-width: 1200px;
   margin: 3rem auto;
-  background-color: #fff;
+  padding: 2rem;
+  background-color: $color-white;
 
   img {
+    cursor: pointer;
     width: 30%;
+
+    &:hover {
+      border-radius: 10px;
+      box-shadow: $box-shadow;
+    }
   }
+}
+
+app-section {
+  
 }

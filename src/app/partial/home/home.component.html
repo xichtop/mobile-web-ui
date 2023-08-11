@@ -1,12 +1,38 @@
-<div class="carousel">
-  <nz-carousel nzAutoPlay [nzEnableSwipe]="false">
-    <div nz-carousel-content *ngFor="let item of arrayCarousel">
-      <img [src]="item.urlPicture" alt="">
-    </div>
-  </nz-carousel>
-</div>
-<div class="news">
-  <img src="../../../assets/images/home/news/new-1.png" alt="">
-  <img src="../../../assets/images/home/news/new-2.png" alt="">
-  <img src="../../../assets/images/home/news/new-3.png" alt="">
+<div class="home">
+  <div class="carousel">
+    <nz-carousel nzAutoPlay [nzEnableSwipe]="false">
+      <div class="carousel-content" nz-carousel-content *ngFor="let item of arrayCarousel">
+        <img [src]="item.urlPicture" alt="">
+      </div>
+    </nz-carousel>
+  </div>
+  <div class="news">
+    <img src="../../../assets/images/home/news/new-1.png" alt="">
+    <img src="../../../assets/images/home/news/new-2.png" alt="">
+    <img src="../../../assets/images/home/news/new-3.png" alt="">
+  </div>
+  <app-section
+    title="Bán chạy nhất" 
+    [products]="products">
+  </app-section>
+  <app-section
+    titleBG="../../../../assets/images/home/product/iphone.webp"
+    [products]="products">
+  </app-section>
+  <app-section
+    titleBG="../../../../assets/images/home/product/ipad.webp"
+    [products]="products">
+  </app-section>
+  <app-section
+    titleBG="../../../../assets/images/home/product/mac.webp"
+    [products]="products">
+  </app-section>
+  <app-section
+    titleBG="../../../../assets/images/home/product/airpod.webp"
+    [products]="products">
+  </app-section>
+  <app-section
+    titleBG="../../../../assets/images/home/product/apple-watch.webp"
+    [products]="products">
+  </app-section>
 </div>

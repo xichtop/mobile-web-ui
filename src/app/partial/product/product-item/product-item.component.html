@@ -1,0 +1,16 @@
+<div class="product-item">
+  <img [src]="product.img" alt="product-logo">
+  <p class="product-title">{{product.title}}</p>
+  <div class="product-size">
+    <span class="product-size-item">128GB</span>
+    <span class="product-size-item">256GB</span>
+  </div>
+  <div class="product-price">
+    <p class="product-price-new">{{24000000 | currency}}</p>
+    <p class="product-price-old">{{22000000 | currency}}</p>
+  </div>
+  <div class="product-rate">
+    <nz-rate [ngModel]="product.rate" nzAllowHalf nzDisabled [nzCount]="5"></nz-rate>
+    <span class="product-rate-count">38 Đánh giá</span>
+  </div>
+</div>

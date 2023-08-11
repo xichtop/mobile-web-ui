@@ -1,0 +1,22 @@
+<div class="section">
+  <p class="section-title" *ngIf="title.length > 0">{{title}}</p>
+  <img *ngIf="titleBG.length > 0" 
+    [src]="titleBG" 
+    alt="section-bg"
+    class="section-img"
+  >
+  <div class="product-list" nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 48 }">
+    <div class="product-list-item" 
+      nz-col [nzSpan]="24 / numberItemInRow"
+      *ngFor="let product of products"
+    >
+      <app-product-item [product]="product"></app-product-item>
+    </div>
+  </div>
+  <div class="section-button">
+    <button nz-button nzType="primary">
+      Xem tất cả iPhone
+      <span nz-icon nzType="right"></span>
+    </button>
+  </div>
+</div>

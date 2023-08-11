@@ -13,6 +13,8 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzRateModule } from 'ng-zorro-antd/rate';
 
 @NgModule({
   declarations: [],
@@ -30,7 +32,9 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
     NzToolTipModule,
     NzDropDownModule,
     NzModalModule,
-    NzCarouselModule
+    NzCarouselModule,
+    NzGridModule,
+    NzRateModule
   ],
   exports: [
     NzLayoutModule,
@@ -45,7 +49,9 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
     NzToolTipModule,
     NzDropDownModule,
     NzModalModule,
-    NzCarouselModule
+    NzCarouselModule,
+    NzGridModule,
+    NzRateModule
   ]
 })
 export class ZorroModule { }
