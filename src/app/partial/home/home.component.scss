@@ -2,18 +2,20 @@
 @import '../../../assets/scss/mixin';
 
 .home {
-  background-color: #f1f1f1;
+  background-color: rgba($color: $color-secondary, $alpha: 0.2);
 }
 
 .carousel {
   .carousel-content {
     text-align: center;
     background: $color-primary;
-    height: 7.3rem;
-    line-height: 7.3rem;
     color: $color-white;
     overflow: hidden;
+    height: 500px;
 
+    img {
+      height: 500px;
+    }
   }
 
   ::ng-deep nz-carousel {

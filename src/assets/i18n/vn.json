@@ -3,7 +3,9 @@
     "main": {
       "search": "Bạn đang tìm gì...",
       "en": "Tiếng Anh",
-      "vn": "Tiếng Việt"
+      "vn": "Tiếng Việt",
+      "login": "Đăng nhập",
+      "logout": "Đăng ký"
     },
     "category": {
       "phone": "iPhone",
@@ -18,6 +20,30 @@
         "installment": "Trả góp",
         "reNewed": "Thu cũ đổi mới",
         "guarantee": "Bảo hành"
+      }
+    }
+  },
+  "form": {
+    "login": {
+      "welcome": "Chào mừng đến với",
+      "title": "Đăng nhập",
+      "username": "Tên đăng nhập",
+      "password": "Mật khẩu",
+      "rememberMe": "Lưu tài khoản",
+      "forgotPassword": "Quên mật khẩu",
+      "newUser": "Bạn mới biết tới YOLO?",
+      "or": "Hoặc",
+      "register": "Đăng ký",
+      "validateUsername": {
+        "required": "Tên đăng nhập không được bỏ trống!",
+        "minLength": "Tên đăng nhập phải có ít nhất 6 ký tự!",
+        "maxLength": "Tên đăng nhập không được vượt quá 20 ký tự!"
+      },
+      "validatePassword": {
+        "required": "Vui lòng nhập của bạn password!",
+        "minLength": "Mật khẩu phải có ít nhất 6 ký tự!",
+        "maxLength": "Mật khẩu không được vượt quá 20 ký tự!",
+        "pattern": "Mật khẩu phải có ít nhất 1 ký tự đặc biệt!"
       }
     }
   }

@@ -1,4 +1,7 @@
 <div class="product-item">
+  <div class="product-installment">
+    <span>Trả góp 0%</span>
+  </div>
   <img [src]="product.img" alt="product-logo">
   <p class="product-title">{{product.title}}</p>
   <div class="product-size">
@@ -13,4 +16,5 @@
     <nz-rate [ngModel]="product.rate" nzAllowHalf nzDisabled [nzCount]="5"></nz-rate>
     <span class="product-rate-count">38 Đánh giá</span>
   </div>
+  <span class="product-sold">Đã bán 38</span>
 </div>

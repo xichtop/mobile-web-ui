@@ -64,8 +64,8 @@
       </div>
       <ng-template #contentTemplate>
         <div>
-          <p>Content</p>
-          <p>Content</p>
+          <p (click)="showLogin()">{{'header.main.login' | translate}}</p>
+          <p>{{'header.main.logout' | translate}}</p>
         </div>
       </ng-template>
     </div>

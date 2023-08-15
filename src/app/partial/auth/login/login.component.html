@@ -1,0 +1,102 @@
+<div class="login" nz-row>
+  <div class="login-bg" nz-col [nzSpan]="12">
+    <div class="login-bg-text">
+      <p>{{'form.login.welcome' | translate}}</p>
+      <img src="../../../../assets/images/header/yolo-logo-1.png" alt="logo">
+    </div>
+    <img class="login-bg-img" src="../../../../assets/images/form/login.png" alt="login-form">
+  </div>
+  <div class="login-form" nz-col [nzSpan]="12">
+    <p class="login-form-title">{{'form.login.title' | translate}}</p>
+    <form (ngSubmit)="submitForm()" [formGroup]="signInForm">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>{{'form.login.username' | translate}}</nz-form-label>
+        <nz-form-control 
+          nzHasFeedback [nzSpan]="18"
+          [nzErrorTip]="userNameError"
+        >
+          <nz-input-group nzPrefixIcon="user">
+            <input 
+              nz-input nzSize="large" 
+              type="text" 
+              [placeholder]="'form.login.username' | translate"
+              formControlName="username"
+            />
+          </nz-input-group>
+          <ng-template #userNameError let-control>
+            <ng-container *ngIf="control.hasError('required')">{{'form.login.validateUsername.required' | translate}}</ng-container>
+            <ng-container *ngIf="control.hasError('minlength')">{{'form.login.validateUsername.minLength' | translate}}</ng-container>
+            <ng-container *ngIf="control.hasError('maxlength')">{{'form.login.validateUsername.maxLength' | translate}}</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>{{'form.login.password' | translate}}</nz-form-label>
+        <nz-form-control 
+          nzHasFeedback [nzSpan]="18"
+          [nzErrorTip]="passwordError">
+          <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
+            <input 
+              nz-input nzSize="large" 
+              [type]="passwordVisible ? 'text' : 'password'" 
+              [placeholder]="'form.login.password' | translate"
+              formControlName="password"
+            />
+          </nz-input-group>
+          <ng-template #passwordError let-control>
+            <ng-container *ngIf="control.hasError('required')">{{'form.login.validatePassword.required' | translate}}</ng-container>
+            <ng-container *ngIf="control.hasError('minlength')">{{'form.login.validatePassword.minLength' | translate}}</ng-container>
+            <ng-container *ngIf="control.hasError('maxlength')">{{'form.login.validatePassword.maxLength' | translate}}</ng-container>
+            <ng-container 
+              *ngIf="!control.hasError('minlength') && !control.hasError('maxlength') && control.hasError('pattern')">
+              {{'form.login.validatePassword.pattern' | translate}}
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <ng-template #suffixTemplate>
+        <span
+          nz-icon
+          [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+          (click)="passwordVisible = !passwordVisible"
+        ></span>
+      </ng-template>
+      <div nz-row class="login-form-margin">
+        <div nz-col [nzSpan]="12">
+          <label nz-checkbox formControlName="rememberMe">
+            <span>{{'form.login.rememberMe' | translate}}</span>
+          </label>
+        </div>
+        <div class="login-form-margin-forgot" nz-col [nzSpan]="12">
+          <p clpss="login-form-forgot">{{'form.login.forgotPassword' | translate}}</p>
+        </div>
+      </div>
+      <div class="login-form-btn">
+        <button 
+          nz-button [nzType]="'primary'"
+          [disabled]="!signInForm.valid"
+        >
+          <span nz-icon nzType="login" nzTheme="outline"></span>
+          {{'form.login.title' | translate}}
+        </button>
+      </div>
+    </form>
+    <div class="login-form-other">
+      <nz-divider [nzText]="'form.login.or' | translate"></nz-divider>
+      <div class="login-form-other-type">
+        <button nz-button>
+          <span nz-icon nzType="facebook" nzTheme="fill"></span>
+          Facebook
+        </button>
+        <button nz-button>
+          <span nz-icon nzType="google-square" nzTheme="fill"></span>
+          Google
+        </button>
+      </div>
+      <div class="login-form-other-register">
+        <p>{{'form.login.newUser' | translate}}</p>
+        <p>{{'form.login.register' | translate}}</p>
+      </div>
+    </div>
+  </div>
+</div>

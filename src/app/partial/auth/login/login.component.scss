@@ -1,0 +1,116 @@
+@import '../../../../assets/scss/variable';
+@import '../../../../assets/scss/mixin';
+
+.login {
+  margin-top: 5rem;
+
+  &-bg {
+    @include flex(center, flex-start);
+    flex-direction: column;
+    // border-right: 1px solid $color-primary;
+
+    &-text {
+      @include flex(center, center);
+      margin: 2rem 0;
+
+      p {
+        color: $color-primary;
+        font-size: 30px;
+        font-weight: 600;
+      }
+
+      img {
+        width: 10rem;
+      }
+    }
+
+    &-img {
+      height: 50%;
+    }
+  }
+
+  .login-form {
+    @include flex(center, flex-start);
+    flex-direction: column;
+
+    &-title {
+      color: $color-primary;
+      font-size: 30px;
+      font-weight: 600;
+      margin: 2rem;
+    }
+
+    form {
+      width: 60%;
+
+      nz-form-item {
+        margin-bottom: 2rem;
+
+        nz-form-label {
+          text-align: left !important;
+        }
+      }
+    }
+
+    &-margin {
+      margin-bottom: 2rem;
+
+      label {
+        span {
+          color: $color-primary;
+        }
+      }
+
+      &-forgot {
+        text-align: right;
+
+        p {
+          color: $color-primary;
+          cursor: pointer;
+          
+          &:hover {
+            color: $color-third;
+          }
+        }
+      }
+    }
+
+    &-btn {
+      @include flex(center, center);
+
+      button {
+        padding: 0 3rem;
+      }
+    }
+
+    &-other {
+      nz-divider {
+        color: $color-primary;
+      }
+    
+      &-type {
+        button {
+          margin: 0 2rem;
+        }
+      }
+  
+      &-register {
+        @include flex(center, center);
+        margin-top: 2rem;
+  
+        p {
+          &:first-child {
+            color: $color-primary;
+          }
+  
+          &:last-child {
+            color: $color-red;
+            margin-left: 1rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -3,7 +3,9 @@
     "main": {
       "search": "What are you looking for...",
       "en": "English",
-      "vn": "Vietnamese"
+      "vn": "Vietnamese",
+      "login": "Log in",
+      "logout": "Log out"
     },
     "category": {
       "phone": "iPhone",
@@ -18,6 +20,30 @@
         "installment": "Installment",
         "reNewed": "Old autumn renewed",
         "guarantee": "Guarantee"
+      }
+    }
+  },
+  "form": {
+    "login": {
+      "welcome": "Welcome to",
+      "title": "Log in",
+      "username": "Username",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot your password",
+      "newUser": "New to YOLO?",
+      "or": "Or",
+      "register": "Register",
+      "validateUsername": {
+        "required": "Please enter your username!",
+        "minLength": "Username must be at least 6 characters!",
+        "maxLength": "Username must be at most 20 characters!"
+      },
+      "validatePassword": {
+        "required": "Please enter your password!",
+        "minLength": "Password must be at least 6 characters!",
+        "maxLength": "Password must be at most 20 characters!",
+        "pattern": "Password must have a special character!"
       }
     }
   }
