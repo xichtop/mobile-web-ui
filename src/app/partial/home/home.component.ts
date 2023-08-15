@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   arrayCarousel = [
     {
       id: 1,
@@ -56,4 +57,15 @@ export class HomeComponent {
       img: 'https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-tim-thumb-600x600.jpg',
     }
   ];
+
+  constructor (
+    private http: HttpClient
+  ) {}
+
+  ngOnInit(): void {
+    // this.http.get('http://localhost:3000/api/v1/orders')
+    //   .subscribe(res => {
+    //     console.log(res);
+    //   })
+  }
 }

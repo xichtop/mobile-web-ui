@@ -64,14 +64,25 @@
       </div>
       <ng-template #contentTemplate>
         <div>
-          <p (click)="showLogin()">{{'header.main.login' | translate}}</p>
+          <p >{{'header.main.login' | translate}}</p>
           <p>{{'header.main.logout' | translate}}</p>
         </div>
       </ng-template>
     </div>
-    <div class="header-user" nz-popover [nzPopoverContent]="contentTemplate" nzPopoverTrigger="hover">
+    <div class="header-user" nz-popover nzPopoverTitle="Tài khoản" [nzPopoverContent]="contentAvatar" nzPopoverTrigger="hover">
       <nz-avatar nzIcon="user"></nz-avatar>
     </div>
+    <ng-template #contentAvatar>
+      <div>
+        <ng-container *ngIf="!isLogin; else logedIn">
+          <p (click)="gotoLogin()">{{'header.main.login' | translate}}</p>
+          <p (click)="gotoRegister()">{{'header.main.register' | translate}}</p>
+        </ng-container>
+        <ng-template #logedIn>
+          <p (click)="logout()">{{'header.main.logout' | translate}}</p>
+        </ng-template>
+      </div>
+    </ng-template>
     <div class="header-language">
       <img
         nz-tooltip nzTooltipPlacement="bottom"

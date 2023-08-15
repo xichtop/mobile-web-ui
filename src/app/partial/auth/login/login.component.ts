@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(32),
-        Validators.pattern(/^[a-z]{6,32}$/i),
+        // Validators.pattern(/^[a-z]{6,32}$/i),
       ]),
     ],
     password: [
@@ -24,17 +25,24 @@ export class LoginComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
-        Validators.pattern(/^(?=.*[!@#$%^&*]+)[a-z0-9!@#$%^&*]{6,32}$/),
+        // Validators.pattern(/^(?=.*[!@#$%^&*]+)[a-z0-9!@#$%^&*]{6,32}$/),
       ]),
     ],
     rememberMe: false,
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {}
 
   submitForm(): void {
-    console.log(this.signInForm.value);
+    // console.log(this.signInForm.value);
+    this.authService.login({
+      email: this.signInForm.value.username || '',
+      password: this.signInForm.value.password || ''
+    })
   }
 }

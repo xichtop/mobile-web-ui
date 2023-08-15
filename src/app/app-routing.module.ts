@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './partial/home/home.component';
+import { AuthGuard } from './partial/auth/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { 
     path: 'auth', 
     loadChildren: () => import('./partial/auth/auth.module').then(m => m.AuthModule)
+  },
+  { 
+    path: 'cart', 
+    loadChildren: () => import('./partial/cart/cart.module').then(m => m.CartModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -22,6 +28,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

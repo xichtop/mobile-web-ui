@@ -47,10 +47,10 @@
             <ng-container *ngIf="control.hasError('required')">{{'form.login.validatePassword.required' | translate}}</ng-container>
             <ng-container *ngIf="control.hasError('minlength')">{{'form.login.validatePassword.minLength' | translate}}</ng-container>
             <ng-container *ngIf="control.hasError('maxlength')">{{'form.login.validatePassword.maxLength' | translate}}</ng-container>
-            <ng-container 
+            <!-- <ng-container 
               *ngIf="!control.hasError('minlength') && !control.hasError('maxlength') && control.hasError('pattern')">
               {{'form.login.validatePassword.pattern' | translate}}
-            </ng-container>
+            </ng-container> -->
           </ng-template>
         </nz-form-control>
       </nz-form-item>

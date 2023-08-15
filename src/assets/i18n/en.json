@@ -5,7 +5,8 @@
       "en": "English",
       "vn": "Vietnamese",
       "login": "Log in",
-      "logout": "Log out"
+      "logout": "Log out",
+      "register": "Register"
     },
     "category": {
       "phone": "iPhone",

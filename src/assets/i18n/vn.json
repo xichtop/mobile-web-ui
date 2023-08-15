@@ -5,7 +5,8 @@
       "en": "Tiếng Anh",
       "vn": "Tiếng Việt",
       "login": "Đăng nhập",
-      "logout": "Đăng ký"
+      "logout": "Đăng xuất",
+      "register": "Đăng ký"
     },
     "category": {
       "phone": "iPhone",
