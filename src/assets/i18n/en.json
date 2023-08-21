@@ -24,6 +24,16 @@
       }
     }
   },
+  "home": {
+    "topSold": "Top Sold",
+    "viewAll": "View all",
+    "products": "products",
+    "Iphone": "Iphone",
+    "Ipad": "Ipad",
+    "Watch": "Apple Watch",
+    "MacBook": "MacBook",
+    "Airpod": "Airpod"
+  },
   "form": {
     "login": {
       "welcome": "Welcome to",

@@ -24,6 +24,16 @@
       }
     }
   },
+  "home": {
+    "topSold": "Bán Chạy Nhất",
+    "viewAll": "Xem tất cả",
+    "products": "sản phẩm",
+    "Iphone": "Iphone",
+    "Ipad": "Ipad",
+    "Watch": "Apple Watch",
+    "Mac": "MacBook",
+    "Airpod": "Airpod"
+  },
   "form": {
     "login": {
       "welcome": "Chào mừng đến với",

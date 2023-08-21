@@ -12,12 +12,15 @@
     <img src="../../../assets/images/home/news/new-3.png" alt="">
   </div>
   <app-section
-    title="Bán chạy nhất" 
-    [products]="topProduct$ | async">
+    [title]="'home.topSold' | translate" 
+    [products]="topProduct$ | async"
+    buttonTitle="products"  
+  >
   </app-section>
   <app-section *ngFor="let category of categories"
     [titleBG]="category.urlPicture"
     [products]="category.products"
+    [buttonTitle]="category.sortCode"
   >
   </app-section>
 </div>

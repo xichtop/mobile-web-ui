@@ -38,14 +38,13 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  iphoneList = [];
   topProduct$ = new Observable<Product[]>();
   categories = [{
     _id: '',
+    sortCode: '',
     urlPicture: '',
     products: []
   }];
-  // listIphone
 
   constructor (
     private http: HttpClient,
@@ -53,16 +52,6 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.http.get('http://localhost:3000/api/v1/orders')
-    //   .subscribe(res => {
-    //     console.log(res);
-    //   })
-    this.http.get<{status: string, length: number, data: []}>('http://localhost:3000/api/v1/categories/64ce20795d737aa563e838e8/products')
-      .subscribe( res => {
-        this.iphoneList = res.data;
-      }
-    )
-
     const categories$ = this.commonService.getCategories();
     categories$
       .pipe(
@@ -82,8 +71,6 @@ export class HomeComponent implements OnInit {
         })
     })
 
-
-    const paramsUrl = 'limit=4';
-    this.topProduct$ = this.commonService.getProducts(paramsUrl);
+    this.topProduct$ = this.commonService.getProducts('limit=4');
   }
 }
