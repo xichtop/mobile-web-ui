@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, catchError, of, throwError } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
+import { CommonService } from './common.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +21,14 @@ export class AuthService {
     email: '',
     role: '',
   }
+  private tokenTimer: any;
 
   constructor(
     private http: HttpClient,
-    private router: Router,  
+    private router: Router,
+    private commonService: CommonService,
+    private message: NzMessageService,
+    private translateService: TranslateService
   ) {}
 
   getToken(): string {
@@ -36,33 +43,58 @@ export class AuthService {
     return this.userInfo;
   }
 
-  autoAuthUser() {
-    const authInfo = this.getAuthDataFromLocalStorage();
-    if (authInfo.token) {
-      this.token = authInfo.token;
-      this.isAuthenticated = true;
-      this.getUserInfoByToken();
-      this.authStatusListener.next(true);
-    }
-  }
-
   getAuthStatusListener(): Observable<boolean> {
     return this.authStatusListener.asObservable();
   }
 
+  autoAuthUser() {
+    const authInfo = this.getAuthDataFromLocalStorage();
+    if (authInfo) {
+      const now = new Date();
+      const expiresIn = authInfo.expirationDate.getTime() - now.getTime();
+      if (expiresIn > 0) {
+        this.getUserAndNotify(authInfo.token, expiresIn);
+      }
+    }
+  }
+
+  getUserAndNotify(token: string, expiresIn: number) {
+    this.token = token;
+    this.isAuthenticated = true;
+    this.setTimerToken(expiresIn / 1000);
+    this.getUserInfoByToken().subscribe((res) => {
+      this.userInfo = res.data;
+      this.authStatusListener.next(true);
+      this.router.navigate(['/']);
+    });
+  }
+
   login(authData: {email: string, password: string}): void {
+    this.commonService.changeLoadingStatus(true);
     const url = environment.API_SERVER_URL + 'auth/login';
-    this.http.post<{status: string, data: {token: string, user: User}}>(url, authData)
-      .subscribe(response => {
-        if (response.data.token) {
-          this.token = response.data.token;
-          this.isAuthenticated = true;
-          this.authStatusListener.next(true);
-          this.saveAuthDataInLocalStorage(this.token);
-          this.getUserInfoByToken();
-          this.router.navigate(['/']);
-        }
+    this.http.post<{status: string, data: {token: string, expiresIn: number}}>(url, authData)
+    .pipe(catchError(err => {
+      this.commonService.changeLoadingStatus(false);
+      this.translateService.get('message.loginFailed').subscribe((message) => {
+        this.message.create('error', message);
       });
+      return throwError(err);
+    }))
+    .subscribe(response => {
+        console.log('Top', response);
+        if (response.data.token) {
+          const expiresInDuration = response.data.expiresIn;
+          const now = new Date();
+          const expirationDate = new Date(now.getTime() + (expiresInDuration * 1000));
+          this.saveAuthDataInLocalStorage(response.data.token, expirationDate);
+          this.getUserAndNotify(response.data.token, expiresInDuration * 1000);
+          this.commonService.changeLoadingStatus(false);
+          this.translateService.get('message.login').subscribe(message => {
+            this.message.create('success', message);
+          })
+        }
+      })
+      ;
   }
 
   logout() {
@@ -75,35 +107,46 @@ export class AuthService {
       role: ''
     }
     this.clearAuthDataInLocalStorage();
+    clearTimeout(this.tokenTimer);
     this.router.navigate(['/']);
+    this.translateService.get('message.logout').subscribe(message => {
+      this.message.create('success', message);
+    })
   }
 
-  private saveAuthDataInLocalStorage(token: string): void {
+  setTimerToken(duration: number): void {
+    this.tokenTimer = setTimeout(() => {
+      this.translateService.get('message.tokenExpired').subscribe(message => {
+        this.message.create('warning', message);
+      })
+      this.logout();
+    }, duration * 1000);
+  }
+
+  private saveAuthDataInLocalStorage(token: string, expirationDate: Date): void {
     localStorage.setItem('access_token', token);
+    localStorage.setItem('expiration_date', expirationDate.toISOString());
   }
 
   private clearAuthDataInLocalStorage(): void {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('expiration_date');
   }
 
-  private getAuthDataFromLocalStorage(): {token: string} {
+  private getAuthDataFromLocalStorage() {
     const token = localStorage.getItem('access_token');
-    if (!token) {
-      return {
-        token: ""
-      };
+    const expirationDate = localStorage.getItem('expiration_date');
+    if (!token || !expirationDate) {
+      return;
     }
     return {
-      token: token
+      token: token,
+      expirationDate: new Date(expirationDate)
     }
   }
 
-  getUserInfoByToken(): void {
+  getUserInfoByToken(): Observable<{ status: string; data: User }> {
     const url = environment.API_SERVER_URL + 'users/get-me';
-    this.http.get<{ status: string; data: User }>(url)
-      .subscribe((response) => {
-        this.userInfo = response.data;
-      }
-    );
+      return this.http.get<{ status: string; data: User }>(url);
   }
 }

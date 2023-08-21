@@ -13,7 +13,7 @@
       "ipad": "iPad",
       "macbook": "Macbook",
       "watch": "Smart watch",
-      "sound": "Sound",
+      "sound": "Airpod",
       "accessory": "Accessory",
       "service": "Service",
       "new": "News",
@@ -47,5 +47,11 @@
         "pattern": "Password must have a special character!"
       }
     }
+  },
+  "message": {
+    "login": "Log in successfully!",
+    "logout": "Log out successfully!",
+    "tokenExpired": "Your token have expired. Please log in again!",
+    "loginFailed": "Email or password is incorrect. Please try again!"
   }
 }

@@ -2,20 +2,17 @@
 @import '../../../assets/scss/mixin';
 
 .home {
-  background-color: rgba($color: $color-secondary, $alpha: 0.2);
+  // background-color: rgba($color: $color-secondary, $alpha: 0.2);
 }
 
 .carousel {
-  .carousel-content {
+  [nz-carousel-content] {
     text-align: center;
-    background: $color-primary;
+    background: $color-white;
     color: $color-white;
     overflow: hidden;
-    height: 500px;
+    height: 118px;
 
-    img {
-      height: 500px;
-    }
   }
 
   ::ng-deep nz-carousel {
@@ -39,7 +36,7 @@
   @include flex(center, space-between);
   max-width: 1200px;
   margin: 3rem auto;
-  padding: 2rem;
+  // padding: 2rem;
   background-color: $color-white;
 
   img {
@@ -51,8 +48,4 @@
       box-shadow: $box-shadow;
     }
   }
-}
-
-app-section {
-  
 }

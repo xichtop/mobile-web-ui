@@ -1,20 +1,24 @@
-<div class="product-item">
-  <div class="product-installment">
-    <span>Trả góp 0%</span>
+
+<nz-card nzHoverable>
+  <div class="product-item">
+    <div class="product-installment">
+      <span>Trả góp 0%</span>
+    </div>
+    <img [src]="product.urlPicture" alt="product-logo">
+    <p class="product-title">{{product.title}}</p>
+    <div class="product-size">
+      <span class="product-size-item">128GB</span>
+      <span class="product-size-item">256GB</span>
+    </div>
+    <div class="product-price">
+      <p class="product-price-new">{{product.price | currency}}</p>
+      <p class="product-price-old">{{product.price | currency}}</p>
+    </div>
+    <div class="product-rate">
+      <nz-rate [ngModel]="product.ratingAverage" nzAllowHalf nzDisabled [nzCount]="5"></nz-rate>
+      <span class="product-rate-count">{{product.ratingQuantity}} Đánh giá</span>
+    </div>
+    <span class="product-sold">Đã bán {{product.sold}}</span>
   </div>
-  <img [src]="product.img" alt="product-logo">
-  <p class="product-title">{{product.title}}</p>
-  <div class="product-size">
-    <span class="product-size-item">128GB</span>
-    <span class="product-size-item">256GB</span>
-  </div>
-  <div class="product-price">
-    <p class="product-price-new">{{24000000 | currency}}</p>
-    <p class="product-price-old">{{22000000 | currency}}</p>
-  </div>
-  <div class="product-rate">
-    <nz-rate [ngModel]="product.rate" nzAllowHalf nzDisabled [nzCount]="5"></nz-rate>
-    <span class="product-rate-count">38 Đánh giá</span>
-  </div>
-  <span class="product-sold">Đã bán 38</span>
-</div>
+</nz-card>
+

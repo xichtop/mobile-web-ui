@@ -2,15 +2,8 @@
 @import '../../../../assets/scss/mixin';
 
 .product-item {
-  // border: $border;
-  border-radius: 5px;
-  padding: 1rem 1rem;
-  cursor: pointer;
-  background-color: $color-white;
-  
-  &:hover {
-    box-shadow: $box-shadow;
 
+  &:hover {
     img {
       transform: scale(1) translateY(-5px);
       transition: ease-in-out 500ms transform;
@@ -36,9 +29,12 @@
 
   .product-title {
     padding-top: 1rem;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: $color-primary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .product-size {

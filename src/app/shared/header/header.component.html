@@ -1,7 +1,9 @@
 <div class="header">
   <div class="header-main">
     <div class="logo">
-      <img src="../../../assets/images/header/yolo-logo.png" alt="logo-yolo-shop">
+      <img 
+        (click)="goHome()"
+        src="../../../assets/images/header/yolo-logo.png" alt="logo-yolo-shop">
     </div>
   </div>
   <div class="category">
@@ -69,8 +71,12 @@
         </div>
       </ng-template>
     </div>
-    <div class="header-user" nz-popover nzPopoverTitle="Tài khoản" [nzPopoverContent]="contentAvatar" nzPopoverTrigger="hover">
-      <nz-avatar nzIcon="user"></nz-avatar>
+    <div class="header-user">
+      <nz-avatar 
+        nz-popover nzPopoverPlacement="bottom" nzPopoverTitle="Tài khoản" 
+        [nzPopoverContent]="contentAvatar" nzPopoverTrigger="hover"
+        nzIcon="user" [nzSrc]="isLogin ? userInfo.photo : ''">
+      </nz-avatar>
     </div>
     <ng-template #contentAvatar>
       <div>

@@ -16,6 +16,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   isSearch = false;
   isLogin = false;
+  userInfo: User = {
+    name: '',
+    email: '',
+    role: '',
+  }
 
   constructor(
     private translateService: TranslateService,
@@ -28,6 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authStatusSub = this.authService.getAuthStatusListener()
       .subscribe(status => {
         this.isLogin = status;
+        this.userInfo = this.authService.getUserInfo();
       });
   }
 
@@ -45,6 +51,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   cancelSearch(): void {
     this.isSearch = false;
+  }
+
+  goHome(): void {
+    this.router.navigate(['/']);
   }
 
   gotoLogin(): void {

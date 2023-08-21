@@ -18,6 +18,10 @@ import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzBackTopModule } from 'ng-zorro-antd/back-top';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 @NgModule({
   declarations: [],
@@ -40,7 +44,11 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
     NzRateModule,
     NzCheckboxModule,
     NzFormModule,
-    NzDividerModule
+    NzDividerModule,
+    NzSpinModule,
+    NzBackTopModule,
+    NzMessageModule,
+    NzCardModule
   ],
   exports: [
     NzLayoutModule,
@@ -60,7 +68,11 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
     NzRateModule,
     NzCheckboxModule,
     NzFormModule,
-    NzDividerModule
+    NzDividerModule,
+    NzSpinModule,
+    NzBackTopModule,
+    NzMessageModule,
+    NzCardModule
   ]
 })
 export class ZorroModule { }

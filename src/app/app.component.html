@@ -1,11 +1,18 @@
-<nz-layout>
-  <nz-header>
-    <app-header></app-header>
-  </nz-header>
-  <nz-content>
-    <router-outlet></router-outlet>
-  </nz-content>
-  <nz-footer>
-    <app-footer></app-footer>
-  </nz-footer>
-</nz-layout>
+<nz-spin [nzSpinning]="isSpinning" nzTip="Loading...">
+  <nz-layout>
+    <nz-header>
+      <app-header></app-header>
+    </nz-header>
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer>
+      <app-footer></app-footer>
+    </nz-footer>
+  </nz-layout>
+  <nz-back-top [nzTemplate]="tpl" [nzVisibilityHeight]="0">
+    <ng-template #tpl>
+      <span class="back-top" nz-icon nzType="up-circle" nzTheme="fill"></span>
+    </ng-template>
+  </nz-back-top>
+</nz-spin>

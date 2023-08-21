@@ -13,26 +13,11 @@
   </div>
   <app-section
     title="Bán chạy nhất" 
-    [products]="products">
+    [products]="topProduct$ | async">
   </app-section>
-  <app-section
-    titleBG="../../../../assets/images/home/product/iphone.webp"
-    [products]="products">
-  </app-section>
-  <app-section
-    titleBG="../../../../assets/images/home/product/ipad.webp"
-    [products]="products">
-  </app-section>
-  <app-section
-    titleBG="../../../../assets/images/home/product/mac.webp"
-    [products]="products">
-  </app-section>
-  <app-section
-    titleBG="../../../../assets/images/home/product/airpod.webp"
-    [products]="products">
-  </app-section>
-  <app-section
-    titleBG="../../../../assets/images/home/product/apple-watch.webp"
-    [products]="products">
+  <app-section *ngFor="let category of categories"
+    [titleBG]="category.urlPicture"
+    [products]="category.products"
+  >
   </app-section>
 </div>

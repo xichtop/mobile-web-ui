@@ -9,6 +9,6 @@ import { Product } from '../../../models/product';
 export class SectionComponent {
   @Input() title = "";
   @Input() titleBG = "";
-  @Input() products: Product[] = [];
+  @Input() products: Product[] | null = [];
   @Input() numberItemInRow = 4;
 }

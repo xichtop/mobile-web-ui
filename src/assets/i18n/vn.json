@@ -13,7 +13,7 @@
       "ipad": "iPad",
       "macbook": "Mac",
       "watch": "Watch",
-      "sound": "Âm thanh",
+      "sound": "Airpod",
       "accessory": "Phụ kiện",
       "service": "Dịch vụ",
       "new": "Tin tức",
@@ -47,5 +47,11 @@
         "pattern": "Mật khẩu phải có ít nhất 1 ký tự đặc biệt!"
       }
     }
+  },
+  "message": {
+    "login": "Đăng nhập thành công!",
+    "logout": "Đăng xuất thành công!",
+    "tokenExpired": "Token của bạn đã hết hạn. Vui lòng đăng nhập lại!",
+    "loginFailed": "Tài khoản hoặc mật khẩu sai. Vui lòng thử lại!"
   }
 }

@@ -13,3 +13,12 @@ nz-content {
   background-color: $color-white;
   margin-top: $header-height;
 }
+
+:host ::ng-deep .ant-back-top {
+  right: 20px;
+}
+
+.back-top {
+  font-size: 30px;
+  color: $color-primary;
+}
