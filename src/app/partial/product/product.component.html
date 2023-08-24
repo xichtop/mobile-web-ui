@@ -1,1 +1,35 @@
-<p>product works!</p>
+<div class="product">
+  <div class="product-carousel">
+    <nz-carousel nzAutoPlay [nzEnableSwipe]="false">
+      <div class="carousel-content" nz-carousel-content *ngFor="let item of arrayCarousel">
+        <img [src]="item.urlPicture" alt="">
+      </div>
+    </nz-carousel>
+  </div>
+  <div class="product-filter">
+
+  </div>
+  <div class="product-list">
+    <app-section 
+      [products]="currentList" 
+      buttonTitle="products"
+      [isCatalog]="true"
+    >
+    </app-section>
+    <nz-pagination 
+      [nzPageIndex]="currentPage" 
+      [nzTotal]="totalItems" 
+      [nzPageSize]="currentSize"
+      (nzPageIndexChange)="changePaginate($event)"
+      (nzPageSizeChange)="changeSize($event)"
+      nzShowSizeChanger
+      [nzPageSizeOptions]="[4, 8, 12, 16]"
+      [nzShowTotal]="rangeTemplate"
+      [nzResponsive]="true"
+    >
+    </nz-pagination>
+    <ng-template #rangeTemplate let-range="range" let-total>
+      {{ range[0] }}-{{ range[1] }} of {{ total }} items
+    </ng-template>
+  </div>
+</div>

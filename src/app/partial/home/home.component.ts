@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  topProduct$ = new Observable<Product[]>();
+  topProduct: Product[] = [];
   categories = [{
     _id: '',
     sortCode: '',
@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.commonService.changeLoadingStatus(true);
     const categories$ = this.commonService.getCategories();
     categories$
       .pipe(
@@ -64,13 +65,10 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
         this.commonService.getProductsByCategory(data, 4).subscribe(ress => {
           const index = this.categories.findIndex(item => item._id === data);
-          // this.categories[index].products = ress as Array<never>;
-          Object.assign(this.categories[index], {products: ress})
-          console.log(ress);
-          console.log(this.categories);
+          Object.assign(this.categories[index], {products: ress});
+          this.commonService.changeLoadingStatus(false);
         })
     })
-
-    this.topProduct$ = this.commonService.getProducts('limit=4');
+    this.commonService.getProducts('limit=4').subscribe(data => this.topProduct = data.data);
   }
 }

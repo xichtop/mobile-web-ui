@@ -41,6 +41,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authStatusSub.unsubscribe();
   }
 
+  navigateCatalog(event: string) {
+    this.router.navigate([`/catalog/${event}`]);
+  }
+
   changeLanguage(event: string): void {
     this.translateService.use(event);
   }

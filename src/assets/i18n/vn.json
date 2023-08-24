@@ -28,11 +28,11 @@
     "topSold": "Bán Chạy Nhất",
     "viewAll": "Xem tất cả",
     "products": "sản phẩm",
-    "Iphone": "Iphone",
-    "Ipad": "Ipad",
-    "Watch": "Apple Watch",
-    "Mac": "MacBook",
-    "Airpod": "Airpod"
+    "iphone": "Iphone",
+    "ipad": "Ipad",
+    "watch": "Apple Watch",
+    "mac": "MacBook",
+    "airpod": "Airpod"
   },
   "form": {
     "login": {

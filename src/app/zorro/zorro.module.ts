@@ -22,6 +22,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzBackTopModule } from 'ng-zorro-antd/back-top';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
 @NgModule({
   declarations: [],
@@ -48,7 +49,8 @@ import { NzCardModule } from 'ng-zorro-antd/card';
     NzSpinModule,
     NzBackTopModule,
     NzMessageModule,
-    NzCardModule
+    NzCardModule,
+    NzPaginationModule
   ],
   exports: [
     NzLayoutModule,
@@ -72,7 +74,8 @@ import { NzCardModule } from 'ng-zorro-antd/card';
     NzSpinModule,
     NzBackTopModule,
     NzMessageModule,
-    NzCardModule
+    NzCardModule,
+    NzPaginationModule
   ]
 })
 export class ZorroModule { }

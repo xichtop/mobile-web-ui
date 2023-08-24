@@ -7,22 +7,22 @@
     </div>
   </div>
   <div class="category">
-    <span class="category-item">
+    <span class="category-item" (click)="navigateCatalog('iphone')">
       {{'header.category.phone' | translate}}
     </span>
-    <span class="category-item">
+    <span class="category-item" (click)="navigateCatalog('ipad')">
       {{'header.category.ipad' | translate}}
     </span>
-    <span class="category-item">
+    <span class="category-item" (click)="navigateCatalog('mac')">
       {{'header.category.macbook' | translate}}
     </span>
-    <span class="category-item">
+    <span class="category-item" (click)="navigateCatalog('watch')">
       {{'header.category.watch' | translate}}
     </span>
-    <span class="category-item">
+    <span class="category-item" (click)="navigateCatalog('airpod')">
       {{'header.category.sound' | translate}}
     </span>
-    <span class="category-item">
+    <span class="category-item" (click)="navigateCatalog('accessory')">
       {{'header.category.accessory' | translate}}
     </span>
     <span nz-dropdown [nzDropdownMenu]="menu" class="category-item">

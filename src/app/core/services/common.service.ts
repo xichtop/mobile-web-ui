@@ -25,16 +25,18 @@ export class CommonService {
 
   getCategories(): Observable<{status: string, length: number, data: []}> {
     const url = this.API_SERVER + 'categories';
-    return this.http.get<{status: string, length: number, data: []}>(url)
+    return this.http.get<{status: string, length: number, data: []}>(url);
   }
 
-  getProducts(paramsUrl: string ): Observable<Product[]> {
+  getCategoryBySortCode(code: string): Observable<{status: string, data: {_id: string}}> {
+    const url = this.API_SERVER + 'categories/get-by-code/' + code;
+    return this.http.get<{status: string, data: {_id: string}}>(url);
+  }
+
+  getProducts(paramsUrl: string ): Observable<{ status: string; length: number; data: Product[] }> {
     const url = this.API_SERVER + 'products?' + paramsUrl;
     return this.http
-      .get<{ status: string; length: number; data: Product[] }>(url)
-      .pipe(
-        map((res) => res.data),
-        startWith([]));
+      .get<{ status: string; length: number; data: Product[] }>(url);
   }
 
   getProductsByCategory(category: string, limit: number): Observable<Product[]> {

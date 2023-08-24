@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./partial/auth/auth.module').then(m => m.AuthModule)
   },
   { 
+    path: 'catalog', 
+    loadChildren: () => import('./partial/product/product.module').then(m => m.ProductModule)
+  },
+  { 
     path: 'cart', 
     loadChildren: () => import('./partial/cart/cart.module').then(m => m.CartModule),
     canActivate: [AuthGuard]

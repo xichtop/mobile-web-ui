@@ -1,11 +1,9 @@
 <div class="section">
-  <p class="section-title" *ngIf="title.length > 0">{{title}}</p>
-  <img *ngIf="titleBG.length > 0" 
-    [src]="titleBG" 
-    alt="section-bg"
-    class="section-img"
-  >
-  <div class="product-list" nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 48 }">
+  <div *ngIf="!isCatalog">
+    <p class="section-title" *ngIf="title.length > 0">{{title}}</p>
+    <img *ngIf="titleBG.length > 0" [src]="titleBG" alt="section-bg" class="section-img">
+  </div>
+  <div class="product-list" nz-row [nzGutter]="[{ xs: 4, sm: 8, md: 16, lg: 24 }, { xs: 4, sm: 8, md: 16, lg: 24 }]">
     <div class="product-list-item" 
       nz-col [nzSpan]="24 / numberItemInRow"
       *ngFor="let product of products"
@@ -13,7 +11,7 @@
       <app-product-item [product]="product"></app-product-item>
     </div>
   </div>
-  <div class="section-button">
+  <div class="section-button" *ngIf="!isCatalog">
     <button nz-button nzType="primary">
       {{'home.viewAll' | translate}} {{'home.' + buttonTitle | translate}} 
       <span nz-icon nzType="right"></span>

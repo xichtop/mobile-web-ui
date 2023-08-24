@@ -12,4 +12,5 @@ export class SectionComponent {
   @Input() products: Product[] | null = [];
   @Input() numberItemInRow = 4;
   @Input() buttonTitle = "";
+  @Input() isCatalog = false;
 }
