@@ -2,15 +2,16 @@
 
 .product {
   &-carousel {
+    margin: 0 auto;
     max-width: 1200px;
-    
-    [nz-carousel-content] {
+
+    nz-carousel {
       text-align: center;
       background: $color-white;
       color: $color-white;
       overflow: hidden;
-      height: 118px;
-  
+      height: 400px;
+      line-height: 400px;
     }
   
     ::ng-deep nz-carousel {

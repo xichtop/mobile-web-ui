@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable, concatAll, concatMap, from, map } from 'rxjs';
+import { concatMap, from, map } from 'rxjs';
 import { CommonService } from 'src/app/core/services/common.service';
 import { Product } from 'src/app/models/product';
 
@@ -47,7 +46,6 @@ export class HomeComponent implements OnInit {
   }];
 
   constructor (
-    private http: HttpClient,
     private commonService: CommonService,
   ) {}
 
@@ -69,6 +67,6 @@ export class HomeComponent implements OnInit {
           this.commonService.changeLoadingStatus(false);
         })
     })
-    this.commonService.getProducts('limit=4').subscribe(data => this.topProduct = data.data);
+    this.commonService.getProducts({limit: 4}).subscribe(data => this.topProduct = data.data);
   }
 }

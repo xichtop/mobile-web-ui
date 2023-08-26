@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   navigateCatalog(event: string) {
-    this.router.navigate([`/catalog/${event}`]);
+    this.router.navigate([`/catalog`], { queryParams: { type: event } });
   }
 
   changeLanguage(event: string): void {

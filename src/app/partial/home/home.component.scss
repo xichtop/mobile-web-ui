@@ -1,47 +1,49 @@
 @import '../../../assets/scss/variable';
 @import '../../../assets/scss/mixin';
 
-.carousel {
-  [nz-carousel-content] {
-    text-align: center;
-    background: $color-white;
-    color: $color-white;
-    overflow: hidden;
-    height: 118px;
-
-  }
-
-  ::ng-deep nz-carousel {
-    ul li.slick-active {
-      button {
-        background: $color-primary;
+.home {
+  .carousel {
+    nz-carousel {
+      text-align: center;
+      background: $color-white;
+      color: $color-white;
+      overflow: hidden;
+      height: 480px;
+      line-height: 480px;
+    }
+  
+    ::ng-deep nz-carousel {
+      ul li.slick-active {
+        button {
+          background: $color-primary;
+        }
+      }
+    }
+  
+    ::ng-deep nz-carousel {
+      ul li {
+        button {
+          background: $color-primary;
+        }
       }
     }
   }
-
-  ::ng-deep nz-carousel {
-    ul li {
-      button {
-        background: $color-primary;
+  
+  .news {
+    @include flex(center, space-between);
+    max-width: 1200px;
+    margin: 3rem auto;
+    // padding: 2rem;
+    background-color: $color-white;
+  
+    img {
+      cursor: pointer;
+      width: 30%;
+  
+      &:hover {
+        border-radius: 10px;
+        box-shadow: $box-shadow;
       }
-    }
-  }
-}
-
-.news {
-  @include flex(center, space-between);
-  max-width: 1200px;
-  margin: 3rem auto;
-  // padding: 2rem;
-  background-color: $color-white;
-
-  img {
-    cursor: pointer;
-    width: 30%;
-
-    &:hover {
-      border-radius: 10px;
-      box-shadow: $box-shadow;
     }
   }
 }

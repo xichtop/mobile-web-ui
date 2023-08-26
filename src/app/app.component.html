@@ -1,4 +1,4 @@
-<nz-spin [nzSpinning]="isSpinning" nzTip="Loading...">
+<nz-spin [nzSpinning]="_isLoading$ | async" nzTip="Loading...">
   <nz-layout>
     <nz-header>
       <app-header></app-header>
@@ -16,3 +16,4 @@
     </ng-template>
   </nz-back-top>
 </nz-spin>
+

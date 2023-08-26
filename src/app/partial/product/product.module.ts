@@ -6,12 +6,14 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductRoutingModule } from './product-routing.module';
 import { SectionComponent } from '../home/section/section.component';
+import { CatalogItemComponent } from './catalog-item/catalog-item.component';
 
 @NgModule({
   declarations: [
     ProductComponent,
     ProductItemComponent,
-    SectionComponent
+    SectionComponent,
+    CatalogItemComponent
   ],
   imports: [
     CommonModule,

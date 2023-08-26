@@ -8,6 +8,7 @@ import { Product } from '../../../models/product';
 })
 export class ProductItemComponent {
   @Input() product: Product = {
+    _id: '',
     title: '',
     description: '',
     urlPicture: '',

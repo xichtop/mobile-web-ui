@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './core/services/auth.service';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CommonService } from './core/services/common.service';
 
 @Component({
@@ -9,12 +9,10 @@ import { CommonService } from './core/services/common.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   title = 'MobileWebUI';
   darkmode = false;
-  isSpinning = false;
-
-  private loadingStatusSub: Subscription = Subscription.EMPTY;
+  _isLoading$ = new Observable<boolean>;
 
   constructor(
     private translateService: TranslateService,
@@ -26,14 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.authService.autoAuthUser();
-    this.loadingStatusSub = this.commonService.getLoadingStatusListener()
-      .subscribe(status => {
-        this.isSpinning = status;
-      })
-  }
-
-  ngOnDestroy(): void {
-    this.loadingStatusSub.unsubscribe();
+    this._isLoading$ = this.commonService._isLoading$;
   }
 
   ChangeMode() {

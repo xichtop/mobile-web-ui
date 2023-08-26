@@ -1,4 +1,5 @@
 export interface Product {
+  _id: string,
   title: string,
   description: string,
   urlPicture: string,
@@ -16,4 +17,13 @@ export interface Product {
   connection?: {},
   otherInfo?: {},
   category?: string
+}
+
+export interface ProductParams {
+  limit?: number,
+  page?: number,
+  category?: string,
+  'ratingAverage[gte]'?: string,
+  sort?: string,
+  'colors%27color'?: string
 }

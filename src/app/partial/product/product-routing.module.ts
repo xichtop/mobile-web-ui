@@ -2,20 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent } from './product.component';
-import { ProductItemComponent } from './product-item/product-item.component';
+import { CatalogItemComponent } from './catalog-item/catalog-item.component';
 
 const routes: Routes = [
-  { path: 'all', component: ProductComponent },
-  { path: ':type', component: ProductComponent},
+  { path: '', component: ProductComponent},
   { 
-    path: 'product/:id', 
-    component: ProductItemComponent
+    path: ':id', 
+    component: CatalogItemComponent
   },
-  {
-    path: '',
-    redirectTo: 'all',
-    pathMatch: 'full'
-  }
 ];
 
 

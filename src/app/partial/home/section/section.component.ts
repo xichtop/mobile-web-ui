@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../../models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-section',
@@ -13,4 +14,12 @@ export class SectionComponent {
   @Input() numberItemInRow = 4;
   @Input() buttonTitle = "";
   @Input() isCatalog = false;
+
+  constructor(
+    private router: Router
+  ) {}
+
+  viewProduct(product: Product) {
+    this.router.navigate([`catalog/${product._id}`]);
+  }
 }

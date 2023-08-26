@@ -15,12 +15,12 @@ export class ProductComponent implements OnInit {
     {
       id: 2,
       urlPicture:
-        'https://shopdunk.com/images/uploaded/banner/Banner%20th%C3%A1ng%208/banner%20ipad%20gen%209%20t8_Banner%20PC.jpg',
+        'https://shopdunk.com/images/uploaded/LINH%20CHERRYYYYYYY/danh%20m%E1%BB%A5c%20iphone%20ipad%20t7-10.jpg',
     },
     {
       id: 3,
       urlPicture:
-        'https://shopdunk.com/images/uploaded/banner/Banner%20th%C3%A1ng%208/banner%20macbook%20air%20t8_Banner%20PC.jpg',
+        'https://shopdunk.com/images/uploaded/LINH%20CHERRYYYYYYY/Danh%20m%E1%BB%A5c%20PC.jpg',
     },
   ];
 
@@ -37,23 +37,36 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const type = params['type'];
-      if (type) {
-        this.getProductList(type);
-      } else {
-        this.getProductList(this.currentType);
-      }
-    });
+    // this.route.params.subscribe((params: Params) => {
+    //   const type = params['type'];
+    //   if (type) {
+    //     this.getProductList(type);
+    //   } else {
+    //     this.getProductList(this.currentType);
+    //   }
+    // });
 
+    this.route.queryParamMap
+      .pipe(map(params => params.get('type') || ''))
+      .subscribe(params => {
+        if (params) {
+          this.getProductList(params);
+        } else {
+          this.getProductList('all');
+        }
+      });
 
   }
 
   getProductList(type: string) {
     this.commonService.changeLoadingStatus(true);
     this.currentType = type;
-    if (this.currentType === 'all' || this.currentType === 'product') {
-      const params = `limit=${this.currentSize}&page=${this.currentPage}`;
+    if (this.currentType === 'all') {
+      // const params = `limit=${this.currentSize}&page=${this.currentPage}`;
+      const params = {
+        limit: this.currentSize,
+        page: this.currentPage
+      }
       this.commonService.getProducts(params).subscribe((data) => {
         this.totalItems = data.length;
         this.currentList = data.data;
@@ -67,7 +80,12 @@ export class ProductComponent implements OnInit {
         .pipe(
           map((res) => res.data._id),
           switchMap((data) => {
-            const params = `limit=${this.currentSize}&page=${this.currentPage}&category=${data}`;
+            // const params = `limit=${this.currentSize}&page=${this.currentPage}&category=${data}`;
+            const params = {
+              limit: this.currentSize,
+              page: this.currentPage,
+              category: data
+            }
             return this.commonService.getProducts(params);
           })
         )
