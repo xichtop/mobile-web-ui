@@ -24,9 +24,10 @@ export class ProductComponent implements OnInit {
     },
   ];
 
-  categoryList = ['iphone', 'ipad', 'macbook', 'airpod', 'watch'];
+  categoryList: any[] = [];
+  categoryFilter: string[] = [];
   romList = ['64GB', '128GB', '256GB', '512GB', '1TB'];
-  ramList = ['6GB', '8GB', '12GB', '16GB'];
+  ramList = ['3 GB', '4 GB', '6 GB', '8 GB', '16 GB'];
   sizeList = ['40MM', '41MM', '44MM', '45MM'];
   colorList = ['Black', 'Yellow', 'Pink', 'Green', 'Gray', 'White'];
   sortList = [
@@ -49,17 +50,22 @@ export class ProductComponent implements OnInit {
 
   isChangePrice = false;
 
-  totalItems = 0;
   currentType = 'all';
+  currentTypeId = '';
+
+  totalItems = 0;
   currentPage = 1;
   currentSize = 8;
   currentList: Product[] = [];
+  tempList: Product[] = [];
+  tempTotalItems = 0;
 
   arrPrice = [0, 80000000];
 
+  isLoadingFilter = false;
+
   constructor(
     private route: ActivatedRoute,
-    // private productService: ProductService,
     private commonService: CommonService
   ) {}
 
@@ -70,21 +76,42 @@ export class ProductComponent implements OnInit {
         if (params) {
           this.getProductList(params);
         } else {
+          this.getCategoryList();
           this.getProductList('all');
         }
+        this.filterObj = {
+          category: [''],
+          price: [0, 80000000],
+          rom: [''],
+          size: [''],
+          ram: [''],
+          colors: ['']
+        };
+        this.filterCount = 0;
       });
 
+  }
+
+  getCategoryList() {
+    this.commonService.getCategories()
+      .pipe(map(data => data.data))
+      .subscribe(data => {
+        this.categoryList = data;
+        this.categoryList.forEach(item => {
+          this.categoryFilter.push(item.sortCode);
+        })
+      });
   }
 
   getProductList(type: string) {
     this.commonService.changeLoadingStatus(true);
     this.currentType = type;
     if (this.currentType === 'all') {
-      const params = {
-        limit: this.currentSize,
-        page: this.currentPage,
-        sort: this.currentSort
-      }
+      const params = [
+        ['limit', this.currentSize],
+        ['page', this.currentPage],
+        ['sort', this.currentSort]
+      ]
       this.commonService.getProducts(params).subscribe((data) => {
         this.totalItems = data.length;
         this.currentList = data.data;
@@ -98,12 +125,13 @@ export class ProductComponent implements OnInit {
         .pipe(
           map((res) => res.data._id),
           switchMap((data) => {
-            const params = {
-              limit: this.currentSize,
-              page: this.currentPage,
-              category: data,
-              sort: this.currentSort
-            }
+            this.currentTypeId = data;
+            const params = [
+              ['limit', this.currentSize],
+              ['page', this.currentPage],
+              ['category', data],
+              ['sort', this.currentSort]
+            ];
             return this.commonService.getProducts(params);
           })
         )
@@ -117,12 +145,20 @@ export class ProductComponent implements OnInit {
 
   changePaginate(event: number) {
     this.currentPage = event;
-    this.getProductList(this.currentType);
+    this.fetchNewListProduct().subscribe(data => {
+      this.currentList = data.data;
+      this.totalItems = data.length;
+      this.isLoadingFilter = false;
+    });
   }
 
   changeSize(event: number) {
     this.currentSize = event;
-    this.getProductList(this.currentType);
+    this.fetchNewListProduct().subscribe(data => {
+      this.currentList = data.data;
+      this.totalItems = data.length;
+      this.isLoadingFilter = false;
+    });
   }
 
   moveToFilter() {
@@ -141,18 +177,34 @@ export class ProductComponent implements OnInit {
         this.filterCount -= 1;
       }
       this.assignFilter(filterArr, type);
+      this.fetchNewListProduct().subscribe(data => {
+        this.tempList = data.data;
+        this.tempTotalItems = data.length;
+        this.isLoadingFilter = false;
+      });
     } else {
       if (filterArr.length === 1) {
         this.filterCount += 1;
       }
       filterArr.push(event);
       this.assignFilter(filterArr, type);
+      this.fetchNewListProduct().subscribe(data => {
+        this.tempList = data.data;
+        this.tempTotalItems = data.length;
+        this.isLoadingFilter = false;
+      });
     }
   }
 
   clearFilterItem(type: string) {
     this.assignFilter([''], type);
     this.filterCount -= 1;
+    this.fetchNewListProduct().subscribe(data => {
+      this.tempList = data.data;
+      this.tempTotalItems = data.length;
+      this.isLoadingFilter = false;
+      this.showFilter();
+    });
   }
 
   assignFilter(array: string[], type: string) {
@@ -195,9 +247,19 @@ export class ProductComponent implements OnInit {
         this.filterCount += 1;
         this.isChangePrice = true;
       }
+      this.fetchNewListProduct().subscribe(data => {
+        this.tempList = data.data;
+        this.tempTotalItems = data.length;
+        this.isLoadingFilter = false;
+      });
     } else {
       this.filterCount -= 1;
       this.isChangePrice = false;
+      this.fetchNewListProduct().subscribe(data => {
+        this.tempList = data.data;
+        this.tempTotalItems = data.length;
+        this.isLoadingFilter = false;
+      });
     }
   }
 
@@ -205,5 +267,81 @@ export class ProductComponent implements OnInit {
     this.filterObj.price = this.arrPrice;
     this.isChangePrice = false;
     this.filterCount -= 1;
+    this.fetchNewListProduct().subscribe(data => {
+      this.tempList = data.data;
+      this.tempTotalItems = data.length;
+      this.isLoadingFilter = false;
+      this.showFilter();
+    })
+  }
+
+  showFilter() {
+    this.totalItems = this.tempTotalItems;
+    this.currentList = this.tempList;
+  }
+
+  sortChange(type: string) {
+    this.currentSort = type;
+    this.fetchNewListProduct().subscribe(data => {
+      this.currentList = data.data;
+      this.totalItems = data.length;
+      this.isLoadingFilter = false;
+    });
+  }
+
+  fetchNewListProduct() {
+    this.isLoadingFilter = true;
+    let params = [
+      ['limit', this.currentSize],
+      ['page', this.currentPage],
+      ['sort', this.currentSort]
+    ];
+    if (this.currentType === 'all') {
+      params = [
+        ['limit', this.currentSize],
+        ['page', this.currentPage],
+        ['sort', this.currentSort]
+      ];
+    } else {
+      params = [
+        ['limit', this.currentSize],
+        ['page', this.currentPage],
+        ['sort', this.currentSort],
+        ['category', this.currentTypeId]
+      ];
+    }
+    if (this.isChangePrice) {
+      params.push(['currentPrice[gte]', this.filterObj.price[0]]);
+      params.push(['currentPrice[lte]', this.filterObj.price[1]]);
+    }
+    for (const [key, value] of Object.entries(this.filterObj)) {
+      if (value.length > 1) {
+        if (key !== 'price') {
+          if (key === 'rom' || key === 'size') {
+            for (let i = 1; i < value.length; i++) {
+              params.push(['sizes%27size', value[i]]);
+            }
+          } else if (key === 'ram') {
+            for (let i = 1; i < value.length; i++) {
+              params.push(['configuration%27ram', value[i]]);
+            }
+          } else if (key === 'colors') {
+            for (let i = 1; i < value.length; i++) {
+              params.push(['colors%27color', value[i]]);
+            }
+          } else if (key === 'category') {
+            for (let i = 1; i < value.length; i++) {
+              const index = this.categoryList.findIndex(item => item.sortCode === value[i]); 
+              params.push([key, this.categoryList[index]._id]);
+            }
+          } else {
+            for (let i = 1; i < value.length; i++) {
+              params.push([key, value[i]]);
+            }
+          }
+        }
+      }
+    }
+    return this.commonService.getProducts(params);
   }
 }

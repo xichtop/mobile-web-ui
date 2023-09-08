@@ -38,11 +38,16 @@ export class CommonService {
     return this.http.get<{status: string, data: {_id: string}}>(url);
   }
 
-  getProducts(paramObj: {}): Observable<{ status: string; length: number; data: Product[] }> {
-    const params = new HttpParams().appendAll(paramObj);
-    const url = this.API_SERVER + 'products?';
+  getProducts(paramObj: (any)[]): Observable<{ status: string; length: number; data: Product[] }> {
+    let paramsUrl = '';
+    for (let i = 0; i < paramObj.length; i++) {
+      paramsUrl = paramsUrl + '&' + paramObj[i][0] + '=' + paramObj[i][1]
+    }
+    paramsUrl = paramsUrl.substring(1);
+    console.log(paramsUrl);
+    const url = this.API_SERVER + 'products?' + paramsUrl;
     return this.http
-      .get<{ status: string; length: number; data: Product[] }>(url, {params});
+      .get<{ status: string; length: number; data: Product[] }>(url);
   }
 
   getProductsByCategory(category: string, limit: number): Observable<Product[]> {

@@ -67,6 +67,6 @@ export class HomeComponent implements OnInit {
           this.commonService.changeLoadingStatus(false);
         })
     })
-    this.commonService.getProducts({limit: 4}).subscribe(data => this.topProduct = data.data);
+    this.commonService.getProducts([['limit', 4]]).subscribe(data => this.topProduct = data.data);
   }
 }

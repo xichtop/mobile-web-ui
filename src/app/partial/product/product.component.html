@@ -10,7 +10,7 @@
     <div class="product-filter-list">
       <div class="product-filter-list-item">
         <nz-badge [nzCount]="filterCount" [nzStyle]="{ backgroundColor: '#52c41a' }">
-          <button nz-button nzType="primary">
+          <button nz-button nzType="primary" [nzLoading]="isLoadingFilter">
             <span nz-icon nzType="filter" nzTheme="outline"></span>
             Bộ lọc
           </button>
@@ -20,7 +20,7 @@
       <div class="product-filter-list-item" *ngIf="currentType === 'all'">
         <ng-container 
           *ngTemplateOutlet="filterItem; context: {
-            list: categoryList,
+            list: categoryFilter,
             length: filterObj.category.length,
             title: 'Danh mục',
             type: 'category'
@@ -57,7 +57,7 @@
             <nz-divider></nz-divider>
             <div class="filters-buttons">
             <button nz-button nzType="default" nzDanger (click)="clearPrice()">Bỏ chọn</button>
-            <button nz-button nzType="primary">Xem kết quả</button>
+            <button nz-button nzType="primary" (click)="showFilter()">Xem {{tempTotalItems}} kết quả</button>
           </div>
           </ng-container>
           </ng-template>
@@ -107,8 +107,12 @@
       </div>
     </div>
     <div class="product-filter-sort">
-      <nz-select nzPlaceHolder="Sắp xếp" [nzOptions]="sortList"
-        [(ngModel)]="currentSort"></nz-select>
+      <nz-select nzPlaceHolder="Sắp xếp" 
+        [(ngModel)]="currentSort"
+        (ngModelChange)="sortChange($event)"
+        [nzOptions]="sortList"
+      >
+      </nz-select>
     </div>
   </div>
   <div class="product-list">
@@ -169,7 +173,11 @@
   <nz-divider></nz-divider>
   <div class="filters-buttons">
     <button nz-button nzType="default" nzDanger (click)="clearFilterItem(type)">Bỏ chọn</button>
-    <button nz-button nzType="primary">Xem kết quả</button>
+    <button 
+      nz-button nzType="primary" 
+      [nzLoading]="isLoadingFilter"
+      (click)="showFilter()"
+    >Xem {{tempTotalItems}} kết quả</button>
   </div>
 </ng-template>
 
