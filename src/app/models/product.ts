@@ -6,9 +6,12 @@ export interface Product {
   sold: number,
   quantity?: number,
   price: number,
+  currentPrice: number,
   discountPercent: number,
   colors: [],
-  sizes: [],
+  sizes: [
+    {size: string}
+  ],
   ratingAverage: number,
   ratingQuantity: number,
   pin?: {},

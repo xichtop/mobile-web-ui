@@ -22,4 +22,12 @@ export class SectionComponent {
   viewProduct(product: Product) {
     this.router.navigate([`catalog/${product._id}`]);
   }
+
+  navigateToCatalog() {
+    if (this.buttonTitle === 'products') {
+      this.router.navigate(['catalog']);
+    } else {
+      this.router.navigate(['catalog'], {queryParams: {type: this.buttonTitle}});
+    }
+  }
 }

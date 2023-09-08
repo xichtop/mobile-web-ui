@@ -1,19 +1,24 @@
 
 <nz-ribbon nzText="Trả góp 0%" nzColor="green" nzPlacement="start">
-  <nz-ribbon nzText="Giảm 26%" nzColor="red" nzPlacement="end">
+  <nz-ribbon [nzText]="'Giảm ' + product.discountPercent + ' %'" nzColor="red" nzPlacement="end">
     <nz-card nzHoverable>
       <div class="product-item">
         <!-- <div class="product-installment">
           <span>Trả góp 0%</span>
         </div> -->
-        <img [src]="product.urlPicture" alt="product-logo">
-        <p class="product-title">{{product.title}}</p>
+        <div class="product-item-img">
+          <img [src]="product.urlPicture" alt="product-logo">
+        </div>
+        <p nz-tooltip [nzTooltipTitle]="product.title" class="product-title">{{product.title}}</p>
         <div class="product-size">
-          <span class="product-size-item">128GB</span>
-          <span class="product-size-item">256GB</span>
+          <span 
+            *ngFor="let size of product.sizes"
+            class="product-size-item"
+          >{{size.size}}
+          </span>
         </div>
         <div class="product-price">
-          <p class="product-price-new">{{product.price | currency}}</p>
+          <p class="product-price-new">{{product.currentPrice | currency}}</p>
           <p class="product-price-old">{{product.price | currency}}</p>
         </div>
         <div class="product-rate">

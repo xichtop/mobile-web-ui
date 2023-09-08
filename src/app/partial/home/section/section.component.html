@@ -12,7 +12,7 @@
       <app-product-item [product]="product"></app-product-item>
     </div>
   </div>
-  <div class="section-button" *ngIf="!isCatalog">
+  <div class="section-button" *ngIf="!isCatalog" (click)="navigateToCatalog()">
     <button nz-button nzType="primary">
       {{'home.viewAll' | translate}} {{'home.' + buttonTitle | translate}} 
       <span nz-icon nzType="right"></span>

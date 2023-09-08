@@ -15,9 +15,12 @@ export class ProductItemComponent {
     sold: 0,
     quantity: 0,
     price: 0,
+    currentPrice: 0,
     discountPercent: 0,
     colors: [],
-    sizes: [],
+    sizes: [
+      {size: ''}
+    ],
     ratingAverage: 0,
     ratingQuantity: 0,
     category: ''

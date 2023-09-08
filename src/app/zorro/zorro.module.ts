@@ -23,6 +23,9 @@ import { NzBackTopModule } from 'ng-zorro-antd/back-top';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzSliderModule } from 'ng-zorro-antd/slider';
+import { NzStepsModule } from 'ng-zorro-antd/steps';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 @NgModule({
   declarations: [],
@@ -50,7 +53,10 @@ import { NzPaginationModule } from 'ng-zorro-antd/pagination';
     NzBackTopModule,
     NzMessageModule,
     NzCardModule,
-    NzPaginationModule
+    NzPaginationModule,
+    NzSliderModule,
+    NzStepsModule,
+    NzTagModule
   ],
   exports: [
     NzLayoutModule,
@@ -75,7 +81,10 @@ import { NzPaginationModule } from 'ng-zorro-antd/pagination';
     NzBackTopModule,
     NzMessageModule,
     NzCardModule,
-    NzPaginationModule
+    NzPaginationModule,
+    NzSliderModule,
+    NzStepsModule,
+    NzTagModule
   ]
 })
 export class ZorroModule { }
