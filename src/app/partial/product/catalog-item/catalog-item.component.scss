@@ -1,0 +1,235 @@
+@import '../../../../assets/scss/index.scss';
+
+.catalog {
+  max-width: 1200px;
+  margin: 1.5rem auto;
+
+  &-item {
+    width: 100%;
+
+    &-pictures {
+      &-img {
+        @include flex(center, center);
+        height: 40rem;
+
+        &-second {
+          @include flex(center, center);
+          flex-direction: column;
+          height: 100%;
+          border-radius: 5px;
+          
+          &-item {
+            img {
+              height: 10rem;
+              object-fit: cover;
+              cursor: pointer;
+              border: $border;
+              border-radius: 5px;
+            }
+          }
+        }
+
+        &-main {
+          padding-left: 2rem;
+
+          img {
+            height: 40rem;
+            object-fit: cover;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      &-slide {
+        @include flex(center, center);
+        padding-top: 1.5rem;
+
+        &-colors {
+          margin-right: 1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          cursor: pointer;
+
+          img {
+            height: 4rem;
+            width: 4rem;
+            object-fit: contain;
+            border: $border;
+            border-radius: 2px;
+          }
+
+          &-title {
+            font-size: 12px;
+            color: $color-primary;
+            padding-top: 0.3rem;
+          }
+        }
+
+        &-item {
+          margin-right: 1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          cursor: pointer;
+
+          &-icon {
+            @include flex(center, center);
+            height: 4rem;
+            width: 4rem;
+            border: $border;
+            border-radius: 2px;
+
+            span {
+              font-size: 25px;
+              color: $color-primary;
+            }
+          }
+
+          &-title {
+            font-size: 12px;
+            color: $color-primary;
+            padding-top: 0.3rem;
+          }
+        }
+      }
+    }
+
+    &-feature {
+      &-title {
+        span {
+          font-size: 20px;
+          font-weight: 800px;
+          color: $color-primary;
+        }
+      }
+      
+      &-numbers {
+        @include flex(center, flex-start);
+
+        &-rate {
+          @include flex(center, center);
+          padding-right: 1rem;
+
+          &-count {
+            padding-left: 1rem;
+            color: $color-primary;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        &-sold {
+          padding-left: 1rem;
+          border-left: $border;
+          color: $color-primary;
+        }
+      }
+
+      &-item {
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+          color: $color-primary;
+          padding-bottom: 1rem;
+        }
+        
+        &-buttons {
+          display: flex;
+
+          button {
+            margin-right: 1rem;
+          }
+
+          &-item {
+            height: 3rem;
+            width: 3rem;
+            margin-right: 2rem;
+            border-radius: 100%;
+            cursor: pointer;
+            box-shadow: inset 0 3px 4px rgba(0,0,0,.25);
+
+            &:hover {
+              border: $border;
+              box-shadow: $box-shadow;
+            }
+
+            &.active {
+              border: $border;
+              box-shadow: $box-shadow;
+            }
+          }
+        }
+      }
+
+      &-price {
+        @include flex(center, flex-start);
+        padding-bottom: 1rem;
+        border-bottom: $border;
+    
+        &-new {
+          color: $color-red;
+          padding-right: 1rem;
+          font-size: 20px;
+        }
+    
+        &-old {
+          text-decoration: line-through;
+          color: $color-primary;
+          font-size: 16px;
+        }
+      }
+
+      &-promote {
+        border: $border;
+        border-radius: 5px;
+        margin-top: 2.5rem;
+
+        &-header {
+          padding-left: 1rem;
+          padding-top: .5rem;
+          padding-bottom: .5rem;
+
+          &-title {
+            font-size: 20px;
+            color: $color-primary;
+
+            &-icon {
+              color: $color-red;
+              padding-right: 1rem;
+            }
+          }
+        }
+
+        &-body {
+          padding: .5rem 1rem;
+
+          &-item {
+            &-icon {
+              color: $color-green;
+              padding-right: .5rem;
+            }
+
+            span {
+              span {
+                color: $color-primary;
+                cursor: pointer;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+
+      &-button {
+        padding-top: 2rem;
+      }
+
+    }
+  }
+}

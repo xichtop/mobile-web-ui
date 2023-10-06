@@ -1,1 +1,126 @@
-<app-product-item [product]="product"></app-product-item>>
+<div class="catalog">
+  <div class="calatog-item" nz-row [nzGutter]="[{ xs: 4, sm: 8, md: 16, lg: 24 }, { xs: 4, sm: 8, md: 16, lg: 24 }]">
+    <div class="catalog-item-pictures" nz-col nzSpan="16">
+      <div class="catalog-item-pictures-img" nz-row>
+        <div class="catalog-item-pictures-img-second" nz-col nzSpan="4">
+          <div class="catalog-item-pictures-img-second-item"
+            *ngFor="let url of currentColor.urlPicture | slice : 0 : 4; index as index"
+          >
+            <img [src]="url" alt="product-img"
+              (click)="onChoosePicture(index)"
+            >
+          </div>
+        </div>
+        <div class="catalog-item-pictures-img-main" nz-col nzSpan="20">
+          <img [src]="currentColor.urlPicture[currentPicture]" alt="product-img">
+        </div>
+      </div>
+      <div nz-row>
+        <div class="catalog-item-pictures-slide" nz-col nzSpan="20" nzOffset="4">
+          <div class="catalog-item-pictures-slide-colors"
+            *ngFor="let color of product.colors; index as index"
+          >
+            <img [src]="color.urlPicture[0]" alt="product-img">
+            <span class="catalog-item-pictures-slide-colors-title">{{color.color}}</span>
+          </div>
+          <div class="catalog-item-pictures-slide-item">
+            <div class="catalog-item-pictures-slide-item-icon">
+              <span nz-icon nzType="dropbox" nzTheme="outline"></span>
+            </div>
+            <span class="catalog-item-pictures-slide-item-title">Mở hộp</span>
+          </div>
+          <div class="catalog-item-pictures-slide-item">
+            <div class="catalog-item-pictures-slide-item-icon">
+              <span nz-icon nzType="control" nzTheme="outline"></span>
+            </div>
+            <span class="catalog-item-pictures-slide-item-title">Thông số</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="catalog-item-feature" nz-col nzSpan="8">
+      <div class="catalog-item-feature-title">
+        <span>{{product.title}}</span>
+      </div>
+      <div class="catalog-item-feature-numbers">
+        <div class="catalog-item-feature-numbers-rate">
+          <nz-rate [ngModel]="product.ratingAverage" nzAllowHalf nzDisabled [nzCount]="5"></nz-rate>
+          <span class="catalog-item-feature-numbers-rate-count">{{product.ratingQuantity}} Đánh giá</span>
+        </div>
+        <span class="catalog-item-feature-numbers-sold">Đã bán {{product.sold}}</span>
+      </div>
+      <div class="catalog-item-feature-price">
+        <p class="catalog-item-feature-price-new">{{currentPrice | currency}}</p>
+        <p class="catalog-item-feature-price-old">
+          {{product.price + product.sizes[currentSize].price + product.colors[currentColorIndex].price | currency}}
+        </p>
+      </div>
+      <div class="catalog-item-feature-item">
+        <span class="catalog-item-feature-item-title">Dung lượng</span>
+        <div class="catalog-item-feature-item-buttons">
+          <button *ngFor="let item of product.sizes; index as index" nz-button
+          [nzType]="index === currentSize ? 'primary' : 'default'" 
+          (click)="onChooseSize(index)">
+          {{item.size}}
+        </button>
+        </div>
+      </div>
+      <div class="catalog-item-feature-item">
+        <span class="catalog-item-feature-item-title">Màu sắc: 
+          <span>{{product.colors[currentColorIndex].color}}</span>
+        </span>
+        <div class="catalog-item-feature-item-buttons">
+          <div class="catalog-item-feature-item-buttons-item"
+            *ngFor="let item of product.colors; index as index"
+            (click)="onChooseColor(index)"
+            [ngClass]="{'active': index === currentColorIndex}"
+            [ngStyle]="{backgroundColor: item.color}"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="catalog-item-feature-promote">
+        <div class="catalog-item-feature-promote-header">
+          <div class="catalog-item-feature-promote-header-title">
+            <span 
+              class="catalog-item-feature-promote-header-title-icon"
+              nz-icon nzType="gift" nzTheme="fill"></span>
+            <span>Khuyến mãi</span>
+          </div>
+          <div class="catalog-item-feature-promote-header-body">
+            <span>Giá và khuyến mãi dự kiến áp dụng đến 23:00 ngày 31/10</span>
+          </div>
+        </div>
+        <div class="catalog-item-feature-promote-body">
+          <div class="catalog-item-feature-promote-body-item">
+            <span 
+              class="catalog-item-feature-promote-body-item-icon"
+              nz-icon nzType="check-circle" nzTheme="fill"></span>
+            <span>Giảm tới 500.000đ qua cổng thanh toán
+              <span>(Xem chi tiết)</span>
+            </span>
+          </div>
+          <div class="catalog-item-feature-promote-body-item">
+            <span 
+              class="catalog-item-feature-promote-body-item-icon"
+              nz-icon nzType="check-circle" nzTheme="fill"></span>
+            <span>Thu cũ đổi mới: Giảm đến 2 triệu (Tùy model máy cũ, không kèm thanh toán qua cổng online, mua kèm)
+              <span>(Xem chi tiết)</span>
+            </span>
+          </div>
+          <div class="catalog-item-feature-promote-body-item">
+            <span 
+              class="catalog-item-feature-promote-body-item-icon"
+              nz-icon nzType="check-circle" nzTheme="fill"></span>
+            <span>Hoàn tiền nếu ở đâu rẻ hơn (Trong vòng 7 ngày, chỉ ấp dụng tại siêu thị)
+              <span>(Xem chi tiết)</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="catalog-item-feature-button">
+        <button nz-button nzType="primary" nzBlock>Mua ngay</button>
+      </div>
+    </div>
+  </div>
+</div>

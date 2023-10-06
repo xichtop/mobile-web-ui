@@ -8,9 +8,18 @@ export interface Product {
   price: number,
   currentPrice: number,
   discountPercent: number,
-  colors: [],
+  colors: [
+    {
+      color: string,
+      price: number,
+      urlPicture: string[]
+    }
+  ],
   sizes: [
-    {size: string}
+    {
+      size: string,
+      price: number 
+    }
   ],
   ratingAverage: number,
   ratingQuantity: number,

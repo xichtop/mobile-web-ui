@@ -17,9 +17,18 @@ export class ProductItemComponent {
     price: 0,
     currentPrice: 0,
     discountPercent: 0,
-    colors: [],
+    colors: [
+      {
+        color: '',
+        price: 0,
+        urlPicture: []
+      }
+    ],
     sizes: [
-      {size: ''}
+      {
+        size: '',
+        price: 0
+      }
     ],
     ratingAverage: 0,
     ratingQuantity: 0,

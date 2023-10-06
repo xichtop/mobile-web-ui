@@ -282,6 +282,7 @@ export class ProductComponent implements OnInit {
 
   sortChange(type: string) {
     this.currentSort = type;
+    this.currentPage = 1;
     this.fetchNewListProduct().subscribe(data => {
       this.currentList = data.data;
       this.totalItems = data.length;
