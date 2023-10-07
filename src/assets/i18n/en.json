@@ -1,4 +1,28 @@
 {
+  "common": {
+    "label": {
+      "from": "From",
+      "to": "to",
+      "storageCapacity": "Storage capacity",
+      "size": "Sizes",
+      "interalMemory": "Interal memory",
+      "colors": "Colors",
+      "color": {
+        "Pink": "Pink",
+        "Black": "Black",
+        "Yellow": "Yellow",
+        "Green": "Green",
+        "Gray": "Gray",
+        "White": "White",
+        "Purple": "Purple"
+      },
+      "sold": "Sold",
+      "review": "review",
+      "installment": "Installment 0%",
+      "discount": "Discount {{percent}}%",
+      "buyNow": "Buy now"
+    }
+  },
   "header": {
     "main": {
       "search": "What are you looking for...",
@@ -33,6 +57,25 @@
     "watch": "Apple Watch",
     "mac": "MacBook",
     "airpod": "Airpod"
+  },
+  "product": {
+    "filter": "Filter",
+    "category": "Categories",
+    "order": {
+      "label": "Order",
+      "highToLow": "Price high -> low",
+      "lowToHigh": "Price low -> high",
+      "bestseller": "Best seller",
+      "bestReview": "Best review"
+    },
+    "promote": "Promotions",
+    "promotetitle": "Prices and promotions are expected to apply until 11:00 p.m. October 31",
+    "promote1": "Discount up to 30$ via payment gateway",
+    "promote2": "Renew old collection: Discount up to 100$ (Depending on the old device model, does not include payment via online portal, purchased together)",
+    "promote3": "Refund if cheaper somewhere else (Within 7 days, only applicable at supermarkets)",
+    "seeDetail": "(See details)",
+    "openBox": "Open box",
+    "specification": "Specification"
   },
   "form": {
     "login": {

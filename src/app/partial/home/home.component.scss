@@ -4,10 +4,6 @@
 .home {
   .carousel {
     nz-carousel {
-      text-align: center;
-      background: $color-white;
-      color: $color-white;
-      overflow: hidden;
       height: 480px;
       line-height: 480px;
     }
@@ -33,7 +29,6 @@
     @include flex(center, space-between);
     max-width: 1200px;
     margin: 3rem auto;
-    // padding: 2rem;
     background-color: $color-white;
   
     img {

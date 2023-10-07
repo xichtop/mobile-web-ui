@@ -27,6 +27,7 @@ import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
 @NgModule({
   declarations: [],
@@ -58,7 +59,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
     NzSliderModule,
     NzStepsModule,
     NzTagModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzTabsModule
   ],
   exports: [
     NzLayoutModule,
@@ -87,7 +89,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
     NzSliderModule,
     NzStepsModule,
     NzTagModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzTabsModule
   ]
 })
 export class ZorroModule { }

@@ -57,6 +57,10 @@
             object-fit: contain;
             border: $border;
             border-radius: 2px;
+
+            &:hover {
+              box-shadow: $box-shadow;
+            }
           }
 
           &-title {
@@ -79,6 +83,10 @@
             width: 4rem;
             border: $border;
             border-radius: 2px;
+
+            &:hover {
+              box-shadow: $box-shadow;
+            }
 
             span {
               font-size: 25px;
@@ -194,6 +202,7 @@
           padding-left: 1rem;
           padding-top: .5rem;
           padding-bottom: .5rem;
+          border-bottom: $border;
 
           &-title {
             font-size: 20px;

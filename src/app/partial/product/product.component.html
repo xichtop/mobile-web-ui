@@ -12,7 +12,7 @@
         <nz-badge [nzCount]="filterCount" [nzStyle]="{ backgroundColor: '#52c41a' }">
           <button nz-button nzType="primary" [nzLoading]="isLoadingFilter">
             <span nz-icon nzType="filter" nzTheme="outline"></span>
-            Bộ lọc
+            {{'product.filter' | translate}}
           </button>
         </nz-badge>
       </div>
@@ -22,7 +22,7 @@
           *ngTemplateOutlet="filterItem; context: {
             list: categoryFilter,
             length: filterObj.category.length,
-            title: 'Danh mục',
+            title: 'product.category',
             type: 'category'
           }"
         ></ng-container>
@@ -36,7 +36,7 @@
           [nzPopoverContent]="properPrice"
           nzPopoverPlacement="bottom"
         >
-          Từ {{filterObj.price[0].toString()}}đ - {{filterObj.price[1].toString()}}đ
+          {{'common.label.from' | translate}} {{filterObj.price[0].toString()}}đ {{'common.label.to' | translate}} {{filterObj.price[1].toString()}}đ
           <span nz-icon nzType="caret-down" nzTheme="outline"></span>
         </button>
         <ng-template #properPrice>
@@ -68,7 +68,7 @@
           *ngTemplateOutlet="filterItem; context: {
             list: romList,
             length: filterObj.rom.length,
-            title: 'Dung lượng lưu trữ',
+            title: 'common.label.storageCapacity',
             type: 'rom'
           }"
         ></ng-container>
@@ -79,7 +79,7 @@
           *ngTemplateOutlet="filterItem; context: {
             list: sizeList,
             length: filterObj.size.length,
-            title: 'Kích thước',
+            title: 'common.label.size',
             type: 'size'
           }"
         ></ng-container>
@@ -90,7 +90,7 @@
           *ngTemplateOutlet="filterItem; context: {
             list: ramList,
             length: filterObj.ram.length,
-            title: 'Bộ nhớ trong',
+            title: 'common.label.interalMemory',
             type: 'ram'
           }"
         ></ng-container>
@@ -100,18 +100,23 @@
           *ngTemplateOutlet="filterItem; context: {
             list: colorList,
             length: filterObj.colors.length,
-            title: 'Màu sắc',
+            title: 'common.label.colors',
             type: 'color'
           }"
         ></ng-container>
       </div>
     </div>
     <div class="product-filter-sort">
-      <nz-select nzPlaceHolder="Sắp xếp" 
+      <nz-select 
+        [nzPlaceHolder]="'product.order.label' | translate"
         [(ngModel)]="currentSort"
         (ngModelChange)="sortChange($event)"
-        [nzOptions]="sortList"
       >
+        <nz-option 
+          *ngFor="let item of sortList"
+          [nzValue]="item.value" 
+          [nzLabel]="'product.order.' + item.label | translate">
+        </nz-option>
       </nz-select>
     </div>
   </div>
@@ -159,7 +164,7 @@
         [nzType]="isChooseItemFilter(item, type) >= 0 ? 'primary' : 'default'"
         (click)="chooseItemFilter(item, type)"
       >
-        {{item}}</button>
+        {{item | translate}}</button>
     </div>
     <ng-container *ngIf="switchFilter(type).length > 1">
       <ng-container

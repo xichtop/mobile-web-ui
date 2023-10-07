@@ -7,13 +7,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductRoutingModule } from './product-routing.module';
 import { SectionComponent } from '../home/section/section.component';
 import { CatalogItemComponent } from './catalog-item/catalog-item.component';
+import { ModalProductComponent } from './modal-product/modal-product.component';
 
 @NgModule({
   declarations: [
     ProductComponent,
     ProductItemComponent,
     SectionComponent,
-    CatalogItemComponent
+    CatalogItemComponent,
+    ModalProductComponent
   ],
   imports: [
     CommonModule,

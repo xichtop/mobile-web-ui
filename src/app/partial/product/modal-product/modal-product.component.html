@@ -1,0 +1,10 @@
+<nz-tabset nzCentered [nzSize]="'large'"
+  [nzSelectedIndex]="activeIndex">
+  <nz-tab [nzTitle]="color.color"
+    *ngFor="let color of product.colors; index as index"
+  >
+    {{color.color}} 
+  </nz-tab>
+  <nz-tab nzTitle="Hình mở hộp">Hình mở hộp</nz-tab>
+  <nz-tab nzTitle="Thông số kỹ thuật">Thông số kỹ thuật</nz-tab>
+</nz-tabset>

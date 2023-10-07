@@ -29,12 +29,15 @@ export class ProductComponent implements OnInit {
   romList = ['64GB', '128GB', '256GB', '512GB', '1TB'];
   ramList = ['3 GB', '4 GB', '6 GB', '8 GB', '16 GB'];
   sizeList = ['40MM', '41MM', '44MM', '45MM'];
-  colorList = ['Black', 'Yellow', 'Pink', 'Green', 'Gray', 'White'];
+  colorList = ['common.label.color.Black', 'common.label.color.Yellow', 
+    'common.label.color.Pink', 'common.label.color.Green', 
+    'common.label.color.Gray', 'common.label.color.White',
+    'common.label.color.Purple'];
   sortList = [
-    { label: 'Giá từ cao đến thấp', value: '-currentPrice' },
-    { label: 'Giá từ thấp đến cao', value: 'currentPrice' },
-    { label: 'Bán chạy nhất', value: '-sold' },
-    { label: 'Đánh giá tốt nhất', value: '-rate' },
+    { label: 'highToLow', value: '-currentPrice' },
+    { label: 'lowToHigh', value: 'currentPrice' },
+    { label: 'bestseller', value: '-sold' },
+    { label: 'bestReview', value: '-rate' },
   ];
 
   filterCount: number = 0;
@@ -98,7 +101,7 @@ export class ProductComponent implements OnInit {
       .subscribe(data => {
         this.categoryList = data;
         this.categoryList.forEach(item => {
-          this.categoryFilter.push(item.sortCode);
+          this.categoryFilter.push('home.' + item.sortCode);
         })
       });
   }

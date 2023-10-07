@@ -1,4 +1,28 @@
 {
+  "common": {
+    "label": {
+      "from": "Từ",
+      "to": "đến",
+      "storageCapacity": "Dung lượng lưu trữ",
+      "size": "Kích thước",
+      "interalMemory": "Bộ nhớ trong",
+      "colors": "Màu sắc",
+      "color": {
+        "Pink": "Hồng",
+        "Black": "Đen",
+        "Yellow": "Vàng",
+        "Green": "Xanh lá",
+        "Gray": "Bạc",
+        "White": "Trắng",
+        "Purple": "Tím"
+      },
+      "sold": "Đã bán",
+      "review": "đánh giá",
+      "installment": "Trả góp 0%",
+      "discount": "Giảm {{percent}}%",
+      "buyNow": "Mua ngay"
+    }
+  },
   "header": {
     "main": {
       "search": "Bạn đang tìm gì...",
@@ -33,6 +57,25 @@
     "watch": "Apple Watch",
     "mac": "MacBook",
     "airpod": "Airpod"
+  },
+  "product": {
+    "filter": "Filter",
+    "category": "Danh mục",
+    "order": {
+      "label": "Sắp xếp",
+      "highToLow": "Giá từ cao tới thấp",
+      "lowToHigh": "Giá từ thấp tới cao",
+      "bestseller": "Bán chạy nhất",
+      "bestReview": "Đánh giá tốt nhất"
+    },
+    "promote": "Khuyến mãi",
+    "promotetitle": "Giá và khuyến mãi dự kiến áp dụng đến 23:00 ngày 31/10",
+    "promote1": "Giảm tới 500.000đ qua cổng thanh toán",
+    "promote2": "Thu cũ đổi mới: Giảm đến 2 triệu (Tùy model máy cũ, không kèm thanh toán qua cổng online, mua kèm)",
+    "promote3": "Hoàn tiền nếu ở đâu rẻ hơn (Trong vòng 7 ngày, chỉ ấp dụng tại siêu thị)",
+    "seeDetail": "(Xem chi tiết)",
+    "openBox": "Mở hộp",
+    "specification": "Thông số"
   },
   "form": {
     "login": {

@@ -1,12 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Product } from '../../../models/product';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss'],
 })
-export class ProductItemComponent {
+export class ProductItemComponent implements OnDestroy {
   @Input() product: Product = {
     _id: '',
     title: '',
@@ -34,4 +36,20 @@ export class ProductItemComponent {
     ratingQuantity: 0,
     category: ''
   };
+  currentLanguage = 'vn';
+  changeLangSubscription: Subscription = new Subscription;
+
+  constructor (
+    private translate: TranslateService
+  ) {
+    this.changeLangSubscription = this.translate.onLangChange.subscribe(event => {
+      this.currentLanguage = event.lang;
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.changeLangSubscription) {
+      this.changeLangSubscription.unsubscribe();
+    }
+  }
 }
