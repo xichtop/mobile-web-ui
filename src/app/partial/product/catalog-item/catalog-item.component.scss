@@ -236,7 +236,12 @@
       }
 
       &-button {
+        @include flex(center, center);
         padding-top: 2rem;
+
+        button:first-child {
+          margin-right: 1rem;
+        }
       }
 
     }

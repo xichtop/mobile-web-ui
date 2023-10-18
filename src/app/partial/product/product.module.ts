@@ -8,6 +8,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { SectionComponent } from '../home/section/section.component';
 import { CatalogItemComponent } from './catalog-item/catalog-item.component';
 import { ModalProductComponent } from './modal-product/modal-product.component';
+import { ModalBuyNowComponent } from './modal-buy-now/modal-buy-now.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ModalProductComponent } from './modal-product/modal-product.component';
     ProductItemComponent,
     SectionComponent,
     CatalogItemComponent,
-    ModalProductComponent
+    ModalProductComponent,
+    ModalBuyNowComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,82 @@
+@import '../../../../assets/scss/index.scss';
+
+.buy-now {
+  &-title {
+    margin-top: -1rem;
+
+    &-name {
+      color: $color-primary;
+      font-size: 20px;
+    }
+
+    &-price {
+      @include flex(center, flex-start);
+      padding-bottom: 1rem;
+      border-bottom: $border;
+  
+      &-new {
+        color: $color-red;
+        padding-right: 1rem;
+        font-size: 20px;
+      }
+  
+      &-old {
+        text-decoration: line-through;
+        color: $color-primary;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &-body {
+    padding-bottom: 1rem;
+    border-bottom: $border;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+
+      &-title {
+        color: $color-primary;
+        padding-bottom: 1rem;
+      }
+      
+      &-buttons {
+        display: flex;
+
+        button {
+          margin-right: 1rem;
+        }
+
+        &-item {
+          height: 3rem;
+          width: 3rem;
+          margin-right: 2rem;
+          border-radius: 100%;
+          cursor: pointer;
+          box-shadow: inset 0 3px 4px rgba(0,0,0,.25);
+
+          &:hover {
+            border: $border;
+            box-shadow: $box-shadow;
+          }
+
+          &.active {
+            border: $border;
+            box-shadow: $box-shadow;
+          }
+        }
+      }
+    }
+  }
+
+  &-button {
+    @include flex(center, center);
+    padding-top: 2rem;
+
+    button:first-child {
+      margin-right: 1rem;
+    }
+  }
+}

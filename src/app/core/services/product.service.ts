@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Product } from 'src/app/models/product';
 
 @Injectable({
@@ -8,8 +8,12 @@ import { Product } from 'src/app/models/product';
 })
 export class ProductService {
 
+  orderListener = new Subject<{type: string, quantity: number}>();
+
   constructor(
-    private http: HttpClient
+  
   ) { }
+
+
 
 }

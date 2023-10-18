@@ -1,0 +1,58 @@
+<div class="buy-now">
+  <div class="buy-now-title">
+    <span class="buy-now-title-name">Điện thoại Iphone 13 Promax</span>
+    <div class="buy-now-title-price">
+      <p class="buy-now-title-price-new">{{currentPrice | currency}}</p>
+      <p class="buy-now-title-price-old">
+        {{product.price + product.sizes[currentSize].price + product.colors[currentColorIndex].price | currency}}
+      </p>
+    </div>
+  </div>
+  <div class="buy-now-body">
+    <div class="buy-now-body-item">
+      <span class="buy-now-body-item-title">{{'product.modal.chooseSize' | translate}}
+        <span>{{product.sizes[currentSize].size}}</span>
+      </span>
+      <div class="buy-now-body-item-buttons">
+        <button *ngFor="let item of product.sizes; index as index" nz-button
+        [nzType]="index === currentSize ? 'primary' : 'default'" 
+        (click)="onChooseSize(index)">
+        {{item.size}}
+      </button>
+      </div>
+    </div>
+    <div class="buy-now-body-item">
+      <span class="buy-now-body-item-title">{{'product.modal.chooseColor' | translate}}
+        <span>{{'common.label.color.' + product.colors[currentColorIndex].color | translate}}</span>
+      </span>
+      <div class="buy-now-body-item-buttons">
+        <div class="buy-now-body-item-buttons-item"
+          *ngFor="let item of product.colors; index as index"
+          (click)="onChooseColor(index)"
+          [ngClass]="{'active': index === currentColorIndex}"
+          [ngStyle]="{backgroundColor: item.color}"
+          >
+        </div>
+      </div>
+    </div>
+    <div class="buy-now-body-item">
+      <span class="buy-now-body-item-title">{{'product.modal.quantity' | translate}}
+        <nz-input-number [(ngModel)]="quantity" [nzMin]="1" [nzMax]="10" [nzStep]="1"></nz-input-number>
+      </span>
+    </div>
+  </div>
+  <div class="buy-now-button">
+    <button nz-button nzType="primary" nzBlock
+      (click)="onAddToCart()"
+    >
+      {{'product.modal.addToCart' | translate}}
+
+    </button>
+    <button nz-button nzType="default" nzBlock
+          (click)="onAddToCart()"
+        >
+          {{'product.viewCart' | translate}}
+
+        </button>
+  </div>
+</div>

@@ -48,7 +48,6 @@ export class ModalProductComponent implements OnInit{
   ngOnInit(): void {
     this.activeIndex = this.nzModalData.activeIndex;
     this.product = this.nzModalData.product;
-    console.log(this.product)
   }
 
 }

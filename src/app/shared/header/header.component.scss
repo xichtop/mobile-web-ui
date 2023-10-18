@@ -41,7 +41,11 @@
         background-color: rgba($color: $color-secondary, $alpha: 0.2);
       }
 
-      
+      &.active {
+        color: $color-secondary;
+        background-color: rgba($color: $color-secondary, $alpha: 0.2);
+      }
+
     }
   }
 

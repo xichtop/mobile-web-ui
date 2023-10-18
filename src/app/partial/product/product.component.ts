@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NzSliderValue } from 'ng-zorro-antd/slider';
 import {  map, switchMap } from 'rxjs';
 import { CommonService } from 'src/app/core/services/common.service';
+import { HomeService } from 'src/app/core/services/home.service';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -69,7 +70,8 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private homeService: HomeService
   ) {}
 
   ngOnInit(): void {
@@ -78,9 +80,11 @@ export class ProductComponent implements OnInit {
       .subscribe(params => {
         if (params) {
           this.getProductList(params);
+          this.homeService.categoryListener.next(params);
         } else {
           this.getCategoryList();
           this.getProductList('all');
+          this.homeService.categoryListener.next('');
         }
         this.filterObj = {
           category: [''],

@@ -14,7 +14,8 @@
         "Green": "Green",
         "Gray": "Gray",
         "White": "White",
-        "Purple": "Purple"
+        "Purple": "Purple",
+        "Blue": "Blue"
       },
       "sold": "Sold",
       "review": "review",
@@ -33,11 +34,11 @@
       "register": "Register"
     },
     "category": {
-      "phone": "iPhone",
+      "iphone": "iPhone",
       "ipad": "iPad",
-      "macbook": "Macbook",
+      "mac": "Macbook",
       "watch": "Smart watch",
-      "sound": "Airpod",
+      "airpod": "Airpod",
       "accessory": "Accessory",
       "service": "Service",
       "new": "News",
@@ -75,7 +76,17 @@
     "promote3": "Refund if cheaper somewhere else (Within 7 days, only applicable at supermarkets)",
     "seeDetail": "(See details)",
     "openBox": "Open box",
-    "specification": "Specification"
+    "openBoxImg": "Open box image",
+    "specification": "Specification",
+    "specifications": "Specifications",
+    "productContain": "Product set includes: Box, Instruction book, SIM card, Lightning cable - Type C",
+    "modal": {
+      "chooseSize": "Choose size: ",
+      "chooseColor": "Choose color: ",
+      "quantity": "Quantity: ",
+      "addToCart": "Add to cart"
+    },
+    "viewCart": "View cart"
   },
   "form": {
     "login": {
@@ -103,6 +114,7 @@
   },
   "message": {
     "login": "Log in successfully!",
+    "forceLogin": "Please login before proceed!",
     "logout": "Log out successfully!",
     "tokenExpired": "Your token have expired. Please log in again!",
     "loginFailed": "Email or password is incorrect. Please try again!"

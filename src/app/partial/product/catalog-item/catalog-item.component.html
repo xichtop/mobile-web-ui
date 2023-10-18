@@ -19,20 +19,20 @@
         <div class="catalog-item-pictures-slide" nz-col nzSpan="20" nzOffset="4">
           <div class="catalog-item-pictures-slide-colors"
             *ngFor="let color of product.colors; index as index"
-            (click)="onOpenProductModel(index)"
+            (click)="onOpenProductModal(index)"
           >
             <img [src]="color.urlPicture[0]" alt="product-img">
             <span class="catalog-item-pictures-slide-colors-title">{{'common.label.color.' + color.color | translate}}</span>
           </div>
           <div class="catalog-item-pictures-slide-item"
-          (click)="onOpenProductModel(product.colors.length + 1)">
+          (click)="onOpenProductModal(product.colors.length)">
             <div class="catalog-item-pictures-slide-item-icon">
               <span nz-icon nzType="dropbox" nzTheme="outline"></span>
             </div>
             <span class="catalog-item-pictures-slide-item-title">{{'product.openBox' | translate}}</span>
           </div>
           <div class="catalog-item-pictures-slide-item"
-            (click)="onOpenProductModel(product.colors.length + 2)">
+            (click)="onOpenProductModal(product.colors.length + 1)">
             <div class="catalog-item-pictures-slide-item-icon">
               <span nz-icon nzType="control" nzTheme="outline"></span>
             </div>
@@ -123,8 +123,20 @@
         </div>
       </div>
       <div class="catalog-item-feature-button">
-        <button nz-button nzType="primary" nzBlock>{{'common.label.buyNow' | translate}}</button>
+        <button nz-button nzType="primary" nzBlock
+          (click)="onBuyNow()"
+        >
+          {{'common.label.buyNow' | translate}}
+
+        </button>
+        <button nz-button nzType="default" nzBlock
+          (click)="onGoToCart()"
+        >
+          {{'product.viewCart' | translate}}
+
+        </button>
       </div>
     </div>
   </div>
 </div>
+

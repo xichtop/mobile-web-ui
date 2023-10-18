@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { CommonService } from 'src/app/core/services/common.service';
 import { Product } from 'src/app/models/product';
 import { ModalProductComponent } from '../modal-product/modal-product.component';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { ModalBuyNowComponent } from '../modal-buy-now/modal-buy-now.component';
 
 @Component({
   selector: 'app-catalog-item',
@@ -55,13 +56,15 @@ export class CatalogItemComponent implements OnInit, OnDestroy {
   currentLanguage = 'vn';
   changeLangSubscription: Subscription = new Subscription;
 
+  addToProduct = false;
 
   constructor(
     private route: ActivatedRoute,
     private commonService: CommonService,
     private modal: NzModalService, 
     private viewContainerRef: ViewContainerRef,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router
   ) {
     this.changeLangSubscription = this.translate.onLangChange.subscribe(event => {
       this.currentLanguage = event.lang;
@@ -110,7 +113,7 @@ export class CatalogItemComponent implements OnInit, OnDestroy {
     this.currentPrice = newPrice - newPrice * this.product.discountPercent / 100;
   }
 
-  onOpenProductModel(index: number): void {
+  onOpenProductModal(index: number): void {
     this.modal.create<ModalProductComponent>({
       nzTitle: '',
       nzContent: ModalProductComponent,
@@ -119,11 +122,31 @@ export class CatalogItemComponent implements OnInit, OnDestroy {
         activeIndex: index,
         product: this.product
       },
-      nzOnOk: () => new Promise(resolve => setTimeout(resolve, 1000)),
       nzFooter: null,
       nzClosable: false,
       nzWidth: 1200,
+      nzStyle: { top : '0', overFlow: 'scroll', height: '100vh'}
     });
+  }
+
+  onBuyNow() {
+    const modal = this.modal.create<ModalBuyNowComponent>({
+      nzTitle: '',
+      nzContent: ModalBuyNowComponent,
+      nzViewContainerRef: this.viewContainerRef,
+      nzData: {
+        product: this.product
+      },
+      nzFooter: null,
+      nzClosable: true,
+      nzWidth: 400,
+      nzCentered: true,
+    });
+    modal.afterClose.subscribe(result => console.log('[afterClose] The result is:', result));
+  }
+
+  onGoToCart() {
+    this.router.navigate([`cart`]);
   }
 }
 

@@ -1,5 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { BehaviorSubject, Observable, delay, map, of, startWith, switchMap } from 'rxjs';
 import { Product, ProductParams } from 'src/app/models/product';
 import { environment } from 'src/environments/environment';
@@ -21,8 +24,18 @@ export class CommonService {
   );
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private translateService: TranslateService,
+    private message: NzMessageService,
+    private router: Router
   ) { }
+
+  forceLogin() {
+    this.translateService.get('message.forceLogin').subscribe(message => {
+      this.message.create('warning', message);
+    })
+    this.router.navigate(['/auth/login']);
+  }
 
   changeLoadingStatus(status: boolean) {
     this.loadingStatusListener.next(status);

@@ -1,10 +1,40 @@
 <nz-tabset nzCentered [nzSize]="'large'"
   [nzSelectedIndex]="activeIndex">
-  <nz-tab [nzTitle]="color.color"
+  <nz-tab [nzTitle]="'common.label.color.' + color.color | translate" [nzForceRender]="true"
     *ngFor="let color of product.colors; index as index"
   >
-    {{color.color}} 
+  <div id="product-carousel">
+    <nz-carousel nzAutoPlay [nzEnableSwipe]="false">
+      <div class="carousel-content" nz-carousel-content *ngFor="let item of color.urlPicture">
+        <img [src]="item" alt="">
+      </div>
+    </nz-carousel>
+  </div>
   </nz-tab>
-  <nz-tab nzTitle="Hình mở hộp">Hình mở hộp</nz-tab>
-  <nz-tab nzTitle="Thông số kỹ thuật">Thông số kỹ thuật</nz-tab>
+  <nz-tab [nzTitle]="'product.openBoxImg' | translate">
+    <div class="tab-content">
+      <img src="https://cdn.tgdd.vn/Products/Images/42/289691/Kit/iphone-14-pro-bbh-org.jpg" alt="open-box">
+      <div class="tab-content-footer">
+        <span>{{'product.productContain' | translate}}</span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'product.specifications' | translate">
+    <div class="tab-content">
+      <img src="https://cdn.tgdd.vn/Products/Images/42/289691/Kit/iphone-14-pro-note.jpg" alt="specification-img">
+      <!-- <div class="tab-content-body">
+        <div class="tab-content-body-item">
+          <div class="tab-content-body-item-title">
+            <span>Màn hình</span>
+          </div>
+          <div class="tab-content-body-item-list">
+            <div class="tab-content-body-item-list-item">
+              <span>Công nghệ màn hình:</span>
+              <span>Oled</span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </nz-tab>
 </nz-tabset>

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../../models/product';
 import { Router } from '@angular/router';
+import { HomeService } from 'src/app/core/services/home.service';
 
 @Component({
   selector: 'app-section',
@@ -16,7 +17,8 @@ export class SectionComponent {
   @Input() isCatalog = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private homeService: HomeService
   ) {}
 
   viewProduct(product: Product) {
@@ -26,7 +28,9 @@ export class SectionComponent {
   navigateToCatalog() {
     if (this.buttonTitle === 'products') {
       this.router.navigate(['catalog']);
+      this.homeService.categoryListener.next('');
     } else {
+      this.homeService.categoryListener.next(this.buttonTitle);
       this.router.navigate(['catalog'], {queryParams: {type: this.buttonTitle}});
     }
   }

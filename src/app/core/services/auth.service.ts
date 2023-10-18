@@ -47,6 +47,8 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
+
+
   autoAuthUser() {
     const authInfo = this.getAuthDataFromLocalStorage();
     if (authInfo) {

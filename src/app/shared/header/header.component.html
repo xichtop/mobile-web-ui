@@ -7,24 +7,13 @@
     </div>
   </div>
   <div class="category">
-    <span class="category-item" (click)="navigateCatalog('iphone')">
-      {{'header.category.phone' | translate}}
-    </span>
-    <span class="category-item" (click)="navigateCatalog('ipad')">
-      {{'header.category.ipad' | translate}}
-    </span>
-    <span class="category-item" (click)="navigateCatalog('mac')">
-      {{'header.category.macbook' | translate}}
-    </span>
-    <span class="category-item" (click)="navigateCatalog('watch')">
-      {{'header.category.watch' | translate}}
-    </span>
-    <span class="category-item" (click)="navigateCatalog('airpod')">
-      {{'header.category.sound' | translate}}
-    </span>
-    <span class="category-item" (click)="navigateCatalog('accessory')">
-      {{'header.category.accessory' | translate}}
-    </span>
+    <ng-container *ngFor="let category of categoryList">
+      <span class="category-item"
+        [ngClass]="{'active' : currentCategory == category}"
+        (click)="navigateCatalog(category)">
+        {{'header.category.' + category | translate}}
+      </span>
+    </ng-container>
     <span nz-dropdown [nzDropdownMenu]="menu" class="category-item">
       {{'header.category.service' | translate}} &nbsp;
       <span nz-icon nzType="down"></span>
@@ -59,7 +48,7 @@
     </div>
     <div class="header-cart">
       <div>
-        <nz-badge [nzCount]="5" nz-popover nzPopoverTitle="Title" [nzPopoverContent]="contentTemplate"
+        <nz-badge [nzCount]="currentOrder" nz-popover nzPopoverTitle="Title" [nzPopoverContent]="contentTemplate"
           nzPopoverTrigger="hover">
           <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
         </nz-badge>

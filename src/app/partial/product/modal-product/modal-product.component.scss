@@ -1,0 +1,57 @@
+@import '../../../../assets/scss/variable';
+
+#product-carousel {
+  nz-carousel {
+    height: 590px;
+    line-height: 590px;
+  }
+  
+  ::ng-deep nz-carousel {
+    ul li.slick-active {
+      button {
+        background: $color-primary;
+      }
+    }
+  }
+  
+  ::ng-deep nz-carousel {
+    ul li {
+      button {
+        background: $color-primary;
+      }
+    }
+  }
+  
+  ::ng-deep nz-carousel .slick-slider .slick-list .slick-track{
+    .slick-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      img {
+        height: 100%;
+        object-fit: contain;
+        align-self: center;
+      }
+    }
+  }
+}
+
+.tab-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &-footer {
+    width: 100%;
+    background-color: $color-secondary;
+    margin: 0 3rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+
+    span {
+      color: $color-primary;
+    }
+  }
+}
