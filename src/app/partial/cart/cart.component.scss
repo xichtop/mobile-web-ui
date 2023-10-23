@@ -1,0 +1,63 @@
+@import '../../../assets/scss/index.scss';
+
+.cart {
+  max-width: 1200px;
+  margin: auto;
+
+  &-product {
+    &-title {
+      &-main {
+
+      }
+    }
+
+    &-list {
+      &-item {
+        &-main {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+    
+          img {
+            width: 5rem;
+            height: 5rem;
+            object-fit: contain;
+          }
+      
+          &-description {
+            &-title {
+              color: $color-primary;
+              font-size: 16px;
+              padding-left: 1rem;
+              cursor: pointer;
+      
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+      
+            &-list {
+              display: flex;
+              flex-direction: row;
+              padding-left: 1rem;
+      
+              &-item {
+                padding-right: 1rem;
+      
+                span {
+                  font-size: 14px;
+                }
+              }
+            }
+      
+          }
+        }
+    
+        &-quantity {
+          padding-left: 2rem;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,74 @@
-<p>cart works!</p>
+<div class="cart" nz-row>
+  <div class="cart-product" nz-col nzSpan="20">
+    <div class="cart-product-title">
+      <span class="cart-product-title-main">Cart</span>
+      <div class="cart-product-title-second">
+        <span nz-icon nzType="lock" nzTheme="fill"></span>
+        <span>Secure shopping</span>
+      </div>
+    </div>
+    <nz-table #basicTable 
+      [nzData]="cartList" class="cart-product-list"
+      [nzShowPagination]="false"
+      [nzBordered]="true"
+    >
+      <thead>
+        <tr>
+          <th>Sản phẩm</th>
+          <th [nzAlign]="'center'">Giá</th>
+          <th [nzAlign]="'center'">Số lượng</th>
+          <th [nzAlign]="'center'">Tổng</th>
+          <th [nzAlign]="'center'">Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of basicTable.data">
+          <td class="cart-product-list-item">
+            <div class="cart-product-list-item-main">
+              <img [src]="item.product.urlPicture" alt="product-img">
+              <div class="cart-product-list-item-main-description">
+                <span class="cart-product-list-item-main-description-title">
+                  {{item.product.title}}
+                </span>
+                <div class="cart-product-list-item-main-description-list">
+                  <div class="cart-product-list-item-main-description-list-item">
+                    <span>Mau: 
+                      <strong>{{'common.label.color.' + item.color | translate}}</strong>
+                    </span>
+                  </div>
+                  <div class="cart-product-list-item-main-description-list-item">
+                    <span>Size: <strong>{{item.size}}</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td [nzAlign]="'center'" 
+            class="cart-product-list-item">{{ item.product.price }}</td>
+          <td [nzAlign]="'center'"
+            class="cart-product-list-item">
+            <nz-input-number 
+              [(ngModel)]="item.quantity" [nzMin]="1" 
+              [nzMax]="10" [nzStep]="1">
+            </nz-input-number>
+          </td>
+          <td [nzAlign]="'center'"
+            class="cart-product-list-item">
+            {{ item.product.price * item.quantity }}</td>
+          <td [nzAlign]="'center'"
+            class="cart-product-list-item">
+            <button nz-button nzType="primary" nzDanger>
+              <span nz-icon nzType="delete" nzTheme="fill"></span>
+              Xóa
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <div class="cart-banner" nz-col nzSpan="4">
+    <div class="cart-banner-item">
+
+    </div>
+  </div>
+</div>

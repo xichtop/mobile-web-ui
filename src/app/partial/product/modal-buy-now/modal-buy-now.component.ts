@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { NZ_MODAL_DATA, NzModalRef } from 'ng-zorro-antd/modal';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { CartService } from 'src/app/core/services/cart.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { Product } from 'src/app/models/product';
 
@@ -61,12 +62,14 @@ export class ModalBuyNowComponent implements OnInit{
   constructor(
     private router: Router,
     private authService: AuthService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
     this.product = this.nzModalData.product;
     this.currentPrice = this.product.price - this.product.price * this.product.discountPercent / 100;
+    this.currentColor = this.product.colors[0];
   }
 
   onChooseSize(index: number) {
@@ -88,8 +91,29 @@ export class ModalBuyNowComponent implements OnInit{
 
   onAddToCart() {
     if (this.authService.getIsAuthenticated()) {
-
-      this.#modal.destroy({ data: 'this the result data' });
+      const userId = this.authService.getUserInfo()._id;
+      const index = this.cartService.cartList.findIndex(item => {
+        return this.product._id === item.product.id
+          && this.currentColor.color === item.color 
+          && this.product.sizes[this.currentSize].size === item.size;
+      });
+      if (index > -1) {
+        const newQuantity = this.quantity + this.cartService.cartList[index].quantity;
+        const body = {
+          quantity: newQuantity
+        }
+        const cartId = this.cartService.cartList[index]._id;
+        this.cartService.updateQuantityCart(cartId, body, userId);
+      } else {
+        const body = {
+          product: this.product._id,
+          color: this.currentColor.color,
+          size: this.product.sizes[this.currentSize].size,
+          quantity: this.quantity
+        }
+        this.cartService.postCart(body, userId);
+      }
+      this.#modal.destroy();
     } else {
       this.commonService.forceLogin();
     }

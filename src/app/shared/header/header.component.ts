@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { CartService, cartItem } from 'src/app/core/services/cart.service';
+import { CommonService } from 'src/app/core/services/common.service';
 import { HomeService } from 'src/app/core/services/home.service';
-import { ProductService } from 'src/app/core/services/product.service';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -16,27 +17,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private authStatusSub: Subscription = Subscription.EMPTY;
   private categorySub: Subscription = Subscription.EMPTY;
-  private orderSub: Subscription = Subscription.EMPTY;
+  private cartSub: Subscription = Subscription.EMPTY;
 
   categoryList = ['iphone', 'ipad', 'mac', 'watch', 'airpod', 'accessory'];
 
   isSearch = false;
   isLogin = false;
   userInfo: User = {
+    _id: '',
     name: '',
     email: '',
     role: '',
   };
 
   currentCategory = '';
-  currentOrder = 0;
+  currentCart = 0;
+  cartList : cartItem[] = [];
 
   constructor(
     private translateService: TranslateService,
     private authService: AuthService,
     private homeService: HomeService,
-    private productService: ProductService,
-    private router: Router
+    private cartService: CartService,
+    private router: Router,
+    private commonService: CommonService
   ) { }
 
   ngOnInit(): void {
@@ -52,20 +56,38 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.currentCategory = category;
       });
 
-    // this.orderSub = this.productService.orderListener
-    //   .subscribe(data => {
-    //     if (data.type === )
-    //   })
+    this.cartSub = this.cartService.getCartListListener()
+      .subscribe(data => {
+        this.cartList = data;
+        let length = 0;
+        data.forEach(item => {
+          length += item.quantity;
+        })
+        this.currentCart = length;
+      })
   }
 
   ngOnDestroy(): void {
     if (this.authStatusSub) this.authStatusSub.unsubscribe();
     if (this.categorySub) this.categorySub.unsubscribe();
+    if (this.cartSub) this.cartSub.unsubscribe();
   }
 
   navigateCatalog(event: string) {
     this.currentCategory = event;
     this.router.navigate([`/catalog`], { queryParams: { type: event } });
+  }
+
+  goToCatalog(productId?: string) {
+    if (productId) {
+      this.router.navigate([`/catalog/${productId}`]);
+    } else {
+      this.router.navigate([`/catalog`]);
+    }
+  }
+
+  goToCart() {
+    this.router.navigate([`cart`]);
   }
 
   changeLanguage(event: string): void {

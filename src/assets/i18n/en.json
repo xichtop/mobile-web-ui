@@ -15,7 +15,8 @@
         "Gray": "Gray",
         "White": "White",
         "Purple": "Purple",
-        "Blue": "Blue"
+        "Blue": "Blue",
+        "Red": "Red"
       },
       "sold": "Sold",
       "review": "review",
@@ -47,6 +48,13 @@
         "reNewed": "Old autumn renewed",
         "guarantee": "Guarantee"
       }
+    },
+    "cart": {
+      "noItem": "No Item",
+      "shopNow": "Shop now",
+      "color": "Color",
+      "size": "Size",
+      "showCart": "Show cart"
     }
   },
   "home": {

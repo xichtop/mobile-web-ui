@@ -48,16 +48,53 @@
     </div>
     <div class="header-cart">
       <div>
-        <nz-badge [nzCount]="currentOrder" nz-popover nzPopoverTitle="Title" [nzPopoverContent]="contentTemplate"
-          nzPopoverTrigger="hover">
-          <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+        <nz-badge [nzCount]="currentCart" nzShowZero nz-popover [nzPopoverContent]="contentCart"
+          nzPopoverTrigger="hover" nzPopoverPlacement="bottom"
+          (click)="goToCart()">
+          <span class="header-cart-icon" nz-icon nzType="shopping-cart" nzTheme="outline"></span>
         </nz-badge>
       </div>
-      <ng-template #contentTemplate>
-        <div>
-          <p >{{'header.main.login' | translate}}</p>
-          <p>{{'header.main.logout' | translate}}</p>
-        </div>
+      <ng-template #contentCart>
+        <nz-list class="header-cart-list"
+            [nzDataSource]="cartList"
+            [nzNoResult]="emptyList"
+          >
+          <nz-list-item *ngFor="let item of cartList" class="header-cart-list-item">
+            <div class="header-cart-list-item-product">
+              <img [src]="item.product.urlPicture" alt="product-img" class="header-cart-list-item-product-img">
+              <div class="header-cart-list-item-product-description">
+                <span class="header-cart-list-item-product-description-title" 
+                  (click)="goToCatalog(item.product.id)">
+                  {{item.product.title}}
+                </span>
+                <div class="header-cart-list-item-product-description-list">
+                  <div class="header-cart-list-item-product-description-list-item">
+                    <span>{{'header.cart.color' | translate}} <strong>{{'common.label.color.' + item.color | translate}}</strong></span>
+                  </div>
+                  <div class="header-cart-list-item-product-description-list-item">
+                    <span>{{'header.cart.size' | translate}} <strong>{{item.size}}</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="header-cart-list-item-quantity">
+              {{item.quantity}}
+            </div>
+          </nz-list-item>
+          <nz-list-footer *ngIf="cartList.length > 0" class="header-cart-list-button">
+            <button nz-button nzType="primary" (click)="goToCart()">
+              {{'header.cart.showCart' | translate}}
+            </button>
+          </nz-list-footer>
+        </nz-list>
+      </ng-template>
+      <ng-template #emptyList>
+        <nz-empty nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        [nzNotFoundContent]="'header.cart.noItem' | translate" [nzNotFoundFooter]="footerTpl">
+        <ng-template #footerTpl>
+          <button nz-button nzType="primary" (click)="goToCatalog()">{{'header.cart.shopNow' | translate}}</button>
+        </ng-template>
+      </nz-empty>
       </ng-template>
     </div>
     <div class="header-user">

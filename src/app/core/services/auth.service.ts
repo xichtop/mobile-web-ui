@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { CommonService } from './common.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { TranslateService } from '@ngx-translate/core';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class AuthService {
   private isAuthenticated: boolean = false;
   private authStatusListener = new Subject<boolean>();
   private userInfo: User = {
+    _id: '',
     name: '',
     email: '',
     role: '',
@@ -28,7 +30,8 @@ export class AuthService {
     private router: Router,
     private commonService: CommonService,
     private message: NzMessageService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private cartService: CartService
   ) {}
 
   getToken(): string {
@@ -47,8 +50,6 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
-
-
   autoAuthUser() {
     const authInfo = this.getAuthDataFromLocalStorage();
     if (authInfo) {
@@ -66,8 +67,8 @@ export class AuthService {
     this.setTimerToken(expiresIn / 1000);
     this.getUserInfoByToken().subscribe((res) => {
       this.userInfo = res.data;
+      this.cartService.getAllCart(this.userInfo._id);
       this.authStatusListener.next(true);
-      this.router.navigate(['/']);
     });
   }
 
@@ -83,20 +84,19 @@ export class AuthService {
       return throwError(err);
     }))
     .subscribe(response => {
-        console.log('Top', response);
         if (response.data.token) {
           const expiresInDuration = response.data.expiresIn;
           const now = new Date();
           const expirationDate = new Date(now.getTime() + (expiresInDuration * 1000));
           this.saveAuthDataInLocalStorage(response.data.token, expirationDate);
           this.getUserAndNotify(response.data.token, expiresInDuration * 1000);
+          this.router.navigate(['/']);
           this.commonService.changeLoadingStatus(false);
           this.translateService.get('message.login').subscribe(message => {
             this.message.create('success', message);
           })
         }
-      })
-      ;
+      });
   }
 
   logout() {
@@ -104,13 +104,15 @@ export class AuthService {
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
     this.userInfo = {
+      _id: '',
       name: '',
       email: '',
       role: ''
     }
     this.clearAuthDataInLocalStorage();
+    this.cartService.clearAllCart();
     clearTimeout(this.tokenTimer);
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
     this.translateService.get('message.logout').subscribe(message => {
       this.message.create('success', message);
     })

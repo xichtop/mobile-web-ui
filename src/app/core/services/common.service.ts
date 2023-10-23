@@ -57,7 +57,6 @@ export class CommonService {
       paramsUrl = paramsUrl + '&' + paramObj[i][0] + '=' + paramObj[i][1]
     }
     paramsUrl = paramsUrl.substring(1);
-    console.log(paramsUrl);
     const url = this.API_SERVER + 'products?' + paramsUrl;
     return this.http
       .get<{ status: string; length: number; data: Product[] }>(url);

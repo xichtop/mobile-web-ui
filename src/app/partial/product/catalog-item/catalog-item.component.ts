@@ -130,7 +130,7 @@ export class CatalogItemComponent implements OnInit, OnDestroy {
   }
 
   onBuyNow() {
-    const modal = this.modal.create<ModalBuyNowComponent>({
+    this.modal.create<ModalBuyNowComponent>({
       nzTitle: '',
       nzContent: ModalBuyNowComponent,
       nzViewContainerRef: this.viewContainerRef,
@@ -142,7 +142,6 @@ export class CatalogItemComponent implements OnInit, OnDestroy {
       nzWidth: 400,
       nzCentered: true,
     });
-    modal.afterClose.subscribe(result => console.log('[afterClose] The result is:', result));
   }
 
   onGoToCart() {

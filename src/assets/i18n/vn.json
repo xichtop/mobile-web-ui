@@ -15,7 +15,8 @@
         "Gray": "Bạc",
         "White": "Trắng",
         "Purple": "Tím",
-        "Blue": "Xanh lam"
+        "Blue": "Xanh lam",
+        "Red": "Đỏ"
       },
       "sold": "Đã bán",
       "review": "đánh giá",
@@ -47,6 +48,13 @@
         "reNewed": "Thu cũ đổi mới",
         "guarantee": "Bảo hành"
       }
+    },
+    "cart": {
+      "noItem": "Giỏ hàng trống",
+      "shopNow": "Xem tất cả sản phẩm",
+      "color": "Màu: ",
+      "size": "Dung lượng: ",
+      "showCart": "Xem giỏ hàng"
     }
   },
   "home": {

@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   submitForm(): void {
-    // console.log(this.signInForm.value);
     this.authService.login({
       email: this.signInForm.value.username || '',
       password: this.signInForm.value.password || ''

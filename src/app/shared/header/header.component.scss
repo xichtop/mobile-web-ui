@@ -65,12 +65,13 @@
 
       nz-badge {
         cursor: pointer;
-
-        span {
-          color: $color-secondary;
-          font-size: 30px;
-        }
       }
+      
+      &-icon {
+        color: $color-secondary;
+        font-size: 30px;
+      }
+
     }
 
     .header-user {
@@ -94,4 +95,57 @@
     }
   }
 
+}
+
+.header-cart-list {
+  &-item {
+    &-product {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &-img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+      }
+  
+      &-description {
+        &-title {
+          color: $color-primary;
+          padding-left: 1rem;
+          cursor: pointer;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+  
+        &-list {
+          display: flex;
+          flex-direction: row;
+          padding-left: 1rem;
+  
+          &-item {
+            padding-right: 1rem;
+  
+            span {
+              font-size: 12px;
+            }
+          }
+        }
+  
+      }
+    }
+
+    &-quantity {
+      padding-left: 2rem;
+      color: $color-primary;
+    }
+  }
+
+  &-button {
+    text-align: center;
+    margin-top: 1rem;
+  }
 }
