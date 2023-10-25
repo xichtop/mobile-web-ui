@@ -5,11 +5,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ZorroModule } from '../zorro/zorro.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent,
+    UnauthorizedComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,9 @@ import { TranslateModule } from '@ngx-translate/core';
     ZorroModule,
     HeaderComponent,
     FooterComponent,
-    TranslateModule
+    TranslateModule,
+    NotFoundComponent,
+    UnauthorizedComponent
   ]
 })
 export class SharedModule { }

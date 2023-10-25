@@ -1,0 +1,11 @@
+<div class="not-found">
+  <nz-result nzStatus="404" nzTitle="404" 
+    [nzSubTitle]="'result.404' | translate">
+    <div nz-result-extra>
+      <button nz-button nzType="primary"
+        (click)="goToHome()">
+        {{'result.backToHome' | translate}}
+      </button>
+    </div>
+  </nz-result>
+</div>

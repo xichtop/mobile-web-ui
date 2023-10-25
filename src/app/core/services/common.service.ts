@@ -34,7 +34,7 @@ export class CommonService {
     this.translateService.get('message.forceLogin').subscribe(message => {
       this.message.create('warning', message);
     })
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/auth/unauthorized']);
   }
 
   changeLoadingStatus(status: boolean) {

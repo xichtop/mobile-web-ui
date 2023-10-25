@@ -139,5 +139,11 @@
     "logout": "Log out successfully!",
     "tokenExpired": "Your token have expired. Please log in again!",
     "loginFailed": "Email or password is incorrect. Please try again!"
+  },
+  "result": {
+    "login": "Login",
+    "unauthorized": "Sorry, you are not authorized to access this page.",
+    "backToHome": "Back to home",
+    "404": "Sorry, the page you visited does not exist."
   }
 }

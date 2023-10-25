@@ -31,6 +31,7 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzResultModule } from 'ng-zorro-antd/result';
 
 @NgModule({
   declarations: [],
@@ -66,7 +67,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     NzTabsModule,
     NzListModule,
     NzEmptyModule,
-    NzTableModule
+    NzTableModule,
+    NzResultModule
   ],
   exports: [
     NzLayoutModule,
@@ -99,7 +101,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     NzTabsModule,
     NzListModule,
     NzEmptyModule,
-    NzTableModule
+    NzTableModule,
+    NzResultModule
   ]
 })
 export class ZorroModule { }

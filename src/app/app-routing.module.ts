@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './partial/home/home.component';
 import { AuthGuard } from './partial/auth/auth.guard';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,10 +21,9 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  }
+    path: '', redirectTo: 'home', pathMatch: 'full'
+  },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

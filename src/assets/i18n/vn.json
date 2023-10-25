@@ -139,5 +139,11 @@
     "logout": "Đăng xuất thành công!",
     "tokenExpired": "Token của bạn đã hết hạn. Vui lòng đăng nhập lại!",
     "loginFailed": "Tài khoản hoặc mật khẩu sai. Vui lòng thử lại!"
+  },
+  "result": {
+    "login": "Đăng nhập",
+    "unauthorized": "Xin lỗi, bạn không được quyền truy cập trang này.",
+    "backToHome": "Về trang chủ",
+    "404": "Xin lỗi, trang bạn truy cập không tồn tại."
   }
 }
