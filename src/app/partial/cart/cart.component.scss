@@ -6,8 +6,12 @@
 
   &-product {
     &-title {
-      &-main {
+      @include flex(center, center);
+      padding: 1rem 0;
 
+      &-main {
+        font-size: 30px;
+        color: $color-primary;
       }
     }
 
@@ -60,4 +64,9 @@
       }
     }
   }
+}
+
+.footer-table {
+  width: 100%;
+  text-align: end;
 }

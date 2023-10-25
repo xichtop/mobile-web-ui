@@ -4,11 +4,13 @@ import { CartComponent } from './cart.component';
 import { CartRoutingModule } from './cart-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { CheckOutComponent } from './check-out/check-out.component';
 
 
 @NgModule({
   declarations: [
-    CartComponent
+    CartComponent,
+    CheckOutComponent
   ],
   imports: [
     CommonModule,

@@ -96,6 +96,19 @@
     },
     "viewCart": "View cart"
   },
+  "cart": {
+    "myCart": "My Cart",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "action": "Action",
+    "color": "Color",
+    "size": "Size",
+    "delete": "Delete",
+    "chose": "Chose {{size}} product",
+    "checkOut": "Check out {{size}} product"
+  },
   "form": {
     "login": {
       "welcome": "Welcome to",

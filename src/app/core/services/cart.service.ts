@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AuthService } from './auth.service';
 
 export interface cartItem {
   _id: string,
@@ -26,6 +25,8 @@ export class CartService {
 
   private API_SERVER = environment.API_SERVER_URL;
   cartList: cartItem[] = [];
+  checkOutList: cartItem[] = [];
+  
   private cartListListener = new Subject<cartItem[]>();
 
   constructor(
@@ -64,6 +65,14 @@ export class CartService {
       .subscribe(res => {
         this.getAllCart(userId);
       });
+  }
+
+  deleteCart(cartId: string, userId: string) {
+    const url = this.API_SERVER + 'carts/' + cartId;
+    this.http.delete(url)
+      .subscribe(res => {
+        this.getAllCart(userId);
+      })
   }
 
   notifyUpdateCart() {

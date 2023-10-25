@@ -39,8 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private homeService: HomeService,
     private cartService: CartService,
-    private router: Router,
-    private commonService: CommonService
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -119,6 +118,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   logout() {
     this.authService.logout();
+  }
+
+  indentityProduct(index: number, item: cartItem) {
+    return item.product.id;
   }
 
 }

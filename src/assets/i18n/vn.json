@@ -96,6 +96,19 @@
     },
     "viewCart": "Xem giỏ hàng"
   },
+  "cart": {
+    "myCart": "Giỏ Hàng Của Tôi",
+    "product": "Sản phẩm",
+    "price": "Giá",
+    "quantity": "Số lượng",
+    "total": "Tổng",
+    "action": "Hành động",
+    "color": "Màu",
+    "size": "Size",
+    "delete": "Xóa",
+    "chose": "Đã chọn {{size}} sản phẩm",
+    "checkOut": "Thanh toán {{size}} sản phẩm"
+  },
   "form": {
     "login": {
       "welcome": "Chào mừng đến với",

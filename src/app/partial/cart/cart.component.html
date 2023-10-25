@@ -1,43 +1,49 @@
 <div class="cart" nz-row>
-  <div class="cart-product" nz-col nzSpan="20">
+  <div class="cart-product" nz-col nzSpan="24">
     <div class="cart-product-title">
-      <span class="cart-product-title-main">Cart</span>
-      <div class="cart-product-title-second">
-        <span nz-icon nzType="lock" nzTheme="fill"></span>
-        <span>Secure shopping</span>
-      </div>
+      <span class="cart-product-title-main">{{'cart.myCart'| translate}}</span>
     </div>
     <nz-table #basicTable 
       [nzData]="cartList" class="cart-product-list"
       [nzShowPagination]="false"
       [nzBordered]="true"
+      [nzFooter]="footerTable"
     >
       <thead>
         <tr>
-          <th>Sản phẩm</th>
-          <th [nzAlign]="'center'">Giá</th>
-          <th [nzAlign]="'center'">Số lượng</th>
-          <th [nzAlign]="'center'">Tổng</th>
-          <th [nzAlign]="'center'">Hành động</th>
+          <th
+            [(nzChecked)]="allChecked"
+            [nzIndeterminate]="indeterminate"
+            (nzCheckedChange)="onAllChecked($event)"
+          ></th>
+          <th>{{'cart.product' | translate}}</th>
+          <th [nzAlign]="'center'">{{'cart.price' | translate}}</th>
+          <th [nzAlign]="'center'">{{'cart.quantity' | translate}}</th>
+          <th [nzAlign]="'center'">{{'cart.total' | translate}}</th>
+          <th [nzAlign]="'center'">{{'cart.action' | translate}}</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of basicTable.data">
+        <tr *ngFor="let item of basicTable.data; index as i">
+          <td [nzChecked]="setOfCheckedId.has(item._id)" 
+            (nzCheckedChange)="onItemChecked(item._id, $event, i)"></td>
           <td class="cart-product-list-item">
             <div class="cart-product-list-item-main">
               <img [src]="item.product.urlPicture" alt="product-img">
               <div class="cart-product-list-item-main-description">
-                <span class="cart-product-list-item-main-description-title">
+                <span class="cart-product-list-item-main-description-title"
+                (click)="goToProduct(i)">
                   {{item.product.title}}
                 </span>
                 <div class="cart-product-list-item-main-description-list">
                   <div class="cart-product-list-item-main-description-list-item">
-                    <span>Mau: 
+                    <span>{{'cart.color' | translate}}: 
                       <strong>{{'common.label.color.' + item.color | translate}}</strong>
                     </span>
                   </div>
                   <div class="cart-product-list-item-main-description-list-item">
-                    <span>Size: <strong>{{item.size}}</strong></span>
+                    <span>{{'cart.size' | translate}}: 
+                      <strong>{{item.size}}</strong></span>
                   </div>
                 </div>
               </div>
@@ -48,27 +54,51 @@
           <td [nzAlign]="'center'"
             class="cart-product-list-item">
             <nz-input-number 
-              [(ngModel)]="item.quantity" [nzMin]="1" 
+              [ngModel]="item.quantity"
+              (ngModelChange)="onChangeQuantity($event, i)"
+              [nzMin]="1" 
               [nzMax]="10" [nzStep]="1">
             </nz-input-number>
           </td>
           <td [nzAlign]="'center'"
             class="cart-product-list-item">
-            {{ item.product.price * item.quantity }}</td>
+            {{ item.product.price * item.quantity }}
+          </td>
           <td [nzAlign]="'center'"
             class="cart-product-list-item">
-            <button nz-button nzType="primary" nzDanger>
+            <button nz-button nzType="primary" nzDanger
+              (click)="onDeleteCart(i)"  
+            >
               <span nz-icon nzType="delete" nzTheme="fill"></span>
-              Xóa
+              {{'cart.delete' | translate}}
             </button>
           </td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td [colSpan]="3">
+          </td>
+          <td [nzAlign]="'center'">
+            {{'cart.total' | translate}}:
+          </td>
+          <td [nzAlign]="'center'">
+            {{total}}
+          </td>
+          <td [nzAlign]="'center'">
+            {{'cart.chose' | translate: { size: setOfCheckedId.size } }}
+          </td>
+        </tr>
+      </tfoot>
+      <ng-template #footerTable>
+        <div class="footer-table">
+          <button nz-button nzType="primary"
+            [disabled]="setOfCheckedId.size == 0"
+            (click)="checkOut()">
+            {{'cart.checkOut' | translate: { size: setOfCheckedId.size } }}
+          </button>
+        </div>
+        </ng-template>
     </nz-table>
-  </div>
-  <div class="cart-banner" nz-col nzSpan="4">
-    <div class="cart-banner-item">
-
-    </div>
   </div>
 </div>

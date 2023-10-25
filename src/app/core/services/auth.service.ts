@@ -112,7 +112,6 @@ export class AuthService {
     this.clearAuthDataInLocalStorage();
     this.cartService.clearAllCart();
     clearTimeout(this.tokenTimer);
-    // this.router.navigate(['/']);
     this.translateService.get('message.logout').subscribe(message => {
       this.message.create('success', message);
     })
