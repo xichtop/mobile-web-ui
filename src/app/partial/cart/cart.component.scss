@@ -3,8 +3,11 @@
 .cart {
   max-width: 1200px;
   margin: auto;
+  padding-top: 1rem;
 
   &-product {
+    padding-top: 1rem;
+    
     &-title {
       @include flex(center, center);
       padding: 1rem 0;

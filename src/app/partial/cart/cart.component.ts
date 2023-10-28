@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService, cartItem } from 'src/app/core/services/cart.service';
+import { breadCrumbItem } from 'src/app/models/breadcrumb';
 
 @Component({
   selector: 'app-cart',
@@ -10,6 +11,20 @@ import { CartService, cartItem } from 'src/app/core/services/cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit, OnDestroy {
+
+  breadcrumb : breadCrumbItem = {
+    title: 'home',
+    icon: 'home',
+    canNavigate: true,
+    url: '/',
+    child: {
+      title: 'cart',
+      icon: 'shopping-cart',
+      canNavigate: false,
+      url: '/cart',
+      child: null
+    }
+  }
 
   cartList: readonly cartItem[] = [];
   allChecked: boolean = false;
@@ -84,6 +99,8 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   checkOut(): void {
+    const orderList = this.cartList.filter(item => this.setOfCheckedId.has(item._id));
+    this.cartService.checkOutList = orderList;
     this.router.navigate(['check-out'], {relativeTo: this.route} );
   }
 }

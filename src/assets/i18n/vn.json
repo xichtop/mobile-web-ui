@@ -109,6 +109,34 @@
     "chose": "Đã chọn {{size}} sản phẩm",
     "checkOut": "Thanh toán {{size}} sản phẩm"
   },
+  "checkOut": {
+    "recieverInfo": "Thông tin người nhận",
+    "recieverName": "Tên người nhận",
+    "phoneNumber": "Số điện thoại",
+    "address": "Địa chỉ",
+    "edit": "Chỉnh sửa",
+    "paymentMethod": "Phương thức thanh toán",
+    "Creditcard": "Thẻ tín dụng",
+    "Momo": "Ví Momo",
+    "Zalo": "Zalo pay",
+    "Cash": "Thanh toán khi nhận hàng",
+    "shippingMethod": "Phương thức giao hàng",
+    "vietnamPost": "Bưu điện Việt Nam",
+    "fastDeliver": "Giao hàng nhanh",
+    "economicalDeliver": "Giao hàng tiết kiệm",
+    "JT": "J&T Express",
+    "vietel": "Viettel Post",
+    "returnCart": "Trở về giỏ hàng",
+    "self": "Thanh toán",
+    "productList": "Danh sách sản phẩm",
+    "discountCode": "Mã giảm giá",
+    "apply": "Áp dụng",
+    "subTotal": "Tổng sản phẩm",
+    "shipping": "Phí giao hàng",
+    "discount": "Giảm giá",
+    "tax": "Thuế",
+    "total": "Tổng"
+  },
   "form": {
     "login": {
       "welcome": "Chào mừng đến với",
@@ -145,5 +173,10 @@
     "unauthorized": "Xin lỗi, bạn không được quyền truy cập trang này.",
     "backToHome": "Về trang chủ",
     "404": "Xin lỗi, trang bạn truy cập không tồn tại."
+  },
+  "breadcrumb": {
+    "home": "Trang chủ",
+    "cart": "Giỏ hàng",
+    "checkOut": "Thanh toán"
   }
 }

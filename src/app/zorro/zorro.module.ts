@@ -32,6 +32,10 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzResultModule } from 'ng-zorro-antd/result';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
 
 @NgModule({
   declarations: [],
@@ -68,7 +72,11 @@ import { NzResultModule } from 'ng-zorro-antd/result';
     NzListModule,
     NzEmptyModule,
     NzTableModule,
-    NzResultModule
+    NzResultModule,
+    NzCollapseModule,
+    NzDescriptionsModule,
+    NzBreadCrumbModule,
+    NzRadioModule
   ],
   exports: [
     NzLayoutModule,
@@ -102,7 +110,11 @@ import { NzResultModule } from 'ng-zorro-antd/result';
     NzListModule,
     NzEmptyModule,
     NzTableModule,
-    NzResultModule
+    NzResultModule,
+    NzCollapseModule,
+    NzDescriptionsModule,
+    NzBreadCrumbModule,
+    NzRadioModule
   ]
 })
 export class ZorroModule { }

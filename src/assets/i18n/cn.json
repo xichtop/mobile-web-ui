@@ -1,24 +1,24 @@
 {
   "common": {
     "label": {
-      "from": "From",
-      "to": "to",
-      "storageCapacity": "Storage capacity",
-      "size": "Sizes",
-      "interalMemory": "Interal memory",
-      "colors": "Colors",
+      "from": "從",
+      "to": "自",
+      "storageCapacity": "存儲容量",
+      "size": "大小",
+      "interalMemory": "間歇記憶",
+      "colors": "顏色",
       "color": {
-        "Pink": "Pink",
-        "Black": "Black",
-        "Yellow": "Yellow",
-        "Green": "Green",
-        "Gray": "Gray",
-        "White": "White",
-        "Purple": "Purple",
-        "Blue": "Blue",
-        "Red": "Red"
+        "Pink": "粉紅色",
+        "Black": "黑",
+        "Yellow": "黃色",
+        "Green": "綠",
+        "Gray": "灰色",
+        "White": "白",
+        "Purple": "紫色",
+        "Blue": "藍",
+        "Red": "紅"
       },
-      "sold": "Sold",
+      "sold": "出售",
       "review": "review",
       "installment": "Installment 0%",
       "discount": "Discount {{percent}}%",
@@ -96,47 +96,6 @@
     },
     "viewCart": "View cart"
   },
-  "cart": {
-    "myCart": "My Cart",
-    "product": "Product",
-    "price": "Price",
-    "quantity": "Quantity",
-    "total": "Total",
-    "action": "Action",
-    "color": "Color",
-    "size": "Size",
-    "delete": "Delete",
-    "chose": "Chose {{size}} product",
-    "checkOut": "Check out {{size}} product"
-  },
-  "checkOut": {
-    "recieverInfo": "Reciever info",
-    "recieverName": "Reciever name",
-    "phoneNumber": "Phone number",
-    "address": "Address",
-    "edit": "Edit",
-    "paymentMethod": "Payment method",
-    "Creditcard": "Credit card",
-    "Momo": "Momo wallet",
-    "Zalo": "Zalo pay",
-    "Cash": "Pay by cash",
-    "shippingMethod": "Shipping method",
-    "vietnamPost": "Viet Nam Post",
-    "fastDeliver": "Fast Delivery",
-    "economicalDeliver": "Economical Delivery",
-    "JT": "J&T Express",
-    "vietel": "Viettel Post",
-    "returnCart": "Return to cart",
-    "self": "Check out",
-    "productList": "Product list",
-    "discountCode": "Discount code",
-    "apply": "Apply",
-    "subTotal": "Subtotal",
-    "shipping": "Shipping fee",
-    "discount": "Discount",
-    "tax": "Taxes",
-    "total": "Total"
-  },
   "form": {
     "login": {
       "welcome": "Welcome to",
@@ -167,16 +126,5 @@
     "logout": "Log out successfully!",
     "tokenExpired": "Your token have expired. Please log in again!",
     "loginFailed": "Email or password is incorrect. Please try again!"
-  },
-  "result": {
-    "login": "Login",
-    "unauthorized": "Sorry, you are not authorized to access this page.",
-    "backToHome": "Back to home",
-    "404": "Sorry, the page you visited does not exist."
-  },
-  "breadcrumb": {
-    "home": "Home",
-    "cart": "Cart",
-    "checkOut": "Check out"
   }
 }

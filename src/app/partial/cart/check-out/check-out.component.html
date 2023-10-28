@@ -1,1 +1,172 @@
-<p>check-out works!</p>
+<div class="check-out">
+  <app-breadcrumb [breadCrumb]="breadcrumb"></app-breadcrumb>
+  <div nz-row [nzGutter]="16">
+    <div class="check-out-info" nz-col [nzSpan]="14">
+      <div class="check-out-info-item">
+        <nz-card [nzTitle]="'checkOut.recieverInfo' | translate" [nzExtra]="extraTemplate">
+          <nz-descriptions>
+            <nz-descriptions-item [nzTitle]="'checkOut.recieverName' | translate">{{userInfo.name}}</nz-descriptions-item>
+            <nz-descriptions-item [nzTitle]="'checkOut.phoneNumber' | translate">{{userInfo.phoneNumber}}</nz-descriptions-item>
+            <nz-descriptions-item [nzTitle]="'Email'">{{userInfo.email}}</nz-descriptions-item>
+            <nz-descriptions-item [nzTitle]="'checkOut.address' | translate">
+              {{userInfo.address}}
+            </nz-descriptions-item>
+          </nz-descriptions>
+        </nz-card>
+        <ng-template #extraTemplate>
+          <a>{{'checkOut.edit' | translate}}</a>
+        </ng-template>
+      </div>
+      <div class="check-out-info-item">
+        <nz-card [nzTitle]="'checkOut.paymentMethod' | translate"> 
+          <nz-collapse nzAccordion [nzExpandIconPosition]="'right'">
+            <nz-collapse-panel [nzHeader]="headerCredit"
+            [nzActive]="paymentActive == 'credit'"
+            (nzActiveChange)="changePayment('credit')"
+            [nzExtra]="extraCredit">
+              <p>Creditcard content</p>
+            </nz-collapse-panel>
+            <nz-collapse-panel [nzHeader]="headerMomo"
+            [nzActive]="paymentActive == 'momo'"
+            (nzActiveChange)="changePayment('momo')">
+              <p>Momo content</p>
+            </nz-collapse-panel>
+            <nz-collapse-panel [nzHeader]="headerZalo"
+            [nzActive]="paymentActive == 'zalo'"
+            (nzActiveChange)="changePayment('zalo')">
+              <p>Zalopay content</p>
+            </nz-collapse-panel>
+            <nz-collapse-panel [nzHeader]="headerCash"
+              (nzActiveChange)="changePayment('cash')"
+              [nzDisabled]="true"
+            >
+            </nz-collapse-panel>
+          </nz-collapse>
+          <ng-template #headerCredit>
+            <nz-radio-group [(ngModel)]="paymentActive">
+              <label nz-radio [nzValue]="paymentOptions[0].value">
+                {{ 'checkOut.' + paymentOptions[0].label | translate}}</label>
+            </nz-radio-group>
+          </ng-template>
+          <ng-template #headerMomo>
+            <nz-radio-group [(ngModel)]="paymentActive">
+              <label nz-radio [nzValue]="paymentOptions[1].value">
+                <img src="../../../../assets/images/payment/MoMo.png" alt="momo-logo" class="payment-logo">
+                {{ 'checkOut.' + paymentOptions[1].label | translate }}</label>
+            </nz-radio-group>
+          </ng-template>
+          <ng-template #headerZalo>
+            <nz-radio-group [(ngModel)]="paymentActive">
+              <label nz-radio [nzValue]="paymentOptions[2].value">
+                <img src="../../../../assets/images/payment/ZaloPay.webp" alt="zalo-logo" class="payment-logo">
+                {{ 'checkOut.' + paymentOptions[2].label | translate }}</label>
+            </nz-radio-group>
+          </ng-template>
+          <ng-template #headerCash>
+            <nz-radio-group [(ngModel)]="paymentActive">
+              <label nz-radio [nzValue]="paymentOptions[3].value">
+                {{ 'checkOut.' + paymentOptions[3].label | translate }}</label>
+            </nz-radio-group>
+          </ng-template>
+          <ng-template #extraCredit>
+            <div class="payment-extra">
+              <img src="../../../../assets/images/payment/VISA.png" alt="visa-logo">
+              <img src="../../../../assets/images/payment/Mastercard.webp" alt="mastercard-logo">
+              <img src="../../../../assets/images/payment/Discover.png" alt="discover-logo">
+              <img src="../../../../assets/images/payment/JCB.webp" alt="jcb-logo">
+            </div>
+          </ng-template>
+        </nz-card>
+      </div>
+      <div class="check-out-info-item">
+        <nz-card [nzTitle]="'checkOut.shippingMethod' | translate">
+          <nz-checkbox-wrapper>
+            <div nz-row>
+              <div nz-col nzSpan="8"><label nz-checkbox nzValue="A" [ngModel]="true">{{'checkOut.vietnamPost' | translate}}</label></div>
+              <div nz-col nzSpan="8"><label nz-checkbox nzValue="B">{{'checkOut.fastDeliver' | translate}}</label></div>
+              <div nz-col nzSpan="8"><label nz-checkbox nzValue="C">{{'checkOut.economicalDeliver' | translate}}</label></div>
+              <div nz-col nzSpan="8"><label nz-checkbox nzValue="D">{{'checkOut.JT' | translate}}</label></div>
+              <div nz-col nzSpan="8"><label nz-checkbox nzValue="E">{{'checkOut.vietel' | translate}}</label></div>
+            </div>
+          </nz-checkbox-wrapper>
+        </nz-card>
+      </div>
+      <div class="check-out-info-buttons">
+        <div class="check-out-info-buttons-back">
+          <a nz-button nzType="link">
+            <span nz-icon nzType="caret-left" nzTheme="outline"></span>
+            {{'checkOut.returnCart' | translate}}</a>
+        </div>
+        <button nz-button nzType="primary">{{'checkOut.self' | translate}}</button>
+      </div>
+    </div>
+    <div class="check-out-product" nz-col [nzSpan]="10">
+      <nz-card [nzTitle]="'checkOut.productList' | translate"> 
+        <nz-list class="check-out-product-list" 
+          [nzDataSource]="checkOutList"
+          [nzBordered]="true"
+        >
+          <nz-list-item *ngFor="let item of checkOutList" class="check-out-product-list-item">
+            <div class="check-out-product-list-item-product">
+              <nz-badge [nzCount]="item.quantity" [nzStyle]="{ backgroundColor: '#52c41a' }">
+                <img [src]="item.product.urlPicture" alt="product-img" class="check-out-product-list-item-product-img">
+              </nz-badge>
+              <div class="check-out-product-list-item-product-description">
+                <span class="check-out-product-list-item-product-description-title">
+                  {{item.product.title}}
+                </span>
+                <div class="check-out-product-list-item-product-description-list">
+                  <div class="check-out-product-list-item-product-description-list-item">
+                    <span>{{'header.cart.color' | translate}} <strong>{{'common.label.color.' + item.color |
+                        translate}}</strong></span>
+                  </div>
+                  <div class="check-out-product-list-item-product-description-list-item">
+                    <span>{{'header.cart.size' | translate}} <strong>{{item.size}}</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="check-out-product-list-item-price">
+              <span>{{item.product.price * item.quantity}}</span>
+            </div>
+          </nz-list-item>
+          <nz-list-item class="check-out-product-list-item">
+            <input nz-input [placeholder]="'checkOut.discountCode' | translate" 
+              [(ngModel)]="discountCode" type="text"
+              class="check-out-product-list-item-input"
+            />
+            <button nz-button nzType="primary" [disabled]="discountCode == ''">{{'checkOut.apply' | translate}}</button>
+          </nz-list-item>
+          <nz-list-item class="check-out-product-list-item">
+            <div class="check-out-product-list-item-total">
+              <div class="check-out-product-list-item-total-item">
+                <span>{{'checkOut.subTotal' | translate}}</span>
+                <span>100000</span>
+              </div>
+              <div class="check-out-product-list-item-total-item">
+                <span>{{'checkOut.shipping' | translate}}</span>
+                <span>Free</span>
+              </div>
+              <div class="check-out-product-list-item-total-item">
+                <span>{{'checkOut.discount' | translate}}</span>
+                <span>0</span>
+              </div>
+              <div class="check-out-product-list-item-total-item">
+                <span>{{'checkOut.tax' | translate}}</span>
+                <span>12341412</span>
+              </div>
+            </div>
+          </nz-list-item>
+          <nz-list-item class="check-out-product-list-item">
+            <div class="check-out-product-list-item-total">
+              <div class="check-out-product-list-item-total-item">
+                <span>{{'checkOut.total' | translate}}</span>
+                <span>100000</span>
+              </div>
+            </div>
+          </nz-list-item>
+        </nz-list>
+      </nz-card>
+    </div>
+  </div>  
+</div>

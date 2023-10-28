@@ -1,8 +1,6 @@
 <div class="cart" nz-row>
+  <app-breadcrumb [breadCrumb]="breadcrumb"></app-breadcrumb>
   <div class="cart-product" nz-col nzSpan="24">
-    <div class="cart-product-title">
-      <span class="cart-product-title-main">{{'cart.myCart'| translate}}</span>
-    </div>
     <nz-table #basicTable 
       [nzData]="cartList" class="cart-product-list"
       [nzShowPagination]="false"

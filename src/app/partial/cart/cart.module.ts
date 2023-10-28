@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart.component';
 import { CartRoutingModule } from './cart-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckOutComponent } from './check-out/check-out.component';
 
 
@@ -16,7 +16,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
     CommonModule,
     CartRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CartModule { }

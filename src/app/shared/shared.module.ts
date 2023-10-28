@@ -7,13 +7,15 @@ import { ZorroModule } from '../zorro/zorro.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     NotFoundComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     FooterComponent,
     TranslateModule,
     NotFoundComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    BreadcrumbComponent
   ]
 })
 export class SharedModule { }

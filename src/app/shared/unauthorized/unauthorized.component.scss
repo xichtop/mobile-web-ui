@@ -1,6 +1,6 @@
+@import '../../../assets/scss/index.scss';
+
 .unauthorized {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  @include flex(center, center);
+  height: calc(100vh - $header-height) ;
 }

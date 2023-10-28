@@ -1,0 +1,29 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <ng-container *ngTemplateOutlet="breadCrumbItem; context: {item: breadCrumb}"></ng-container>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item *ngIf="breadCrumb.child">
+    <ng-container *ngTemplateOutlet="breadCrumbItem; context: {item: breadCrumb.child}"></ng-container>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item *ngIf="breadCrumb.child?.child">
+    <ng-container *ngTemplateOutlet="breadCrumbItem; context: {item: breadCrumb.child?.child}"></ng-container>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item *ngIf="breadCrumb.child?.child?.child">
+    <ng-container *ngTemplateOutlet="breadCrumbItem; context: {item: breadCrumb.child?.child?.child}"></ng-container>
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<ng-template #breadCrumbItem let-item="item">
+  <ng-container *ngIf="item.canNavigate; else canNotNavigate">
+    <a [href]="item.url">
+      <span *ngIf="item.icon !== ''" nz-icon [nzType]="item.icon"></span>
+      <span>{{'breadcrumb.' + item.title | translate}}</span>
+    </a>
+  </ng-container>
+  <ng-template #canNotNavigate>
+    <span *ngIf="item.icon !== ''" nz-icon [nzType]="item.icon"></span>
+    <span>{{'breadcrumb.' + item.title | translate}}</span>
+  </ng-template>
+</ng-template>
+
+
