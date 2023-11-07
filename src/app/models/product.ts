@@ -28,7 +28,7 @@ export interface Product {
   configuration?: {},
   connection?: {},
   otherInfo?: {},
-  category?: string
+  category: string
 }
 
 export interface ProductParams {

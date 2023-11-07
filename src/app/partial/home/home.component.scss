@@ -30,15 +30,23 @@
     max-width: 1200px;
     margin: 3rem auto;
     background-color: $color-white;
+    
+    nz-card {
+      width: 30%;
+
+      img {
+        width: 100%;
+      }
+    }
   
     img {
-      cursor: pointer;
-      width: 30%;
+      // cursor: pointer;
+      // width: 30%;
   
-      &:hover {
-        border-radius: 10px;
-        box-shadow: $box-shadow;
-      }
+      // &:hover {
+      //   border-radius: 10px;
+      //   box-shadow: $box-shadow;
+      // }
     }
   }
 }

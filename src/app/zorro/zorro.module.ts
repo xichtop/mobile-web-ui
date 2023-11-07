@@ -36,6 +36,7 @@ import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
 
 @NgModule({
   declarations: [],
@@ -76,7 +77,8 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     NzCollapseModule,
     NzDescriptionsModule,
     NzBreadCrumbModule,
-    NzRadioModule
+    NzRadioModule,
+    NzCommentModule
   ],
   exports: [
     NzLayoutModule,
@@ -114,7 +116,8 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     NzCollapseModule,
     NzDescriptionsModule,
     NzBreadCrumbModule,
-    NzRadioModule
+    NzRadioModule,
+    NzCommentModule
   ]
 })
 export class ZorroModule { }

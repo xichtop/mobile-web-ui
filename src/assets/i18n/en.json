@@ -16,7 +16,8 @@
         "White": "White",
         "Purple": "Purple",
         "Blue": "Blue",
-        "Red": "Red"
+        "Red": "Red",
+        "Orange": "Orange"
       },
       "sold": "Sold",
       "review": "review",
@@ -94,7 +95,11 @@
       "quantity": "Quantity: ",
       "addToCart": "Add to cart"
     },
-    "viewCart": "View cart"
+    "viewCart": "View cart",
+    "comment": "Comments",
+    "addComment": "Add comment",
+    "replyTo": "Reply to",
+    "relatedProduct": "Related product"
   },
   "cart": {
     "myCart": "My Cart",

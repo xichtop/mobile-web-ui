@@ -128,21 +128,16 @@
     >
     </app-section>
     <nz-pagination 
-      *ngIf="totalItems > 8"
+      class="product-list-paginate"
+      *ngIf="totalItems > 16"
       [nzPageIndex]="currentPage" 
       [nzTotal]="totalItems" 
       [nzPageSize]="currentSize"
       (nzPageIndexChange)="changePaginate($event)"
-      (nzPageSizeChange)="changeSize($event)"
-      nzShowSizeChanger
-      [nzPageSizeOptions]="[4, 8, 12, 16]"
-      [nzShowTotal]="rangeTemplate"
+      [nzPageSizeOptions]="[16, 20, 24, 28]"
       [nzResponsive]="true"
     >
     </nz-pagination>
-    <ng-template #rangeTemplate let-range="range" let-total>
-      {{ range[0] }}-{{ range[1] }} of {{ total }} items
-    </ng-template>
   </div>
 </div>
 

@@ -16,7 +16,8 @@
         "White": "Trắng",
         "Purple": "Tím",
         "Blue": "Xanh lam",
-        "Red": "Đỏ"
+        "Red": "Đỏ",
+        "Orange": "Cam"
       },
       "sold": "Đã bán",
       "review": "đánh giá",
@@ -94,7 +95,11 @@
       "quantity": "Số lượng: ",
       "addToCart": "Thêm vào giỏ hàng"
     },
-    "viewCart": "Xem giỏ hàng"
+    "viewCart": "Xem giỏ hàng",
+    "comment": "Bình luận",
+    "addComment": "Thêm bình luận",
+    "replyTo": "Trả lời",
+    "relatedProduct": "Sản phẩm liên quan"
   },
   "cart": {
     "myCart": "Giỏ Hàng Của Tôi",

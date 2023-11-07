@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NzSliderValue } from 'ng-zorro-antd/slider';
-import {  map, switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 import { CommonService } from 'src/app/core/services/common.service';
 import { HomeService } from 'src/app/core/services/home.service';
 import { Product } from 'src/app/models/product';
@@ -59,7 +58,7 @@ export class ProductComponent implements OnInit {
 
   totalItems = 0;
   currentPage = 1;
-  currentSize = 8;
+  currentSize = 16;
   currentList: Product[] = [];
   tempList: Product[] = [];
   tempTotalItems = 0;
@@ -159,14 +158,14 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  changeSize(event: number) {
-    this.currentSize = event;
-    this.fetchNewListProduct().subscribe(data => {
-      this.currentList = data.data;
-      this.totalItems = data.length;
-      this.isLoadingFilter = false;
-    });
-  }
+  // changeSize(event: number) {
+  //   this.currentSize = event;
+  //   this.fetchNewListProduct().subscribe(data => {
+  //     this.currentList = data.data;
+  //     this.totalItems = data.length;
+  //     this.isLoadingFilter = false;
+  //   });
+  // }
 
   moveToFilter() {
     window.scrollTo({

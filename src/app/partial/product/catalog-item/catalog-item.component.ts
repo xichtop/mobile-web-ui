@@ -7,6 +7,9 @@ import { ModalProductComponent } from '../modal-product/modal-product.component'
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ModalBuyNowComponent } from '../modal-buy-now/modal-buy-now.component';
+import { addDays, formatDistance } from 'date-fns';
+import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-catalog-item',
@@ -58,17 +61,50 @@ export class CatalogItemComponent implements OnInit, OnDestroy {
 
   addToProduct = false;
 
+  listRelatedProduct: Product[] = [];
+
+  data = [
+    {
+      author: 'Xich Top',
+      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+      content:
+        'Sản phẩm tuyệt vời',
+      datetime: formatDistance(new Date(), addDays(new Date(), 1)),
+      likes: 100,
+      dislikes: 0
+    },
+    {
+      author: 'Tien Toi',
+      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+      content:
+        'Đúng với mô tả',
+      datetime: formatDistance(new Date(), addDays(new Date(), 2)),
+      likes: 30,
+      dislikes: 0
+    }
+  ];
+
+  userInfo: User = {
+    _id: '',
+    name: '',
+    email: '',
+    role: '',
+    photo: ''
+  }
+
   constructor(
     private route: ActivatedRoute,
     private commonService: CommonService,
     private modal: NzModalService, 
     private viewContainerRef: ViewContainerRef,
     private translate: TranslateService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.changeLangSubscription = this.translate.onLangChange.subscribe(event => {
       this.currentLanguage = event.lang;
     });
+    this.userInfo = this.authService.getUserInfo();
   }
 
   ngOnInit(): void {
@@ -89,6 +125,11 @@ export class CatalogItemComponent implements OnInit, OnDestroy {
       this.product = data;
       this.currentColor = data.colors[0];
       this.currentPrice = data.price - data.price * data.discountPercent / 100;
+
+      this.commonService.getProductsByCategory(this.product?.category, 4)
+        .subscribe(res => {
+          this.listRelatedProduct = res;
+        })
     });
   }
 

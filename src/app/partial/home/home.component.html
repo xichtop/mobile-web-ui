@@ -7,9 +7,15 @@
     </nz-carousel>
   </div>
   <div class="news">
-    <img src="../../../assets/images/home/news/new-1.png" alt="">
-    <img src="../../../assets/images/home/news/new-2.png" alt="">
-    <img src="../../../assets/images/home/news/new-3.png" alt="">
+    <nz-card nzHoverable [nzBodyStyle]="{padding: 0}" [nzBorderless]="true">
+      <img src="../../../assets/images/home/news/new-1.png" alt="">
+    </nz-card>
+    <nz-card nzHoverable [nzBodyStyle]="{padding: 0}" [nzBorderless]="true">
+      <img src="../../../assets/images/home/news/new-2.png" alt="">
+    </nz-card>
+    <nz-card nzHoverable [nzBodyStyle]="{padding: 0}" [nzBorderless]="true">
+      <img src="../../../assets/images/home/news/new-3.png" alt="">
+    </nz-card>
   </div>
   <app-section
     [title]="'home.topSold' | translate" 
