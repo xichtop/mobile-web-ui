@@ -103,6 +103,7 @@ export class ProductComponent implements OnInit {
       .pipe(map(data => data.data))
       .subscribe(data => {
         this.categoryList = data;
+        console.log('cateList', this.categoryList);
         this.categoryList.forEach(item => {
           this.categoryFilter.push('home.' + item.sortCode);
         })
@@ -334,12 +335,14 @@ export class ProductComponent implements OnInit {
             }
           } else if (key === 'colors') {
             for (let i = 1; i < value.length; i++) {
-              params.push(['colors%27color', value[i]]);
+              params.push(['colors%27color', value[i].toString().replace('common.label.color.', '')]);
             }
           } else if (key === 'category') {
             for (let i = 1; i < value.length; i++) {
-              const index = this.categoryList.findIndex(item => item.sortCode === value[i]); 
-              params.push([key, this.categoryList[index]._id]);
+              const index = this.categoryList.findIndex(item => item.sortCode === value[i].toString().replace('home.', '')); 
+              if (index > 0) {
+                params.push([key, this.categoryList[index]._id]);
+              }
             }
           } else {
             for (let i = 1; i < value.length; i++) {

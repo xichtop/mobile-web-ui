@@ -1,0 +1,50 @@
+@import '../../../assets/scss/index.scss';
+
+.footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &-logo {
+    img {
+      width: 10rem;
+      margin-left: -1rem;
+    }
+  }
+
+  &-feature {
+    &-item {  
+      &-title {
+        color: $color-secondary;
+        font-size: 20px;
+        margin-bottom: 1rem;
+      }
+  
+      &-list {
+        &-item {
+          margin-bottom: .25rem;
+          color: $color-third;
+          cursor: pointer;
+
+          &:hover {
+            color: $color-secondary;
+          }
+        }
+      }
+
+      &-connect {
+        padding-top: 1rem;
+        color: $color-secondary;
+
+        &-icons {
+          padding-top: .5rem;
+          span {
+            font-size: 22px;
+            padding-right: 1rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

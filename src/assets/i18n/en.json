@@ -58,6 +58,28 @@
       "showCart": "Show cart"
     }
   },
+  "footer": {
+    "holine": "Hotline",
+    "buy": "Shopping: ",
+    "CS": "Customer Service: ",
+    "connect": "Connect with us",
+    "shopSystem": "Shop system",
+    "shop": "View 99 shops",
+    "rule": "Rules of shop",
+    "quality": "Serve quality",
+    "policy": "Warranty and return policy",
+    "support": "Support customer",
+    "condition": "General transaction condition",
+    "shopInstruction": "Online shopping instruction",
+    "shipPolicy": "Shiping policy",
+    "paymentInstruction": "Payment Instruction",
+    "warrantyCenter": "Warranty center YOLO",
+    "about": "About YOLO",
+    "gift": "Earn gift point VIP",
+    "introduce": "Introduce YOLO",
+    "business": "Business store",
+    "personalData": "Handle personal data policy"
+  },
   "home": {
     "topSold": "Top Sold",
     "viewAll": "View all",

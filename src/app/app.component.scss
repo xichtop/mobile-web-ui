@@ -12,6 +12,16 @@ nz-header {
 nz-content {
   background-color: $color-white;
   margin-top: $header-height;
+  padding-bottom: 2rem;
+}
+
+nz-footer {
+  background-color: $color-header;
+}
+
+app-footer {
+  display: flex;
+  justify-content: center;
 }
 
 :host ::ng-deep .ant-back-top {

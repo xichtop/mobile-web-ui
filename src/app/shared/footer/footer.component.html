@@ -1,1 +1,50 @@
-<p>footer works!</p>
+<div class="footer">
+  <div class="footer-logo">
+    <img src="../../../assets/images/header/yolo-logo.png" alt="logo">
+  </div>
+  <div class="footer-feature" nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <div class="footer-feature-item" nz-col [nzSpan]="6">
+      <span class="footer-feature-item-title">{{'footer.hotline' | translate}}</span>
+      <div class="footer-feature-item-list">
+        <p class="footer-feature-item-list-item">{{'footer.buy' | translate}}0377025912</p>
+        <p class="footer-feature-item-list-item">{{'footer.CS' | translate}}0377025912</p>
+      </div>
+      <div class="footer-feature-item-connect">
+        <span class="footer-feature-item-connect-title">{{'footer.connect' | translate}}</span>
+        <div class="footer-feature-item-connect-icons">
+          <span nz-icon nzType="facebook" nzTheme="fill"></span>
+          <span nz-icon nzType="instagram" nzTheme="fill"></span>
+          <span nz-icon nzType="twitter-circle" nzTheme="fill"></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-feature-item" nz-col [nzSpan]="6">
+      <span class="footer-feature-item-title">{{'footer.shopSystem' | translate}}</span>
+      <div class="footer-feature-item-list">
+        <p class="footer-feature-item-list-item">{{'footer.shop' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.rule' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.quality' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.policy' | translate}}</p>
+      </div>
+    </div>
+    <div class="footer-feature-item" nz-col [nzSpan]="6">
+      <span class="footer-feature-item-title">{{'footer.support' | translate}}</span>
+      <div class="footer-feature-item-list">
+        <p class="footer-feature-item-list-item">{{'footer.condition' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.shopInstruction' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.shipPolicy' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.paymentInstruction' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.warrantyCenter' | translate}}</p>
+      </div>
+    </div>
+    <div class="footer-feature-item" nz-col [nzSpan]="6">
+      <span class="footer-feature-item-title">{{'footer.about' | translate}}</span>
+      <div class="footer-feature-item-list">
+        <p class="footer-feature-item-list-item">{{'footer.gift' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.introduce' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.business' | translate}}</p>
+        <p class="footer-feature-item-list-item">{{'footer.personalData' | translate}}</p>
+      </div>
+    </div>
+  </div>
+</div>

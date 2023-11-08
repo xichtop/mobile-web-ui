@@ -58,6 +58,28 @@
       "showCart": "Xem giỏ hàng"
     }
   },
+  "footer": {
+    "holine": "Tổng đài",
+    "buy": "Mua hàng: ",
+    "CS": "CSKH: ",
+    "connect": "Kết nối với chúng tôi",
+    "shopSystem": "Hệ thống cửa hàng",
+    "shop": "Xem 99 cửa hàng",
+    "rule": "Nội quy của cửa hàng",
+    "quality": "Chất lượng phục vụ",
+    "policy": "Chính sách bảo hành và đổi trả",
+    "support": "Hổ trợ khách hàng",
+    "condition": "Điều kiện giao dịch chung",
+    "shopInstruction": "Hướng dẫn mua hàng online",
+    "shipPolicy": "Chính sách giao hàng",
+    "paymentInstruction": "Hướng dẫn thanh toán",
+    "warrantyCenter": "Trung tâm bảo hành YOLO",
+    "about": "Về thương hiệu YOLO",
+    "gift": "Tích điểm quà tặng VIP",
+    "introduce": "Giới thiệu YOLO",
+    "business": "Bán hàng doanh nghiệp",
+    "personalData": "Chính sách xử lý dữ liệu cá nhân"
+  },
   "home": {
     "topSold": "Bán Chạy Nhất",
     "viewAll": "Xem tất cả",
