@@ -68,5 +68,9 @@ export class HomeComponent implements OnInit {
         })
     })
     this.commonService.getProducts([['limit', 4]]).subscribe(data => this.topProduct = data.data);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
   }
 }

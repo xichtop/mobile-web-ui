@@ -7,8 +7,13 @@
   &-carousel {
 
     nz-carousel {
-      height: 400px;
-      line-height: 400px;
+      height: 26vw;
+      line-height: 26vw;
+
+      @include mobile {
+        height: 36vw;
+        line-height: 36vw;
+      }
     }
   
     ::ng-deep nz-carousel {
@@ -29,45 +34,42 @@
   }
 
   &-filter {
-    @include flex(center, space-between);
     margin: 2rem 0;
 
+    @include tablet {
+      margin: 2rem 1rem;
+    }
+
+    @include mobile {
+      margin: 1rem .5rem;
+    }
+
     &-list {
-      @include flex(center, space-between);
+      display: flex;
+      flex-wrap: wrap;
 
       &-item {
         margin-right: 1rem;
+        margin-top: 1rem;
 
         &-proper {
           display: flex;
+          flex-wrap: wrap;
 
           button {
             margin-right: 1rem;
+            margin-top: 1rem;
 
             &:last-child {
               margin-right: 0;
             }
           }
 
-          &-tag {
-            cursor: pointer;
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
-            
-            &.active {
-              border: 1px solid $color-primary;
-              border-radius: 2px;
-            }
-
-            nz-tag {
-              margin-right: 0;
-              margin: 0.25rem;
-            }
-          }
         }
+
       }
     }
+
   }
 
   &-list {
@@ -83,6 +85,10 @@
 
 #proper-price {
   width: 35rem;
+
+  @include mobile {
+    width: 30rem;
+  }
 }
 
 .filters-buttons {

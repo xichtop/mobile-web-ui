@@ -2,14 +2,13 @@
 @import '../../../assets/scss/variable';
 
 .header {
-  @include flex(center, center);
+  @include flex(center, space-between);
   max-width: 1200px;
   height: 100%;
   margin: 0 auto;
-  justify-content: space-between;
 
   .header-main {
-    @include flex(center, flex-start);
+    @include flex(center, center);
 
     .logo {
       @include flex(center, center);
@@ -17,6 +16,22 @@
   
       img {
         height: $logo-height;
+  
+        @include mobile {
+          height: $logo-height-xs;
+        }
+      }
+    }
+
+    &-menu {
+      display: none;
+      font-size: 30px;
+      color: $color-secondary;
+      padding: 0 1rem 0 2rem;
+      cursor: pointer;
+
+      @include tablet {
+        display: block;
       }
     }
   }
@@ -26,6 +41,10 @@
     justify-content: space-between;
     position: relative;
     height: 100%;
+
+    @include tablet {
+      display: none;
+    }
 
     .category-item {
       display: flex;
@@ -51,6 +70,10 @@
 
   .header-info {
     @include flex(center, space-around);
+
+    @include tablet {
+      margin-right: 2rem;
+    }
 
     .header-search {
       span {
@@ -85,6 +108,10 @@
 
     .header-language {
       padding-left: 1rem;
+
+      @include mobile {
+        display: none;
+      }
 
       img {
         height:2rem;
@@ -147,5 +174,14 @@
   &-button {
     text-align: center;
     margin-top: 1rem;
+  }
+}
+
+.drawer-header {
+  width: 100%;
+  @include flex(center, center);
+
+  img {
+    width: 10rem;
   }
 }

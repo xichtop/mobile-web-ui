@@ -48,8 +48,15 @@ export class CartComponent implements OnInit, OnDestroy {
     this.userId = this.authService.getUserInfo()._id;
     this.cartSub = this.cartService.getCartListListener()
       .subscribe(data => {
-        this.cartList = data;
+        if (data.isUpdate) {
+          this.cartList = data.data;
+        }
       })
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
   }
 
   ngOnDestroy(): void {
@@ -62,11 +69,20 @@ export class CartComponent implements OnInit, OnDestroy {
     }
     const productId = this.cartList[index]._id;
     this.cartService.updateQuantityCart(productId, body, this.userId);
+    if (event > this.cartList[index].quantity) {
+      this.total += this.cartList[index].product.price;
+    } else if (event < this.cartList[index].quantity) {
+      this.total -= this.cartList[index].product.price;
+    }
+    this.cartList[index].quantity = event;
   }
   
   onDeleteCart(index: number) {
-    this.onItemChecked(this.cartList[index]._id, false, index);
+    if (this.setOfCheckedId.has(this.cartList[index]._id)) {
+      this.onItemChecked(this.cartList[index]._id, false, index);
+    }
     this.cartService.deleteCart(this.cartList[index]._id, this.userId);
+    this.cartList = this.cartList.filter(item => item._id !== this.cartList[index]._id);
   }
 
   goToProduct(index: number) {

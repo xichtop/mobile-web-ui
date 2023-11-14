@@ -4,6 +4,10 @@
 .product-item {
   min-height: 28rem;
 
+  @include mobile {
+    min-height: 15rem;
+  }
+
   &:hover {
     img {
       transform: scale(1) translateY(-5px);
@@ -30,6 +34,10 @@
     padding-top: 1rem;
     padding-bottom: .5rem;
     min-height: 18rem;
+
+    @include mobile {
+      min-height: 10rem;
+    }
   }
 
   .product-title {
@@ -39,9 +47,17 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include mobile {
+      font-size: 14px;
+    }
   }
 
   .product-size {
+    @include mobile {
+      display: none;
+    }
+
     &-item {
       font-size: 12px;
       padding: 3px 5px;
@@ -58,25 +74,67 @@
 
     &-new {
       color: $color-red;
+
+      @include mobile {
+        font-size: 12px;
+      }
     }
 
     &-old {
       text-decoration: line-through;
       color: $color-primary;
+
+      @include mobile {
+        display: none;
+      }
     }
   }
 
   .product-rate {
     @include flex(center, space-between);
+
+    nz-rate {
+      @include mobile {
+        display: none;
+      }
+    }
+
     &-count {
       font-size: 12px;
       color: $color-primary;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @include mobile {
+        font-size: 11px;
+        padding-top: .5rem;
+      }
     }
   }
 
   .product-sold {
     font-size: 12px;
     color: $color-primary;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @include mobile {
+      font-size: 11px;
+    }
   }
 
+}
+
+::ng-deep nz-ribbon {
+  .ant-ribbon {
+    span {
+      @include mobile {
+        font-size: 11px;
+      }
+    }
+  }
 }

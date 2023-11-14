@@ -4,8 +4,13 @@
 .home {
   .carousel {
     nz-carousel {
-      height: 480px;
-      line-height: 480px;
+      height: 32vw;
+      line-height: 32vw;
+
+      @include mobile {
+        height: 34vw;
+        line-height: 34vw;
+      }
     }
   
     ::ng-deep nz-carousel {
@@ -30,6 +35,10 @@
     max-width: 1200px;
     margin: 3rem auto;
     background-color: $color-white;
+
+    @include mobile {
+      margin: 1.5rem auto;
+    }
     
     nz-card {
       width: 30%;
@@ -37,16 +46,6 @@
       img {
         width: 100%;
       }
-    }
-  
-    img {
-      // cursor: pointer;
-      // width: 30%;
-  
-      // &:hover {
-      //   border-radius: 10px;
-      //   box-shadow: $box-shadow;
-      // }
     }
   }
 }

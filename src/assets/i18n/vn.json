@@ -23,7 +23,9 @@
       "review": "đánh giá",
       "installment": "Trả góp 0%",
       "discount": "Giảm {{percent}}%",
-      "buyNow": "Mua ngay"
+      "buyNow": "Mua ngay",
+      "clearAll": "Bỏ chọn",
+      "showAll": "Xem {{quantity}} sản phẩm"
     }
   },
   "header": {
@@ -56,10 +58,22 @@
       "color": "Màu: ",
       "size": "Dung lượng: ",
       "showCart": "Xem giỏ hàng"
+    },
+    "drawer": {
+      "category": "Danh mục",
+      "account": "Tài khoản",
+      "login": "Đăng nhập",
+      "register": "Đăng ký",
+      "logout": "Đăng xuất",
+      "setting": "Cài đặt",
+      "language": "Ngôn ngữ",
+      "vn": "Tiếng Việt",
+      "en": "Tiếng Anh",
+      "cn": "Tiếng Trung"
     }
   },
   "footer": {
-    "holine": "Tổng đài",
+    "hotline": "Tổng đài",
     "buy": "Mua hàng: ",
     "CS": "CSKH: ",
     "connect": "Kết nối với chúng tôi",

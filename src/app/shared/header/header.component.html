@@ -1,5 +1,8 @@
 <div class="header">
   <div class="header-main">
+    <span nz-icon (click)="openDrawer()"
+      nzType="menu" nzTheme="outline" class="header-main-menu"
+    ></span>
     <div class="logo">
       <img 
         (click)="goHome()"
@@ -129,3 +132,45 @@
     </div>
   </div>
 </div>
+
+<nz-drawer [nzClosable]="false" 
+  [nzVisible]="isOpenDrawer" 
+  nzPlacement="left" nzTitle="Basic Drawer"
+  (nzOnClose)="closeDrawer()"
+  [nzTitle]="drawerHeader"
+  [nzWidth]="330">
+  <ng-container *nzDrawerContent>
+    <ul nz-menu nzTheme="light" nzMode="inline">
+      <li nz-submenu [nzTitle]="'header.drawer.category' | translate" nzIcon="appstore">
+        <ul>
+          <ng-container *ngFor="let category of categoryList">
+            <li nz-menu-item
+              (click)="navigateCatalog(category)">
+              {{'header.category.' + category | translate}}
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+      <li nz-submenu [nzTitle]="'header.drawer.account' | translate" nzIcon="user">
+        <ul>
+          <li nz-menu-item (click)="gotoLogin()" *ngIf="!isLogin">{{'header.drawer.login' | translate}}</li>
+          <li nz-menu-item (click)="gotoRegister()" *ngIf="!isLogin">{{'header.drawer.register' | translate}}</li>
+          <li nz-menu-item *ngIf="isLogin">{{'header.drawer.setting' | translate}}</li>
+          <li nz-menu-item (click)="logout()" *ngIf="isLogin">{{'header.drawer.logout' | translate}}</li>
+        </ul>
+      </li>
+      <li nz-submenu [nzTitle]="'header.drawer.language' | translate" nzIcon="global">
+        <ul>
+          <li nz-menu-item (click)="changeLanguage('vn')">{{'header.drawer.vn' | translate}}</li>
+          <li nz-menu-item (click)="changeLanguage('en')">{{'header.drawer.en' | translate}}</li>
+          <li nz-menu-item (click)="changeLanguage('cn')">{{'header.drawer.cn' | translate}}</li>
+        </ul>
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #drawerHeader>
+    <div class="drawer-header">
+      <img src="../../../assets/images/header/yolo-logo-1.png" alt="logo">
+    </div>
+  </ng-template>
+</nz-drawer>

@@ -96,6 +96,11 @@ export class ProductComponent implements OnInit {
         this.filterCount = 0;
       });
 
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+
   }
 
   getCategoryList() {
@@ -167,13 +172,6 @@ export class ProductComponent implements OnInit {
   //     this.isLoadingFilter = false;
   //   });
   // }
-
-  moveToFilter() {
-    window.scrollTo({
-      top: 400,
-      behavior: "smooth",
-    })
-  }
 
   chooseItemFilter(event: string, type: string) {
     const index = this.isChooseItemFilter(event, type);

@@ -36,7 +36,12 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
 
   submitForm(): void {
     this.authService.login({

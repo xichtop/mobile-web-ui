@@ -112,6 +112,11 @@ export class CatalogItemComponent implements OnInit, OnDestroy {
       const productId = params['id'];
       this.getProduct(productId);
     });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
   }
 
   ngOnDestroy(): void {

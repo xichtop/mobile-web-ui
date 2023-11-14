@@ -6,7 +6,7 @@
       </div>
     </nz-carousel>
   </div>
-  <div class="product-filter" (click)="moveToFilter()">
+  <div class="product-filter">
     <div class="product-filter-list">
       <div class="product-filter-list-item">
         <nz-badge [nzCount]="filterCount" [nzStyle]="{ backgroundColor: '#52c41a' }">
@@ -56,8 +56,10 @@
           <ng-container *ngIf="isChangePrice">
             <nz-divider></nz-divider>
             <div class="filters-buttons">
-            <button nz-button nzType="default" nzDanger (click)="clearPrice()">Bỏ chọn</button>
-            <button nz-button nzType="primary" (click)="showFilter()">Xem {{tempTotalItems}} kết quả</button>
+            <button nz-button nzType="default" nzDanger (click)="clearPrice()">
+              {{'common.label.clearAll' | translate}}</button>
+            <button nz-button nzType="primary" (click)="showFilter()" [disabled]="tempTotalItems == 0">
+              {{'common.label.showAll' | translate : {quantity: tempTotalItems} }}</button>
           </div>
           </ng-container>
           </ng-template>
@@ -105,19 +107,20 @@
           }"
         ></ng-container>
       </div>
-    </div>
-    <div class="product-filter-sort">
-      <nz-select 
-        [nzPlaceHolder]="'product.order.label' | translate"
-        [(ngModel)]="currentSort"
-        (ngModelChange)="sortChange($event)"
-      >
-        <nz-option 
-          *ngFor="let item of sortList"
-          [nzValue]="item.value" 
-          [nzLabel]="'product.order.' + item.label | translate">
-        </nz-option>
-      </nz-select>
+
+      <div class="product-filter-list-item">
+        <nz-select 
+          [nzPlaceHolder]="'product.order.label' | translate"
+          [(ngModel)]="currentSort"
+          (ngModelChange)="sortChange($event)"
+        >
+          <nz-option 
+            *ngFor="let item of sortList"
+            [nzValue]="item.value" 
+            [nzLabel]="'product.order.' + item.label | translate">
+          </nz-option>
+        </nz-select>
+      </div>
     </div>
   </div>
   <div class="product-list">
@@ -172,12 +175,14 @@
 <ng-template #buttons let-type="type">
   <nz-divider></nz-divider>
   <div class="filters-buttons">
-    <button nz-button nzType="default" nzDanger (click)="clearFilterItem(type)">Bỏ chọn</button>
+    <button nz-button nzType="default" nzDanger (click)="clearFilterItem(type)">
+      {{'common.label.clearAll' | translate}}</button>
     <button 
       nz-button nzType="primary" 
       [nzLoading]="isLoadingFilter"
       (click)="showFilter()"
-    >Xem {{tempTotalItems}} kết quả</button>
+    >{{'common.label.showAll' | translate : {quantity: tempTotalItems} }}</button>
   </div>
 </ng-template>
+
 

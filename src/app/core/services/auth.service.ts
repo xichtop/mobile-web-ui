@@ -67,7 +67,7 @@ export class AuthService {
     this.setTimerToken(expiresIn / 1000);
     this.getUserInfoByToken().subscribe((res) => {
       this.userInfo = res.data;
-      this.cartService.getAllCart(this.userInfo._id);
+      this.cartService.getAllCart(this.userInfo._id, true);
       this.authStatusListener.next(true);
     });
   }

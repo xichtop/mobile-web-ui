@@ -27,35 +27,35 @@ export class CartService {
   cartList: cartItem[] = [];
   checkOutList: cartItem[] = [];
   
-  private cartListListener = new Subject<cartItem[]>();
+  private cartListListener = new Subject<{data: cartItem[], isUpdate: boolean}>();
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getCartListListener(): Observable<cartItem[]> {
+  getCartListListener(): Observable<{data: cartItem[], isUpdate: boolean}> {
     return this.cartListListener.asObservable();
   }
 
-  getAllCart(userId: string): void {
+  getAllCart(userId: string, isCart: boolean): void {
     const url = this.API_SERVER + 'users/' + userId + '/carts';
     this.http.get<{status: string, length: number, data: []}>(url)
       .subscribe(res => {
         this.cartList = res.data;
-        this.notifyUpdateCart();
+        this.notifyUpdateCart(isCart);
       });
   }
 
   clearAllCart() {
     this.cartList = [];
-    this.notifyUpdateCart();
+    this.notifyUpdateCart(true);
   }
 
   updateQuantityCart(id: string, body: {quantity: number}, userId: string) {
     const url = this.API_SERVER + 'carts/' + id;
     this.http.patch(url, body)
       .subscribe(res => {
-        this.getAllCart(userId);
+        this.getAllCart(userId, false);
       });
   }
 
@@ -63,7 +63,7 @@ export class CartService {
     const url = this.API_SERVER + 'carts';
     this.http.post(url, body)
       .subscribe(res => {
-        this.getAllCart(userId);
+        this.getAllCart(userId, true);
       });
   }
 
@@ -71,12 +71,15 @@ export class CartService {
     const url = this.API_SERVER + 'carts/' + cartId;
     this.http.delete(url)
       .subscribe(res => {
-        this.getAllCart(userId);
+        this.getAllCart(userId, false);
       })
   }
 
-  notifyUpdateCart() {
-    this.cartListListener.next(this.cartList);
+  notifyUpdateCart(isUpdateQuantity: boolean) {
+    this.cartListListener.next({
+      data: this.cartList,
+      isUpdate: isUpdateQuantity
+    });
   }
 
 }

@@ -37,6 +37,7 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 
 @NgModule({
   declarations: [],
@@ -78,7 +79,8 @@ import { NzCommentModule } from 'ng-zorro-antd/comment';
     NzDescriptionsModule,
     NzBreadCrumbModule,
     NzRadioModule,
-    NzCommentModule
+    NzCommentModule,
+    NzDrawerModule
   ],
   exports: [
     NzLayoutModule,
@@ -117,7 +119,8 @@ import { NzCommentModule } from 'ng-zorro-antd/comment';
     NzDescriptionsModule,
     NzBreadCrumbModule,
     NzRadioModule,
-    NzCommentModule
+    NzCommentModule,
+    NzDrawerModule
   ]
 })
 export class ZorroModule { }

@@ -3,9 +3,9 @@
     <p class="section-title" *ngIf="title.length > 0">{{title}}</p>
     <img *ngIf="titleBG.length > 0" [src]="titleBG" alt="section-bg" class="section-img">
   </div>
-  <div class="product-list" nz-row [nzGutter]="[{ xs: 4, sm: 8, md: 16, lg: 24 }, { xs: 4, sm: 8, md: 16, lg: 24 }]">
+  <div class="product-list" nz-row [nzGutter]="[{ xs: 24, sm: 24, md: 24, lg: 24 }, { xs: 24, sm: 24, md: 24, lg: 24 }]">
     <div class="product-list-item" 
-      nz-col [nzSpan]="24 / numberItemInRow"
+      nz-col [nzXs]="{ span: 12 }" [nzLg]="{ span: 8 }" [nzXl]="{ span: 6 }"
       *ngFor="let product of products"
       (click)="viewProduct(product)"
     >

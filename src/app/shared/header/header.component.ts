@@ -4,7 +4,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService, cartItem } from 'src/app/core/services/cart.service';
-import { CommonService } from 'src/app/core/services/common.service';
 import { HomeService } from 'src/app/core/services/home.service';
 import { User } from 'src/app/models/user';
 
@@ -34,6 +33,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentCart = 0;
   cartList : cartItem[] = [];
 
+  isOpenDrawer: boolean = false;
+
   constructor(
     private translateService: TranslateService,
     private authService: AuthService,
@@ -57,9 +58,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.cartSub = this.cartService.getCartListListener()
       .subscribe(data => {
-        this.cartList = data;
+        this.cartList = data.data;
         let length = 0;
-        data.forEach(item => {
+        data.data.forEach(item => {
           length += item.quantity;
         })
         this.currentCart = length;
@@ -75,6 +76,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateCatalog(event: string) {
     this.currentCategory = event;
     this.router.navigate([`/catalog`], { queryParams: { type: event } });
+    this.checkAndCloseDrawer();
   }
 
   goToCatalog(productId?: string) {
@@ -87,10 +89,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   goToCart() {
     this.router.navigate([`cart`]);
+    this.checkAndCloseDrawer();
   }
 
   changeLanguage(event: string): void {
     this.translateService.use(event);
+    this.checkAndCloseDrawer();
   }
 
   showModalSearch(): void {
@@ -109,19 +113,36 @@ export class HeaderComponent implements OnInit, OnDestroy {
   gotoLogin(): void {
     this.currentCategory = '';
     this.router.navigate(['/auth/login']);
+    this.checkAndCloseDrawer();
   }
 
   gotoRegister(): void {
     this.currentCategory = '';
     this.router.navigate(['/auth/login']);
+    this.checkAndCloseDrawer();
   }
 
   logout() {
     this.authService.logout();
+    this.checkAndCloseDrawer();
   }
 
   indentityProduct(index: number, item: cartItem) {
     return item.product.id;
+  }
+
+  openDrawer(): void {
+    this.isOpenDrawer = true;
+  }
+
+  closeDrawer() {
+    this.isOpenDrawer = false;
+  }
+
+  checkAndCloseDrawer() {
+    if (this.isOpenDrawer) {
+      this.isOpenDrawer = false;
+    }
   }
 
 }

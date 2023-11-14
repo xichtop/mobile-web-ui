@@ -23,7 +23,9 @@
       "review": "review",
       "installment": "Installment 0%",
       "discount": "Discount {{percent}}%",
-      "buyNow": "Buy now"
+      "buyNow": "Buy now",
+      "clearAll": "Clear all",
+      "showAll": "Show {{quantity}} products"
     }
   },
   "header": {
@@ -56,10 +58,22 @@
       "color": "Color",
       "size": "Size",
       "showCart": "Show cart"
+    },
+    "drawer": {
+      "category": "Categories",
+      "account": "Account",
+      "login": "Log in",
+      "register": "Register",
+      "logout": "Log out",
+      "setting": "Setting",
+      "language": "Languages",
+      "vn": "Vietnamese",
+      "en": "English",
+      "cn": "Chinese"
     }
   },
   "footer": {
-    "holine": "Hotline",
+    "hotline": "Hotline",
     "buy": "Shopping: ",
     "CS": "Customer Service: ",
     "connect": "Connect with us",
