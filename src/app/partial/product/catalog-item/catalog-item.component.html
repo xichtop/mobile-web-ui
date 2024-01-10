@@ -1,8 +1,8 @@
 <div class="catalog">
-  <div class="calatog-item" nz-row [nzGutter]="[{ xs: 4, sm: 8, md: 16, lg: 24 }, { xs: 4, sm: 8, md: 16, lg: 24 }]">
-    <div class="catalog-item-pictures" nz-col nzSpan="16">
+  <div class="catalog-item" nz-row [nzGutter]="24">
+    <div class="catalog-item-pictures" nz-col [nzXs]="{ span: 24 }" [nzSm]="{ span: 24 }" [nzMd]="{ span: 24 }" [nzLg]="{ span: 16 }" [nzXl]="{ span: 16 }">
       <div class="catalog-item-pictures-img" nz-row>
-        <div class="catalog-item-pictures-img-second" nz-col nzSpan="4">
+        <div class="catalog-item-pictures-img-second" nz-col [nzXs]="{ span: 0 }" [nzSm]="{ span: 0 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 4 }" [nzXl]="{ span: 4 }">
           <div class="catalog-item-pictures-img-second-item"
             *ngFor="let url of currentColor.urlPicture | slice : 0 : 4; index as index"
           >
@@ -11,12 +11,12 @@
             >
           </div>
         </div>
-        <div class="catalog-item-pictures-img-main" nz-col nzSpan="20">
+        <div class="catalog-item-pictures-img-main" nz-col [nzXs]="{ span: 24 }" [nzSm]="{ span: 24 }" [nzMd]="{ span: 20 }" [nzLg]="{ span: 20 }" [nzXl]="{ span: 20 }">
           <img [src]="currentColor.urlPicture[currentPicture]" alt="product-img">
         </div>
       </div>
       <div nz-row>
-        <div class="catalog-item-pictures-slide" nz-col nzSpan="20" nzOffset="4">
+        <div class="catalog-item-pictures-slide" nz-col [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 24, offset: 0 }" [nzMd]="{ span: 20, offset: 4 }" [nzLg]="{ span: 20, offset: 4 }" [nzXl]="{ span: 20, offset: 4 }">
           <div class="catalog-item-pictures-slide-colors"
             *ngFor="let color of product.colors; index as index"
             (click)="onOpenProductModal(index)"
@@ -40,55 +40,8 @@
           </div>
         </div>
       </div>
-      <nz-divider nzPlain [nzText]="'product.comment' | translate" nzOrientation="left"></nz-divider>
-      <div class="catalog-item-comments">
-        <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
-          <ng-template #item let-item>
-            <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.datetime">
-              <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="item.avatar"></nz-avatar>
-              <nz-comment-content>
-                <p>{{ item.content }}</p>
-              </nz-comment-content>
-              <nz-comment-action>
-                <span
-                  nz-tooltip
-                  nzTitle="Like"
-                  nz-icon
-                  nzType="like"
-                  [nzTheme]="item.likes > 0 ? 'twotone' : 'outline'"
-                ></span>
-                <span class="count like">{{ item.likes }}</span>
-              </nz-comment-action>
-              <nz-comment-action>
-                <span
-                  nz-tooltip
-                  nzTitle="Dislike"
-                  nz-icon
-                  nzType="dislike"
-                  [nzTheme]="item.dislikes > 0 ? 'twotone' : 'outline'"
-                ></span>
-                <span class="count dislike">{{ item.dislikes }}</span>
-              </nz-comment-action>
-              <nz-comment-action>{{'product.replyTo' | translate}}</nz-comment-action>
-            </nz-comment>
-          </ng-template>
-        </nz-list>
-        <nz-comment>
-          <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="userInfo.photo"></nz-avatar>
-          <nz-comment-content>
-            <nz-form-item>
-              <textarea nz-input rows="4"></textarea>
-            </nz-form-item>
-            <nz-form-item>
-              <button nz-button nzType="primary">
-                {{'product.addComment' | translate}}
-              </button>
-            </nz-form-item>
-          </nz-comment-content>
-        </nz-comment>
-      </div>
     </div>
-    <div class="catalog-item-feature" nz-col nzSpan="8">
+    <div class="catalog-item-feature" nz-col [nzXs]="{ span: 24 }" [nzSm]="{ span: 24 }" [nzMd]="{ span: 24 }" [nzLg]="{ span: 8 }" [nzXl]="{ span: 8 }">
       <div class="catalog-item-feature-title">
         <span>{{product.title}}</span>
       </div>
@@ -182,6 +135,45 @@
           {{'product.viewCart' | translate}}
 
         </button>
+      </div>
+    </div>
+    <div nz-col [nzXs]="{ span: 24 }" [nzSm]="{ span: 24 }" [nzMd]="{ span: 24 }" [nzLg]="{ span: 16 }" [nzXl]="{ span: 16 }">
+      <nz-divider nzPlain [nzText]="'product.comment' | translate" nzOrientation="left"></nz-divider>
+      <div class="catalog-item-comments">
+        <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+          <ng-template #item let-item>
+            <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.datetime">
+              <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="item.avatar"></nz-avatar>
+              <nz-comment-content>
+                <p>{{ item.content }}</p>
+              </nz-comment-content>
+              <nz-comment-action>
+                <span nz-tooltip nzTitle="Like" nz-icon nzType="like"
+                  [nzTheme]="item.likes > 0 ? 'twotone' : 'outline'"></span>
+                <span class="count like">{{ item.likes }}</span>
+              </nz-comment-action>
+              <nz-comment-action>
+                <span nz-tooltip nzTitle="Dislike" nz-icon nzType="dislike"
+                  [nzTheme]="item.dislikes > 0 ? 'twotone' : 'outline'"></span>
+                <span class="count dislike">{{ item.dislikes }}</span>
+              </nz-comment-action>
+              <nz-comment-action>{{'product.replyTo' | translate}}</nz-comment-action>
+            </nz-comment>
+          </ng-template>
+        </nz-list>
+        <nz-comment>
+          <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="userInfo.photo"></nz-avatar>
+          <nz-comment-content>
+            <nz-form-item>
+              <textarea nz-input rows="4"></textarea>
+            </nz-form-item>
+            <nz-form-item>
+              <button nz-button nzType="primary">
+                {{'product.addComment' | translate}}
+              </button>
+            </nz-form-item>
+          </nz-comment-content>
+        </nz-comment>
       </div>
     </div>
   </div>

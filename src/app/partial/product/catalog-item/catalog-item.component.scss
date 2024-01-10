@@ -5,7 +5,9 @@
   margin: 1.5rem auto;
 
   &-item {
-    width: 100%;
+    @include tablet {
+      margin: 0 .5rem 0 1rem !important;
+    }
 
     &-pictures {
       &-img {
@@ -17,6 +19,10 @@
           flex-direction: column;
           height: 100%;
           border-radius: 5px;
+
+          @include mobile {
+            display: none;
+          }
           
           &-item {
             img {
@@ -31,6 +37,9 @@
 
         &-main {
           padding-left: 2rem;
+          @include mobile {
+            padding-left: 0;
+          }
 
           img {
             height: 40rem;

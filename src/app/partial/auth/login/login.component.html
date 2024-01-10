@@ -6,13 +6,13 @@
     </div>
     <img class="login-bg-img" src="../../../../assets/images/form/login.png" alt="login-form">
   </div>
-  <div class="login-form" nz-col [nzSpan]="12">
+  <div class="login-form" nz-col [nzXs]="{ span: 24 }" [nzSm]="{ span: 24 }" [nzMd]="{ span: 24 }" [nzLg]="{ span: 24 }" [nzXl]="{ span: 12 }">
     <p class="login-form-title">{{'form.login.title' | translate}}</p>
     <form (ngSubmit)="submitForm()" [formGroup]="signInForm">
       <nz-form-item>
-        <nz-form-label [nzSpan]="6" nzRequired>{{'form.login.username' | translate}}</nz-form-label>
+        <nz-form-label nzXs="24" nzSm="6" nzMd="6" nzLg="6" nzXl="6" nzRequired>{{'form.login.username' | translate}}</nz-form-label>
         <nz-form-control 
-          nzHasFeedback [nzSpan]="18"
+          nzHasFeedback nzXs="24" nzSm="18" nzMd="18" nzLg="18" nzXl="18"
           [nzErrorTip]="userNameError"
         >
           <nz-input-group nzPrefixIcon="user">
@@ -31,9 +31,9 @@
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzSpan]="6" nzRequired>{{'form.login.password' | translate}}</nz-form-label>
+        <nz-form-label nzXs="24" nzSm="6" nzMd="6" nzLg="6" nzXl="6" nzRequired>{{'form.login.password' | translate}}</nz-form-label>
         <nz-form-control 
-          nzHasFeedback [nzSpan]="18"
+          nzHasFeedback nzXs="24" nzSm="18" nzMd="18" nzLg="18" nzXl="18"
           [nzErrorTip]="passwordError">
           <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
             <input 

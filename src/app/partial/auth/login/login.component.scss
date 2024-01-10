@@ -3,11 +3,17 @@
 
 .login {
   margin-top: 5rem;
+  @include tablet {
+    margin-top: 1rem;
+  }
 
   &-bg {
     @include flex(center, flex-start);
     flex-direction: column;
-    // border-right: 1px solid $color-primary;
+    
+    @include tablet {
+      display: none;
+    }
 
     &-text {
       @include flex(center, center);
@@ -29,19 +35,35 @@
     }
   }
 
-  .login-form {
+  &-form {
     @include flex(center, flex-start);
     flex-direction: column;
+
+    @include tablet {
+      padding: 0 1rem;
+    }
 
     &-title {
       color: $color-primary;
       font-size: 30px;
       font-weight: 600;
       margin: 2rem;
+
+      @include tablet {
+        margin: 1rem;
+      }
+
+      @include mobile {
+        margin: .5rem;
+      }
     }
 
     form {
       width: 60%;
+
+      @include tablet {
+        width: 100%;
+      }
 
       nz-form-item {
         margin-bottom: 2rem;
