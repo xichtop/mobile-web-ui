@@ -1,11 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription, debounceTime } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService, cartItem } from 'src/app/core/services/cart.service';
 import { HomeService } from 'src/app/core/services/home.service';
 import { User } from 'src/app/models/user';
+import { Product } from 'src/app/models/product';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +23,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   categoryList = ['iphone', 'ipad', 'mac', 'watch', 'airpod', 'accessory'];
 
   isSearch = false;
+  searchText = '';
+  productSearchList: Product[] = [];
+  private searchSubject = new Subject<string>();
+
   isLogin = false;
   userInfo: User = {
     _id: '',
@@ -40,7 +46,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private homeService: HomeService,
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    private commonService: CommonService
   ) { }
 
   ngOnInit(): void {
@@ -65,6 +72,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         })
         this.currentCart = length;
       })
+    
+    this.searchSubject.pipe(debounceTime(300)).subscribe((searchValue) => {
+        this.getListProduct();
+      });
   }
 
   ngOnDestroy(): void {
@@ -131,6 +142,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return item.product.id;
   }
 
+  indentityProductSearch(index: number, item: Product) {
+    return item._id;
+  }
+
   openDrawer(): void {
     this.isOpenDrawer = true;
   }
@@ -143,6 +158,40 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.isOpenDrawer) {
       this.isOpenDrawer = false;
     }
+  }
+
+  onChangeSearch(event: string) {
+    this.searchText = event;
+    this.searchSubject.next(this.searchText);
+  }
+
+  onClearSearch() {
+    this.searchText = '';
+    this.productSearchList = [];
+  }
+
+  onSearch() {
+    this.router.navigate([`/catalog`], { queryParams: { search: this.searchText } });
+    this.cancelSearch();
+    this.onClearSearch();
+  }
+
+  getListProduct(): void {
+    const params = [
+      ['limit', 8],
+      ['page', 0],
+      ['search', this.searchText]
+    ]
+    this.commonService.getProducts(params).subscribe((data) => {
+      this.productSearchList = data.data;
+      this.commonService.changeLoadingStatus(false);
+    });
+  }
+
+  goToCatalogFromSearch(productId: string) {
+    this.router.navigate([`/catalog/${productId}`]);
+    this.cancelSearch();
+    this.onClearSearch();
   }
 
 }

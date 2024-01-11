@@ -50,6 +50,7 @@ export class ProductComponent implements OnInit {
     colors: ['']
   }
   currentSort = '-sold';
+  searchText = '';
 
   isChangePrice = false;
 
@@ -75,11 +76,17 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParamMap
-      .pipe(map(params => params.get('type') || ''))
       .subscribe(params => {
-        if (params) {
-          this.getProductList(params);
-          this.homeService.categoryListener.next(params);
+        const type = params.get('type') || '';
+        const search = params.get('search') || '';
+        if (type !== '') {
+          this.getProductList(type);
+          this.homeService.categoryListener.next(type);
+        } else if (search !== '') {
+          this.searchText = search;
+          this.getCategoryList();
+          this.getProductList('all');
+          this.homeService.categoryListener.next('');
         } else {
           this.getCategoryList();
           this.getProductList('all');
@@ -96,11 +103,20 @@ export class ProductComponent implements OnInit {
         this.filterCount = 0;
       });
 
+    // this.route.queryParamMap
+    //   .pipe(map(params => params.get('search') || ''))
+    //   .subscribe(params => {
+    //     this.searchText = params;
+    //     this.getCategoryList();
+    //     this.getProductList('all');
+    //     this.homeService.categoryListener.next('');
+    //     this.filterCount = 0;
+    //   });
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     })
-
   }
 
   getCategoryList() {
@@ -108,7 +124,6 @@ export class ProductComponent implements OnInit {
       .pipe(map(data => data.data))
       .subscribe(data => {
         this.categoryList = data;
-        console.log('cateList', this.categoryList);
         this.categoryList.forEach(item => {
           this.categoryFilter.push('home.' + item.sortCode);
         })
@@ -124,6 +139,9 @@ export class ProductComponent implements OnInit {
         ['page', this.currentPage],
         ['sort', this.currentSort]
       ]
+      if (this.searchText !== '') {
+        params.push(['search', this.searchText]);
+      }
       this.commonService.getProducts(params).subscribe((data) => {
         this.totalItems = data.length;
         this.currentList = data.data;
@@ -308,6 +326,9 @@ export class ProductComponent implements OnInit {
         ['page', this.currentPage],
         ['sort', this.currentSort]
       ];
+      if (this.searchText !== '') {
+        params.push(['search', this.searchText]);
+      }
     } else {
       params = [
         ['limit', this.currentSize],
