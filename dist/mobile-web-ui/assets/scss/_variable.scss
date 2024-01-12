@@ -1,0 +1,30 @@
+$color-primary: #4A55A2;
+$color-secondary: #C5DFF8;
+$color-third: #7895CB;
+
+$color-header: #00152a;
+
+$color-white: #fff;
+$color-red: red;
+$color-green: green;
+
+$border: 0.5px solid $color-primary;
+$box-shadow: 2px 2px 10px 3px #888888;
+
+[data-theme="dark"] {
+  $color-primary: #4A55A2;
+  $color-secondary: #C5DFF8;
+  $color-third: #7895CB;
+  
+  $color-white: #fff;
+  $color-red: red;
+}
+
+$mobile-width: 600px;
+$tablet-width: 1024px;
+
+$header-height: 70px;
+$logo-height: 60px;
+
+$header-height-xs: 70px;
+$logo-height-xs: 40px;

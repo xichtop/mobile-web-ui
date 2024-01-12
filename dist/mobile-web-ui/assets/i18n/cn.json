@@ -1,0 +1,130 @@
+{
+  "common": {
+    "label": {
+      "from": "從",
+      "to": "自",
+      "storageCapacity": "存儲容量",
+      "size": "大小",
+      "interalMemory": "間歇記憶",
+      "colors": "顏色",
+      "color": {
+        "Pink": "粉紅色",
+        "Black": "黑",
+        "Yellow": "黃色",
+        "Green": "綠",
+        "Gray": "灰色",
+        "White": "白",
+        "Purple": "紫色",
+        "Blue": "藍",
+        "Red": "紅"
+      },
+      "sold": "出售",
+      "review": "review",
+      "installment": "Installment 0%",
+      "discount": "Discount {{percent}}%",
+      "buyNow": "Buy now"
+    }
+  },
+  "header": {
+    "main": {
+      "search": "What are you looking for...",
+      "en": "English",
+      "vn": "Vietnamese",
+      "login": "Log in",
+      "logout": "Log out",
+      "register": "Register"
+    },
+    "category": {
+      "iphone": "iPhone",
+      "ipad": "iPad",
+      "mac": "Macbook",
+      "watch": "Smart watch",
+      "airpod": "Airpod",
+      "accessory": "Accessory",
+      "service": "Service",
+      "new": "News",
+      "second": {
+        "installment": "Installment",
+        "reNewed": "Old autumn renewed",
+        "guarantee": "Guarantee"
+      }
+    },
+    "cart": {
+      "noItem": "No Item",
+      "shopNow": "Shop now",
+      "color": "Color",
+      "size": "Size",
+      "showCart": "Show cart"
+    }
+  },
+  "home": {
+    "topSold": "Top Sold",
+    "viewAll": "View all",
+    "products": "products",
+    "iphone": "Iphone",
+    "ipad": "Ipad",
+    "watch": "Apple Watch",
+    "mac": "MacBook",
+    "airpod": "Airpod"
+  },
+  "product": {
+    "filter": "Filter",
+    "category": "Categories",
+    "order": {
+      "label": "Order",
+      "highToLow": "Price high -> low",
+      "lowToHigh": "Price low -> high",
+      "bestseller": "Best seller",
+      "bestReview": "Best review"
+    },
+    "promote": "Promotions",
+    "promotetitle": "Prices and promotions are expected to apply until 11:00 p.m. October 31",
+    "promote1": "Discount up to 30$ via payment gateway",
+    "promote2": "Renew old collection: Discount up to 100$ (Depending on the old device model, does not include payment via online portal, purchased together)",
+    "promote3": "Refund if cheaper somewhere else (Within 7 days, only applicable at supermarkets)",
+    "seeDetail": "(See details)",
+    "openBox": "Open box",
+    "openBoxImg": "Open box image",
+    "specification": "Specification",
+    "specifications": "Specifications",
+    "productContain": "Product set includes: Box, Instruction book, SIM card, Lightning cable - Type C",
+    "modal": {
+      "chooseSize": "Choose size: ",
+      "chooseColor": "Choose color: ",
+      "quantity": "Quantity: ",
+      "addToCart": "Add to cart"
+    },
+    "viewCart": "View cart"
+  },
+  "form": {
+    "login": {
+      "welcome": "Welcome to",
+      "title": "Log in",
+      "username": "Username",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot your password",
+      "newUser": "New to YOLO?",
+      "or": "Or",
+      "register": "Register",
+      "validateUsername": {
+        "required": "Please enter your username!",
+        "minLength": "Username must be at least 6 characters!",
+        "maxLength": "Username must be at most 20 characters!"
+      },
+      "validatePassword": {
+        "required": "Please enter your password!",
+        "minLength": "Password must be at least 6 characters!",
+        "maxLength": "Password must be at most 20 characters!",
+        "pattern": "Password must have a special character!"
+      }
+    }
+  },
+  "message": {
+    "login": "Log in successfully!",
+    "forceLogin": "Please login before proceed!",
+    "logout": "Log out successfully!",
+    "tokenExpired": "Your token have expired. Please log in again!",
+    "loginFailed": "Email or password is incorrect. Please try again!"
+  }
+}

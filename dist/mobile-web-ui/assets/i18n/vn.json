@@ -1,0 +1,223 @@
+{
+  "common": {
+    "label": {
+      "from": "Từ",
+      "to": "đến",
+      "storageCapacity": "Dung lượng lưu trữ",
+      "size": "Kích thước",
+      "interalMemory": "Bộ nhớ trong",
+      "colors": "Màu sắc",
+      "color": {
+        "Pink": "Hồng",
+        "Black": "Đen",
+        "Yellow": "Vàng",
+        "Green": "Xanh lá",
+        "Gray": "Bạc",
+        "White": "Trắng",
+        "Purple": "Tím",
+        "Blue": "Xanh lam",
+        "Red": "Đỏ",
+        "Orange": "Cam"
+      },
+      "sold": "Đã bán",
+      "review": "đánh giá",
+      "installment": "Trả góp 0%",
+      "discount": "Giảm {{percent}}%",
+      "buyNow": "Mua ngay",
+      "clearAll": "Bỏ chọn",
+      "showAll": "Xem {{quantity}} sản phẩm"
+    }
+  },
+  "header": {
+    "main": {
+      "search": "Bạn đang tìm gì...",
+      "en": "Tiếng Anh",
+      "vn": "Tiếng Việt",
+      "login": "Đăng nhập",
+      "logout": "Đăng xuất",
+      "register": "Đăng ký"
+    },
+    "category": {
+      "iphone": "iPhone",
+      "ipad": "iPad",
+      "mac": "Mac",
+      "watch": "Watch",
+      "airpod": "Airpod",
+      "accessory": "Phụ kiện",
+      "service": "Dịch vụ",
+      "new": "Tin tức",
+      "second": {
+        "installment": "Trả góp",
+        "reNewed": "Thu cũ đổi mới",
+        "guarantee": "Bảo hành"
+      }
+    },
+    "cart": {
+      "noItem": "Giỏ hàng trống",
+      "shopNow": "Xem tất cả sản phẩm",
+      "color": "Màu: ",
+      "size": "Dung lượng: ",
+      "showCart": "Xem giỏ hàng"
+    },
+    "drawer": {
+      "category": "Danh mục",
+      "account": "Tài khoản",
+      "login": "Đăng nhập",
+      "register": "Đăng ký",
+      "logout": "Đăng xuất",
+      "setting": "Cài đặt",
+      "language": "Ngôn ngữ",
+      "vn": "Tiếng Việt",
+      "en": "Tiếng Anh",
+      "cn": "Tiếng Trung"
+    }
+  },
+  "footer": {
+    "hotline": "Tổng đài",
+    "buy": "Mua hàng: ",
+    "CS": "CSKH: ",
+    "connect": "Kết nối với chúng tôi",
+    "shopSystem": "Hệ thống cửa hàng",
+    "shop": "Xem 99 cửa hàng",
+    "rule": "Nội quy của cửa hàng",
+    "quality": "Chất lượng phục vụ",
+    "policy": "Chính sách bảo hành và đổi trả",
+    "support": "Hổ trợ khách hàng",
+    "condition": "Điều kiện giao dịch chung",
+    "shopInstruction": "Hướng dẫn mua hàng online",
+    "shipPolicy": "Chính sách giao hàng",
+    "paymentInstruction": "Hướng dẫn thanh toán",
+    "warrantyCenter": "Trung tâm bảo hành YOLO",
+    "about": "Về thương hiệu YOLO",
+    "gift": "Tích điểm quà tặng VIP",
+    "introduce": "Giới thiệu YOLO",
+    "business": "Bán hàng doanh nghiệp",
+    "personalData": "Chính sách xử lý dữ liệu cá nhân"
+  },
+  "home": {
+    "topSold": "Bán Chạy Nhất",
+    "viewAll": "Xem tất cả",
+    "products": "sản phẩm",
+    "iphone": "Iphone",
+    "ipad": "Ipad",
+    "watch": "Apple Watch",
+    "mac": "MacBook",
+    "airpod": "Airpod"
+  },
+  "product": {
+    "filter": "Bộ lọc",
+    "category": "Danh mục",
+    "order": {
+      "label": "Sắp xếp",
+      "highToLow": "Giá từ cao tới thấp",
+      "lowToHigh": "Giá từ thấp tới cao",
+      "bestseller": "Bán chạy nhất",
+      "bestReview": "Đánh giá tốt nhất"
+    },
+    "promote": "Khuyến mãi",
+    "promotetitle": "Giá và khuyến mãi dự kiến áp dụng đến 23:00 ngày 31/10",
+    "promote1": "Giảm tới 500.000đ qua cổng thanh toán",
+    "promote2": "Thu cũ đổi mới: Giảm đến 2 triệu (Tùy model máy cũ, không kèm thanh toán qua cổng online, mua kèm)",
+    "promote3": "Hoàn tiền nếu ở đâu rẻ hơn (Trong vòng 7 ngày, chỉ ấp dụng tại siêu thị)",
+    "seeDetail": "(Xem chi tiết)",
+    "openBox": "Mở hộp",
+    "openBoxImg": "Hình mở hộp",
+    "specification": "Thông số",
+    "specifications": "Thông số kỹ thuật",
+    "productContain": "Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Cáp Lightning - Type C",
+    "modal": {
+      "chooseSize": "Chọn size: ",
+      "chooseColor": "Chọn màu: ",
+      "quantity": "Số lượng: ",
+      "addToCart": "Thêm vào giỏ hàng"
+    },
+    "viewCart": "Xem giỏ hàng",
+    "comment": "Bình luận",
+    "addComment": "Thêm bình luận",
+    "replyTo": "Trả lời",
+    "relatedProduct": "Sản phẩm liên quan"
+  },
+  "cart": {
+    "myCart": "Giỏ Hàng Của Tôi",
+    "product": "Sản phẩm",
+    "price": "Giá",
+    "quantity": "Số lượng",
+    "total": "Tổng",
+    "action": "Hành động",
+    "color": "Màu",
+    "size": "Size",
+    "delete": "Xóa",
+    "chose": "Đã chọn {{size}} sản phẩm",
+    "checkOut": "Thanh toán {{size}} sản phẩm"
+  },
+  "checkOut": {
+    "recieverInfo": "Thông tin người nhận",
+    "recieverName": "Tên người nhận",
+    "phoneNumber": "Số điện thoại",
+    "address": "Địa chỉ",
+    "edit": "Chỉnh sửa",
+    "paymentMethod": "Phương thức thanh toán",
+    "Creditcard": "Thẻ tín dụng",
+    "Momo": "Ví Momo",
+    "Zalo": "Zalo pay",
+    "Cash": "Thanh toán khi nhận hàng",
+    "shippingMethod": "Phương thức giao hàng",
+    "vietnamPost": "Bưu điện Việt Nam",
+    "fastDeliver": "Giao hàng nhanh",
+    "economicalDeliver": "Giao hàng tiết kiệm",
+    "JT": "J&T Express",
+    "vietel": "Viettel Post",
+    "returnCart": "Trở về giỏ hàng",
+    "self": "Thanh toán",
+    "productList": "Danh sách sản phẩm",
+    "discountCode": "Mã giảm giá",
+    "apply": "Áp dụng",
+    "subTotal": "Tổng sản phẩm",
+    "shipping": "Phí giao hàng",
+    "discount": "Giảm giá",
+    "tax": "Thuế",
+    "total": "Tổng"
+  },
+  "form": {
+    "login": {
+      "welcome": "Chào mừng đến với",
+      "title": "Đăng nhập",
+      "username": "Tên đăng nhập",
+      "password": "Mật khẩu",
+      "rememberMe": "Lưu tài khoản",
+      "forgotPassword": "Quên mật khẩu",
+      "newUser": "Bạn mới biết tới YOLO?",
+      "or": "Hoặc",
+      "register": "Đăng ký",
+      "validateUsername": {
+        "required": "Tên đăng nhập không được bỏ trống!",
+        "minLength": "Tên đăng nhập phải có ít nhất 6 ký tự!",
+        "maxLength": "Tên đăng nhập không được vượt quá 20 ký tự!"
+      },
+      "validatePassword": {
+        "required": "Vui lòng nhập của bạn password!",
+        "minLength": "Mật khẩu phải có ít nhất 6 ký tự!",
+        "maxLength": "Mật khẩu không được vượt quá 20 ký tự!",
+        "pattern": "Mật khẩu phải có ít nhất 1 ký tự đặc biệt!"
+      }
+    }
+  },
+  "message": {
+    "login": "Đăng nhập thành công!",
+    "forceLogin": "Vui lòng đăng nhập trước khi tiếp tục!",
+    "logout": "Đăng xuất thành công!",
+    "tokenExpired": "Token của bạn đã hết hạn. Vui lòng đăng nhập lại!",
+    "loginFailed": "Tài khoản hoặc mật khẩu sai. Vui lòng thử lại!"
+  },
+  "result": {
+    "login": "Đăng nhập",
+    "unauthorized": "Xin lỗi, bạn không được quyền truy cập trang này.",
+    "backToHome": "Về trang chủ",
+    "404": "Xin lỗi, trang bạn truy cập không tồn tại."
+  },
+  "breadcrumb": {
+    "home": "Trang chủ",
+    "cart": "Giỏ hàng",
+    "checkOut": "Thanh toán"
+  }
+}

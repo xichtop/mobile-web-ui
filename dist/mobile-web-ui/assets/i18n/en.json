@@ -1,0 +1,223 @@
+{
+  "common": {
+    "label": {
+      "from": "From",
+      "to": "to",
+      "storageCapacity": "Storage capacity",
+      "size": "Sizes",
+      "interalMemory": "Interal memory",
+      "colors": "Colors",
+      "color": {
+        "Pink": "Pink",
+        "Black": "Black",
+        "Yellow": "Yellow",
+        "Green": "Green",
+        "Gray": "Gray",
+        "White": "White",
+        "Purple": "Purple",
+        "Blue": "Blue",
+        "Red": "Red",
+        "Orange": "Orange"
+      },
+      "sold": "Sold",
+      "review": "review",
+      "installment": "Installment 0%",
+      "discount": "Discount {{percent}}%",
+      "buyNow": "Buy now",
+      "clearAll": "Clear all",
+      "showAll": "Show {{quantity}} products"
+    }
+  },
+  "header": {
+    "main": {
+      "search": "What are you looking for...",
+      "en": "English",
+      "vn": "Vietnamese",
+      "login": "Log in",
+      "logout": "Log out",
+      "register": "Register"
+    },
+    "category": {
+      "iphone": "iPhone",
+      "ipad": "iPad",
+      "mac": "Macbook",
+      "watch": "Smart watch",
+      "airpod": "Airpod",
+      "accessory": "Accessory",
+      "service": "Service",
+      "new": "News",
+      "second": {
+        "installment": "Installment",
+        "reNewed": "Old autumn renewed",
+        "guarantee": "Guarantee"
+      }
+    },
+    "cart": {
+      "noItem": "No Item",
+      "shopNow": "Shop now",
+      "color": "Color",
+      "size": "Size",
+      "showCart": "Show cart"
+    },
+    "drawer": {
+      "category": "Categories",
+      "account": "Account",
+      "login": "Log in",
+      "register": "Register",
+      "logout": "Log out",
+      "setting": "Setting",
+      "language": "Languages",
+      "vn": "Vietnamese",
+      "en": "English",
+      "cn": "Chinese"
+    }
+  },
+  "footer": {
+    "hotline": "Hotline",
+    "buy": "Shopping: ",
+    "CS": "Customer Service: ",
+    "connect": "Connect with us",
+    "shopSystem": "Shop system",
+    "shop": "View 99 shops",
+    "rule": "Rules of shop",
+    "quality": "Serve quality",
+    "policy": "Warranty and return policy",
+    "support": "Support customer",
+    "condition": "General transaction condition",
+    "shopInstruction": "Online shopping instruction",
+    "shipPolicy": "Shiping policy",
+    "paymentInstruction": "Payment Instruction",
+    "warrantyCenter": "Warranty center YOLO",
+    "about": "About YOLO",
+    "gift": "Earn gift point VIP",
+    "introduce": "Introduce YOLO",
+    "business": "Business store",
+    "personalData": "Handle personal data policy"
+  },
+  "home": {
+    "topSold": "Top Sold",
+    "viewAll": "View all",
+    "products": "products",
+    "iphone": "Iphone",
+    "ipad": "Ipad",
+    "watch": "Apple Watch",
+    "mac": "MacBook",
+    "airpod": "Airpod"
+  },
+  "product": {
+    "filter": "Filter",
+    "category": "Categories",
+    "order": {
+      "label": "Order",
+      "highToLow": "Price high -> low",
+      "lowToHigh": "Price low -> high",
+      "bestseller": "Best seller",
+      "bestReview": "Best review"
+    },
+    "promote": "Promotions",
+    "promotetitle": "Prices and promotions are expected to apply until 11:00 p.m. October 31",
+    "promote1": "Discount up to 30$ via payment gateway",
+    "promote2": "Renew old collection: Discount up to 100$ (Depending on the old device model, does not include payment via online portal, purchased together)",
+    "promote3": "Refund if cheaper somewhere else (Within 7 days, only applicable at supermarkets)",
+    "seeDetail": "(See details)",
+    "openBox": "Open box",
+    "openBoxImg": "Open box image",
+    "specification": "Specification",
+    "specifications": "Specifications",
+    "productContain": "Product set includes: Box, Instruction book, SIM card, Lightning cable - Type C",
+    "modal": {
+      "chooseSize": "Choose size: ",
+      "chooseColor": "Choose color: ",
+      "quantity": "Quantity: ",
+      "addToCart": "Add to cart"
+    },
+    "viewCart": "View cart",
+    "comment": "Comments",
+    "addComment": "Add comment",
+    "replyTo": "Reply to",
+    "relatedProduct": "Related product"
+  },
+  "cart": {
+    "myCart": "My Cart",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "action": "Action",
+    "color": "Color",
+    "size": "Size",
+    "delete": "Delete",
+    "chose": "Chose {{size}} product",
+    "checkOut": "Check out {{size}} product"
+  },
+  "checkOut": {
+    "recieverInfo": "Reciever info",
+    "recieverName": "Reciever name",
+    "phoneNumber": "Phone number",
+    "address": "Address",
+    "edit": "Edit",
+    "paymentMethod": "Payment method",
+    "Creditcard": "Credit card",
+    "Momo": "Momo wallet",
+    "Zalo": "Zalo pay",
+    "Cash": "Pay by cash",
+    "shippingMethod": "Shipping method",
+    "vietnamPost": "Viet Nam Post",
+    "fastDeliver": "Fast Delivery",
+    "economicalDeliver": "Economical Delivery",
+    "JT": "J&T Express",
+    "vietel": "Viettel Post",
+    "returnCart": "Return to cart",
+    "self": "Check out",
+    "productList": "Product list",
+    "discountCode": "Discount code",
+    "apply": "Apply",
+    "subTotal": "Subtotal",
+    "shipping": "Shipping fee",
+    "discount": "Discount",
+    "tax": "Taxes",
+    "total": "Total"
+  },
+  "form": {
+    "login": {
+      "welcome": "Welcome to",
+      "title": "Log in",
+      "username": "Username",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot your password",
+      "newUser": "New to YOLO?",
+      "or": "Or",
+      "register": "Register",
+      "validateUsername": {
+        "required": "Please enter your username!",
+        "minLength": "Username must be at least 6 characters!",
+        "maxLength": "Username must be at most 20 characters!"
+      },
+      "validatePassword": {
+        "required": "Please enter your password!",
+        "minLength": "Password must be at least 6 characters!",
+        "maxLength": "Password must be at most 20 characters!",
+        "pattern": "Password must have a special character!"
+      }
+    }
+  },
+  "message": {
+    "login": "Log in successfully!",
+    "forceLogin": "Please login before proceed!",
+    "logout": "Log out successfully!",
+    "tokenExpired": "Your token have expired. Please log in again!",
+    "loginFailed": "Email or password is incorrect. Please try again!"
+  },
+  "result": {
+    "login": "Login",
+    "unauthorized": "Sorry, you are not authorized to access this page.",
+    "backToHome": "Back to home",
+    "404": "Sorry, the page you visited does not exist."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "cart": "Cart",
+    "checkOut": "Check out"
+  }
+}
